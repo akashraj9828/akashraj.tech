@@ -5,20 +5,22 @@ import { default_state } from "./default_state";
 import { IS_PRODUCTION } from "./../config";
 
 let inital_state = { ...default_state };
-let old_data = localStorage.getItem("userInfo");
-if (old_data) {
-	let userInfo = JSON.parse(old_data);
-	if (userInfo.status === "success") {
-		inital_state.user = userInfo;
+try {
+	let old_data = window.localStorage.getItem("userInfo");
+	if (old_data) {
+		let userInfo = JSON.parse(old_data);
+		if (userInfo.status === "success") {
+			inital_state.user = userInfo;
+		}
 	}
-}
-let old_theme = localStorage.getItem("akash_theme");
-if (old_theme) {
-	document.body.classList.add(old_theme);
-	inital_state.app.theme = old_theme;
-} else {
-	document.body.classList.add(inital_state.app.theme);
-}
+	let old_theme = window.localStorage.getItem("akash_theme");
+	if (old_theme) {
+		document.body.classList.add(old_theme);
+		inital_state.app.theme = old_theme;
+	} else {
+		document.body.classList.add(inital_state.app.theme);
+	}
+} catch (error) {}
 
 let store = createStore(reducer, inital_state, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 // in development attach to redux dev tools

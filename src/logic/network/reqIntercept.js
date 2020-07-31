@@ -1,4 +1,3 @@
-
 // intercept request and add auth string
 export const reqIntercept = async (url, method = "POST", body = null, contentType = "application/json") => {
 	try {

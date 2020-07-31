@@ -9,8 +9,6 @@ import { RiLoginCircleLine as LogInIcon } from "react-icons/ri";
 import { FaSun as LightModeIcon, FaMoon as DarkModeIcon } from "react-icons/fa";
 import { toggleTheme } from "../redux/actions/app";
 const Header = ({ userId, firstName, lastName, userStatus, theme, dispatch }) => {
-
-
 	/* OLD NAVBAR */
 	return (
 		<nav className={`navbar ${theme === "dark" ? "navbar-dark bg-dark" : "navbar-light bg-light"}`}>

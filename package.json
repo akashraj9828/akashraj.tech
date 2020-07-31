@@ -26,10 +26,20 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:snap": "react-scripts build && react-snapshot",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "pretty": "prettier --write \"./src/**/*.{js,jsx,json,scss,css}\"",
     "analyze": "source-map-explorer 'build/static/js/*.js'"
+  },
+  "reactSnapshot": {
+    "include": [
+      
+    ],
+    "exclude": [
+      
+    ],
+    "snapshotDelay": 50
   },
   "eslintConfig": {
     "extends": "react-app"
