@@ -1,21 +1,36 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-
-function App() {
+import { BrowserRouter as Router } from "react-router-dom";
+import { Switch, Route } from "react-router";
+import Header from "./components/Header";
+import Main from "./pages/Main";
+// import Landing from "./pages/Landing";
+import { connect } from "react-redux";
+import ProtectedRoute from "./ProtectedRoute";
+export const App = () => {
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-					Learn React
-				</a>
-			</header>
+		<div className={`App`}>
+			<Router>
+				<Header />
+				<div className='main-content'>
+					<Switch>
+						{/* <Route path='/' exact component={Landing} /> */}
+						<Route path='/' exact component={Main} />
+						<Route path='/work' exact component={Main} />
+						<Route path='/contact' exact component={Main} />
+						<Route path='/resume' exact component={Main} />
+						<ProtectedRoute path='/dashboard' exact component={Main} />
+						<Route path='*' component={() => "404 Page not found"} />
+					</Switch>
+				</div>
+			</Router>
 		</div>
 	);
-}
+};
 
-export default App;
+const mapStateToProps = (state) => {
+	// let { app } = state;
+	// return { theme:app.theme };
+	return {};
+};
+
+export default connect(mapStateToProps, null)(App);

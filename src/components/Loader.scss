@@ -1,0 +1,43 @@
+.full-screen-loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: transparentize($color: black, $amount: 0.3);
+	min-width: 100vw;
+	min-height: 100vh;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	cursor: progress;
+}
+.section-loader {
+	position: absolute;
+	// top: 0;
+	left: 0;
+	// background-color: transparentize($color: black, $amount: 0.3);
+	background-color: white;
+	min-width: 100vw;
+	min-height: 100vh;
+	height: 100%;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	// justify-content: center;
+	align-items: center;
+	cursor: progress;
+}
+
+.anim-loader {
+	animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+	0% {
+		rotate: 0deg;
+	}
+	100% {
+		rotate: 360deg;
+	}
+}

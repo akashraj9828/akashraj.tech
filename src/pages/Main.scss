@@ -1,0 +1,8 @@
+$nav-height: 64px;
+$grey90: transparentize(black, 0.9);
+$input-width: 325px;
+#main {
+	display: block;
+	padding: 0rem 2rem 0rem 2rem;
+	min-height: calc(100vh - #{$nav-height});
+}

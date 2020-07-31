@@ -1,0 +1,188 @@
+$scrollbar-color: #4b8dde;
+* {
+	box-sizing: border-box;
+}
+/* remove up down button from number input */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+
+// custom scrollbar
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: $scrollbar-color;
+	outline: 1px solid $scrollbar-color;
+	border-radius: 12px;
+}
+
+// for firefox
+* {
+	scrollbar-width: thin;
+	scrollbar-color: $scrollbar-color transparent;
+}
+
+body {
+	counter-reset: section;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// if data-help is present show the help on hover
+[data-help] {
+	position: relative;
+	&::before {
+		transition: 1s;
+		content: attr(data-help);
+		position: absolute;
+		top: -30px;
+		left: 10%;
+		color: white;
+		background: transparentize($color: #000000, $amount: 0.4);
+		padding: 0.2rem 1rem;
+		border-radius: 5px;
+		display: none;
+		width: max-content;
+		z-index: 10;
+		opacity: 1;
+	}
+
+	// add ? sign on items where help is present
+	&::after {
+		content: "?";
+		font-size: 0.5rem;
+	}
+
+	&:hover::before {
+		display: inline;
+		opacity: 1;
+	}
+}
+
+// remove ? sign from buttons where help is present
+button[data-help],
+.btn[data-help],
+.no-help-icon {
+	&::after {
+		content: "";
+	}
+}
+
+[help-down]::before {
+	position: absolute;
+	top: 30px;
+}
+[help-left]::before {
+	position: absolute;
+	right: 110%;
+	left: unset;
+	top: 0;
+}
+[help-right]::before {
+	position: absolute;
+	left: 110%;
+	right: unset;
+	top: 0;
+}
+
+.disabled-section {
+	* {
+		pointer-events: none;
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: black;
+		cursor: not-allowed;
+		margin: 0;
+		left: 0;
+		z-index: 10;
+		opacity: 0.4;
+	}
+}
+
+.svg-stroke-white {
+	svg {
+		* {
+			stroke: white;
+		}
+	}
+}
+.svg-color-white {
+	svg {
+		* {
+			color: white;
+		}
+	}
+}
+.svg-fill-white {
+	svg {
+		* {
+			fill: white;
+		}
+	}
+}
+.svg-stroke-3 {
+	svg {
+		* {
+			stroke-width: 3;
+		}
+	}
+}
+
+.dim-lights {
+	img {
+		filter: brightness(0.5);
+	}
+}
+
+.row-arrangement {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.z-1 {
+	z-index: 1;
+}
+.z-6 {
+	z-index: 6;
+}
+.z-10 {
+	z-index: 10;
+}
+
+.no-highlight {
+	&:hover,
+	&:focus,
+	&:active {
+		outline: none;
+		box-shadow: none;
+	}
+}
+
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

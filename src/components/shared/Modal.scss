@@ -1,0 +1,57 @@
+@keyframes zoom {
+	0% {
+		opacity: 0;
+		scale: 0;
+	}
+	100% {
+		opacity: 1;
+		scale: 1;
+	}
+}
+.custom-modal {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	overflow: auto;
+	// padding: 0 2rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	min-width: 100vw;
+	min-height: 100vh;
+	height: 100%;
+
+	.backdrop {
+		height: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 2;
+		background: transparentize($color: black, $amount: 0.1);
+		width: 100vw;
+		min-height: 100vh;
+		height: 100%;
+		cursor: pointer;
+	}
+	.custom-modal-btns {
+		position: fixed;
+		top: 30px !important;
+		right: 50px;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.custom-modal-content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100%;
+		width: auto;
+		z-index: 2;
+		background: transparent;
+		position: absolute;
+		top: 0;
+	}
+}
