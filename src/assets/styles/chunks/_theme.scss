@@ -6,29 +6,14 @@ $dark_bg_secondary: lighten($dark_bg, 15);
 $th_bg: rgba(85, 68, 153, 0.5);
 // $th_bg:darkslateblue;
 .dark {
-	// background: lighten($color: $dark_bg, $amount: 10);
 	background: $dark_bg;
-	// *{
-	// background: $dark_bg_secondary;
-	// }
 	color: white;
-	table,
 	input,
 	select {
 		background: $dark_bg_secondary;
 		color: white;
 	}
-	table {
-		input {
-			background: unset;
-		}
-		th {
-			// background: $th_bg;
-		}
-		tr:hover {
-			color: white;
-		}
-	}
+	
 
 	input,
 	select {
@@ -40,19 +25,5 @@ $th_bg: rgba(85, 68, 153, 0.5);
 		}
 	}
 
-	// .btn{
-	//     // filter: invert(.5);
-	// }
+
 }
-
-// .light {
-//   background: white;
-//   color: black;
-//   // table,input,select{
-//   //     background: white;
-//   //     color: black;
-//   // }
-// }
-// .unset{
-
-// }
