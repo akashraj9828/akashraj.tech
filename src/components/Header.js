@@ -1,27 +1,56 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "assets/img/logo.png";
 import "./Header.scss";
-import { RiLogoutCircleRLine as LogOutIcon } from "react-icons/ri";
-import { RiLoginCircleLine as LogInIcon } from "react-icons/ri";
 
 import { FaSun as LightModeIcon, FaMoon as DarkModeIcon } from "react-icons/fa";
 import { toggleTheme } from "../redux/actions/app";
-const Header = ({ userId, firstName, lastName, userStatus, theme, dispatch }) => {
+const Header = ({ theme, dispatch }) => {
 	/* OLD NAVBAR */
 	return (
-		<nav className={`navbar ${theme === "dark" ? "navbar-dark bg-dark" : "navbar-light bg-light"}`}>
-			<Link className='navbar-brand' to='/'>
-				<img src={logo} className='d-inline-block align-top' alt='Akash Logo' />
+		<nav className={`navbar navbar-expand-sm pl-4 ${theme === "dark" ? "navbar-dark bg-dark" : "navbar-light bg-light"}`}>
+			<Link className='navbar-brand halucinate' to='/'>
+				<img className='img img-fluid' id='logo' src={logo} alt='akash Logo' />
 			</Link>
-			<ul className='navbar-nav'>
-				<li className='nav-item'>
-					<button className='btn mx-1 no-highlight' onClick={(_) => dispatch(toggleTheme())}>
-						{theme === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
-					</button>
-				</li>
-			</ul>
+			<button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+				<span className='navbar-toggler-icon'></span>
+			</button>
+			<div className='collapse navbar-collapse'>
+				<ul className='nav navbar-nav nav-fill w-100 h3'>
+					<li className='nav-item'>
+						<NavLink to='/' className='nav-link' activeClassName='active' exact={true}>
+							HOME{" "}
+						</NavLink>
+					</li>
+					<li className='nav-item'>
+						<NavLink to='/work' className='nav-link' activeClassName='active' exact={true}>
+							WORK
+						</NavLink>
+					</li>
+
+					<li className='nav-item'>
+						<a href='https://gitstats.me/akashraj9828?ref=akashraj.tech' className='nav-link'>
+							STATS
+						</a>
+					</li>
+					<li className='nav-item'>
+						<NavLink to='/resume' className='nav-link' activeClassName='active' exact={true}>
+							HIRE ME
+						</NavLink>
+					</li>
+					<li className='nav-item'>
+						<NavLink to='/contact' className='nav-link' activeClassName='active' exact={true}>
+							CONTACT
+						</NavLink>
+					</li>
+					<li className='nav-item'>
+						<button className='btn mx-1 no-highlight' onClick={(_) => dispatch(toggleTheme())}>
+							{theme === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
+						</button>
+					</li>
+				</ul>
+			</div>
 		</nav>
 	);
 };
