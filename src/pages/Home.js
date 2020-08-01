@@ -6,10 +6,10 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import MyImage from "assets/img/me.png";
 import Rocket from "assets/img/rocket.png";
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)   
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const Home = ({ match }) => {
-    const part2 = useRef(null)
+	const part2 = useRef(null);
 	useEffect(() => {
 		if (process.env.NODE_ENV === "development") {
 			// some stuff    to do in dev
@@ -21,26 +21,24 @@ const Home = ({ match }) => {
 		<Fragment>
 			<div className='home'>
 				<section className='part1 vh-100 '>
-                    <div className="intro-container center">
-
-					<header className='intro h1'>
-						<img src={MyImage} className='img img-fluid' alt='Akash raj' />
-						Student, Explorer, Creator.
-					</header>
-					<div className='center'>
-						<span className='button-cta' id='go_to_center_btn' onClick={()=>scrollToRef(part2)} to='#middle'>
-							Know more.
-						</span>
-						<Link className='button-cta' target='' to='/resume'>
-							Hire me
-						</Link>
+					<div className='intro-container center'>
+						<header className='intro h1'>
+							<img src={MyImage} className='img img-fluid' alt='Akash raj' />
+							Student, Explorer, Creator.
+						</header>
+						<div className='center'>
+							<span className='button-cta' id='go_to_center_btn' onClick={() => scrollToRef(part2)} to='#middle'>
+								Know more.
+							</span>
+							<Link className='button-cta' target='' to='/resume'>
+								Hire me
+							</Link>
+						</div>
 					</div>
-                    </div>
-
 				</section>
 
-				<section className='part2 p-5 center' ref={part2} >
-					<header className="hi">Hi!</header>
+				<section className='part2 p-5 center' ref={part2}>
+					<header className='hi'>Hi!</header>
 					<div>
 						<p className='bio center'>
 							It's me Akash✌️, a 21 year old Full Stack Developer.
@@ -62,7 +60,7 @@ const Home = ({ match }) => {
 							{/* <!-- <strong>Looking for a good paying job 🤑 and more learning opportunity.</strong> --> */}
 						</p>
 					</div>
-					<div className="center">
+					<div className='center'>
 						<Link className='button-cta' to='/work'>
 							Projects
 						</Link>

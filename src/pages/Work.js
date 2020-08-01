@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import "./Work.scss";
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
 import { FiGithub as GithubIcon, FiLink as LinkIcon } from "react-icons/fi";
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
@@ -15,14 +14,14 @@ const Project = ({ name, img_src, link_code, link_live }) => {
 			</a>
 			<figcaption>
 				{link_code && (
-					<a className="link-icons" href={link_code} target='_blank' rel='noopener noreferrer'>
-                        <GithubIcon/>
+					<a className='link-icons' href={link_code} target='_blank' rel='noopener noreferrer'>
+						<GithubIcon />
 					</a>
 				)}
 				&nbsp;
 				{link_live && (
-					<a className="link-icons" href={link_live} target='_blank' rel='noopener noreferrer'>
-                        <LinkIcon/>
+					<a className='link-icons' href={link_live} target='_blank' rel='noopener noreferrer'>
+						<LinkIcon />
 					</a>
 				)}
 				<br />
@@ -35,7 +34,6 @@ const Project = ({ name, img_src, link_code, link_live }) => {
 };
 
 const Work = ({ match }) => {
-	const part2 = useRef(null);
 	useEffect(() => {
 		if (process.env.NODE_ENV === "development") {
 			// some stuff    to do in dev
@@ -66,9 +64,7 @@ const Work = ({ match }) => {
 					<header class='games mt-5'>Projects</header>
 				</section>
 
-				<section className='features'>
-                    {projects.map(e=>Project(e))}
-                </section>
+				<section className='features'>{projects.map((e) => Project(e))}</section>
 			</div>
 		</Fragment>
 	);

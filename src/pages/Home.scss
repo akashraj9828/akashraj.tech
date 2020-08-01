@@ -1,24 +1,24 @@
 @import "../assets/styles/chunks/_variables.scss";
 .home {
-    .intro-container{
-        margin-top: 80px;
-        flex-direction: column;
-    }
+	.intro-container {
+		margin-top: 80px;
+		flex-direction: column;
+	}
 	.part1,
 	.part2 {
 		// height: $nav-height;
 		flex-direction: column;
-        header {
-            margin-top: 0px;
-            font-size: 4rem;
-            margin-bottom: 20px;
-            img {
-                width: 150px;
-                height: auto;
-                display: block;
-                margin: auto;
-            }
-        }
+		header {
+			margin-top: 0px;
+			font-size: 4rem;
+			margin-bottom: 20px;
+			img {
+				width: 150px;
+				height: auto;
+				display: block;
+				margin: auto;
+			}
+		}
 	}
 	.button-cta {
 		color: invert($color: $secondary-color);
@@ -30,28 +30,27 @@
 		padding: 0.5rem;
 		margin: 2rem 1rem 0 1rem;
 		border: none;
-        border-radius: 5px;
-        transition: .3s;
+		border-radius: 5px;
+		transition: 0.3s;
 		&:hover {
-            background: transparentize($primary-color, 0.5);
-            color: lighten(invert($color: $secondary-color),40);
+			background: transparentize($primary-color, 0.5);
+			color: lighten(invert($color: $secondary-color), 40);
 			box-shadow: 6px 3px 8px 0px #00000052;
 			transition: 0.1s;
 			text-decoration: none;
 		}
-    }
-    .hi{
-        font-size: 5rem;
-        font-weight: 300;
-
-    }
+	}
+	.hi {
+		font-size: 5rem;
+		font-weight: 300;
+	}
 	p.bio {
 		line-height: 2em;
-		text-align: center; 
+		text-align: center;
 		display: flex;
 		flex-direction: column;
-        align-items: center;
-        justify-content:center;
+		align-items: center;
+		justify-content: center;
 	}
 	.rocket {
 		width: 55px;
