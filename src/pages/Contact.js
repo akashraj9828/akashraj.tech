@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import "./Contact.scss";
 import { Fragment } from "react";
 
 const Social = ({ name, link, img_src }) => (

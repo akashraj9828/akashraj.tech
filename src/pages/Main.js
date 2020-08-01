@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { connect } from "react-redux";
-import "./Main.scss";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 

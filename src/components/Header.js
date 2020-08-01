@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import logo from "assets/img/logo.png";
-import "./Header.scss";
 
 import { FaSun as LightModeIcon, FaMoon as DarkModeIcon } from "react-icons/fa";
 import { toggleTheme } from "../redux/actions/app";
 const Header = ({ theme, dispatch }) => {
 	/* OLD NAVBAR */
 	return (
-		<nav className={`navbar navbar-expand-sm px-4 pb-3 pt-0 ${theme === "dark" ? "navbar-dark bg-dark" : "navbar-light bg-light"}`}>
+		<nav className={`navbar navbar-expand-sm px-4 pb-3 pt-0`}>
 			<Link className='navbar-brand halucinate' to='/'>
 				<img className='img img-fluid' id='logo' src={logo} alt='akash Logo' />
 			</Link>
@@ -44,13 +43,11 @@ const Header = ({ theme, dispatch }) => {
 							CONTACT
 						</NavLink>
 					</li>
-					{/* <li className='nav-item'>
-						<button className='btn mx-1 no-highlight' onClick={(_) => dispatch(toggleTheme())}>
-							{theme === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
-						</button>
-					</li> */}
 				</ul>
 			</div>
+			<button className={`btn btn-danger theme-changer z-1 ${theme === "dark" ? "svg-fill-white" : ""}`} onClick={(_) => dispatch(toggleTheme())}>
+				{theme === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
+			</button>
 		</nav>
 	);
 };

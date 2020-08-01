@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { connect } from "react-redux";
-import "./Home.scss";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import MyImage from "assets/img/me.png";
@@ -27,9 +26,9 @@ const Home = ({ match }) => {
 							Student, Explorer, Creator.
 						</header>
 						<div className='center'>
-							<span className='button-cta' id='go_to_center_btn' onClick={() => scrollToRef(part2)} to='#middle'>
+							<a className='a button-cta' onClick={(e) => e.preventDefault && scrollToRef(part2)} to='#middle'>
 								Know more.
-							</span>
+							</a>
 							<Link className='button-cta' target='' to='/resume'>
 								Hire me
 							</Link>

@@ -15,10 +15,10 @@ try {
 	}
 	let old_theme = window.localStorage.getItem("akash_theme");
 	if (old_theme) {
-		document.body.classList.add(old_theme);
+		document.body.parentElement.classList.add(old_theme);
 		inital_state.app.theme = old_theme;
 	} else {
-		document.body.classList.add(inital_state.app.theme);
+		document.body.parentElement.classList.add(inital_state.app.theme);
 	}
 } catch (error) {}
 

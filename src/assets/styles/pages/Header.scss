@@ -1,4 +1,3 @@
-@import "./../assets/styles/chunks/variables";
 .navbar {
 	background: transparent !important;
 	box-shadow: none;
@@ -27,5 +26,11 @@
 		&.active {
 			border-bottom: 0.1rem solid $primary-color;
 		}
+	}
+
+	.theme-changer {
+		position: fixed;
+		top: 1rem;
+		right: 2rem;
 	}
 }

@@ -16,9 +16,9 @@ export default function app(state = default_state.app, action) {
 			return { ...state, help: !state.help };
 
 		case TOGGLE_THEME:
-			document.body.classList.remove(state.theme);
+			document.body.parentElement.classList.remove(state.theme);
 			let new_theme = state.theme === "dark" ? "light" : "dark";
-			document.body.classList.add(new_theme);
+			document.body.parentElement.classList.add(new_theme);
 			try {
 				window.localStorage.setItem("akash_theme", new_theme);
 			} catch (error) {}

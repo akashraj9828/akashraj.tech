@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import "./Work.scss";
 import { Fragment } from "react";
 import { FiGithub as GithubIcon, FiLink as LinkIcon } from "react-icons/fi";
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
@@ -38,6 +37,7 @@ const Work = ({ match }) => {
 	useEffect(() => {
 		if (process.env.NODE_ENV === "development") {
 			// some stuff    to do in dev
+			window.scrollTo(0, 0);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
