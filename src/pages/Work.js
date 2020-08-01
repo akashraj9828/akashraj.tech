@@ -4,12 +4,38 @@ import { connect } from "react-redux";
 import "./Work.scss";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import MyImage from "assets/img/me.png";
-import Rocket from "assets/img/rocket.png";
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)   
+import { FiGithub as GithubIcon, FiLink as LinkIcon } from "react-icons/fi";
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
+
+const Project = ({ name, img_src, link_code, link_live }) => {
+	return (
+		<figure>
+			<a href={link_live} target='_blank' rel='noopener noreferrer'>
+				<img src={img_src} alt={name} />
+			</a>
+			<figcaption>
+				{link_code && (
+					<a className="link-icons" href={link_code} target='_blank' rel='noopener noreferrer'>
+                        <GithubIcon/>
+					</a>
+				)}
+				&nbsp;
+				{link_live && (
+					<a className="link-icons" href={link_live} target='_blank' rel='noopener noreferrer'>
+                        <LinkIcon/>
+					</a>
+				)}
+				<br />
+				<a href={link_live} target='_blank' rel='noopener noreferrer'>
+					{name}
+				</a>
+			</figcaption>
+		</figure>
+	);
+};
 
 const Work = ({ match }) => {
-    const part2 = useRef(null)
+	const part2 = useRef(null);
 	useEffect(() => {
 		if (process.env.NODE_ENV === "development") {
 			// some stuff    to do in dev
@@ -17,61 +43,32 @@ const Work = ({ match }) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
+	let projects = [
+		{ name: "Git - Stats", img_src: require("assets/img/projects/gitstats.png"), link_code: "https://github.com/akashraj9828/gitstats", link_live: "https://gitstats.me" },
+		{ name: "COVID-19 Interactive(using React)", img_src: require("assets/img/projects/map.png"), link_code: "https://github.com/akashraj9828/COVID-19-REACT", link_live: "https://akashraj.tech/corona/interactive/" },
+		{ name: "COVID-19 Live Dashboard", img_src: require("assets/img/projects/corona.png"), link_code: "", link_live: "https://akashraj.tech/corona/world" },
+		{ name: "Deep Dance(Dance by AI)", img_src: require("assets/img/projects/deep-dance.gif"), link_code: "https://github.com/akashraj9828/Deep-Dance", link_live: "" },
+		{ name: "Image 2 Sound", img_src: require("assets/img/projects/i2s.svg"), link_code: "https://github.com/akashraj9828/image2sound", link_live: "" },
+		{ name: "Information Universe", img_src: require("assets/img/projects/information-universe.png"), link_code: "https://github.com/akashraj9828/Information-Universe", link_live: "https://information-universe.herokuapp.com/" },
+		{ name: "Collaborative Drawing", img_src: require("assets/img/projects/col-draw.png"), link_code: "https://github.com/akashraj9828/Collaborative_Drawing", link_live: "https://col-draw.herokuapp.com/" },
+		{ name: "Weird Mirror", img_src: require("assets/img/projects/weird-mirror.gif"), link_code: "https://github.com/akashraj9828/weird-mirror", link_live: "https://akashraj9828.github.io/weird-mirror/" },
+		{ name: "Classic Snake with Speech recognition", img_src: require("assets/img/projects/snake voice.png"), link_code: "https://github.com/akashraj9828/SnakeGame-speech-recognition", link_live: "https://akashraj9828.github.io/SnakeGame-speech-recognition" },
+		{ name: "Aestroids", img_src: require("assets/img/projects/aestroids.png"), link_code: "https://github.com/akashraj9828/aestroids", link_live: "https://akashraj9828.github.io/aestroids/" },
+		{ name: "Lorenz attractor 3D", img_src: require("assets/img/projects/lorenz.png"), link_code: "https://github.com/akashraj9828/lorenz-attractor-3D", link_live: "https://akashraj9828.github.io/lorenz-attractor-3D" },
+		{ name: "Lorenz attractor 2D", img_src: require("assets/img/projects/lorrenz 2d.png"), link_code: "https://github.com/akashraj9828/lorenz-attractor", link_live: "https://akashraj9828.github.io/lorenz-attractor/" },
+		{ name: "Lissajous Table", img_src: require("assets/img/projects/lissajous.png"), link_code: "https://github.com/akashraj9828/lissajous-table", link_live: "https://akashraj9828.github.io/lissajous-table/" },
+	];
+
 	return (
 		<Fragment>
-			<div className='home'>
-				<section className='part1 vh-100 center'>
-					<header className='intro h1'>
-						<img src={MyImage} className='img img-fluid' alt='Akash raj' />
-						Student, Explorer, Creator.
-					</header>
-					<div className='center'>
-						<span className='button-cta' id='go_to_center_btn' onClick={()=>scrollToRef(part2)} to='#middle'>
-							Know more.
-						</span>
-						<Link className='button-cta' target='' to='/resume'>
-							Hire me
-						</Link>
-					</div>
+			<div className='work mx-5'>
+				<section>
+					<header class='games mt-5'>Projects</header>
 				</section>
 
-				<section className='part2 p-5 center' ref={part2} >
-					<header className="hi">Hi!</header>
-					<div>
-						<p className='bio center'>
-							It's me Akash✌️, a 21 year old Full Stack Developer.
-							<br />
-							I like to make stuff.
-							<br />
-							Currently pursuing Computer Science 🙇💻🙇 Bachelors at Indraprastha University, New Delhi, India.
-							<br />
-							{/* <!-- I am a sucker for knowledge 👾 and a active self learner. --> */}
-							<br />
-							{/* <!-- I know 8 different programming languages 👨‍💻 and have coded countless programs on various */}
-							{/* domains. */}
-							{/* <br/> --> */}
-							Game development 🕹️ and AI 🤖 are my latest interests.
-							<br />
-							{/* <!-- JavaScript and Python are my go to language.🐍 --> */}
-							<br />
-							<br />
-							{/* <!-- <strong>Looking for a good paying job 🤑 and more learning opportunity.</strong> --> */}
-						</p>
-					</div>
-					<div className="center">
-						<Link className='button-cta' to='/work'>
-							Projects
-						</Link>
-						<Link className='button-cta' to='/resume'>
-							Hire me
-						</Link>
-						<Link className='button-cta' to='/contact'>
-							Contact
-						</Link>
-					</div>
-				</section>
-
-				<img src={Rocket} className='rocket slow-shaking' onclick='fly()' alt='Rocket' />
+				<section className='features'>
+                    {projects.map(e=>Project(e))}
+                </section>
 			</div>
 		</Fragment>
 	);

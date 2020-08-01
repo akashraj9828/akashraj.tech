@@ -20,7 +20,9 @@ const Home = ({ match }) => {
 	return (
 		<Fragment>
 			<div className='home'>
-				<section className='part1 vh-100 center'>
+				<section className='part1 vh-100 '>
+                    <div className="intro-container center">
+
 					<header className='intro h1'>
 						<img src={MyImage} className='img img-fluid' alt='Akash raj' />
 						Student, Explorer, Creator.
@@ -33,6 +35,8 @@ const Home = ({ match }) => {
 							Hire me
 						</Link>
 					</div>
+                    </div>
+
 				</section>
 
 				<section className='part2 p-5 center' ref={part2} >

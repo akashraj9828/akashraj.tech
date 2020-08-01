@@ -1,7 +1,8 @@
 @import "../assets/styles/chunks/_variables.scss";
 .home {
-    .part1{
+    .intro-container{
         margin-top: 80px;
+        flex-direction: column;
     }
 	.part1,
 	.part2 {

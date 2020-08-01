@@ -1,0 +1,70 @@
+@import "../assets/styles/chunks/_variables.scss";
+.work {
+	.games {
+		text-align: center;
+		box-sizing: border-box;
+		display: block;
+		font-family: "Roboto";
+		font-size: 62px;
+		margin-bottom: 20px;
+		margin-top: 3rem !important;
+		font-weight: 300;
+		color: #ff7b7b;
+		background: #ff7b7b12;
+		border-radius: 10px;
+		border: #ff7b7b solid;
+		border-bottom: unset;
+		border-top: unset;
+	}
+	.features {
+		color: gray;
+		padding: 20px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		figure {
+			border-radius: 50%;
+			margin-left: auto;
+			margin-right: auto;
+			/* padding: 5px; */
+			text-align: center;
+			width: 270px;
+			flex: 0 0 33%;
+			a {
+				text-decoration: none;
+                color: black;
+                font-weight: 300;
+                &:hover{
+                    color:$primary-color;
+                }
+			}
+			img {
+				flex: 0 0 33%;
+				border-radius: 50%;
+				width: 270px;
+				height: 270px;
+				object-fit: cover;
+				border: 1px white;
+				/* border-style: dashed; */
+				transition: 0.2s;
+				transition-delay: 0.2s;
+
+				box-shadow: 10px 6px 20px 0px #7f7f7f6b;
+				&:hover {
+					/* filter: brightness(0.7); */
+					rotate: 15deg;
+					transition: 0.1s;
+				}
+			}
+
+			.link-icons {
+				* {
+					transition: scale 0.3s;
+				}
+				svg:hover {
+					scale: 1.3;
+				}
+			}
+		}
+	}
+}

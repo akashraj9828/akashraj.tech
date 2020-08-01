@@ -18,7 +18,7 @@ export const App = () => {
 					<Switch>
 						{/* <Route path='/' exact component={Landing} /> */}
 						<Route path='/' exact component={Home} />
-						<Route path='/work' exact component={Main} />
+						<Route path='/work' exact component={Work} />
 						<Route path='/contact' exact component={Main} />
 						<Route path='/resume' exact component={Main} />
 						<ProtectedRoute path='/dashboard' exact component={Main} />
