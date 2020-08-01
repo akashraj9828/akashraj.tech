@@ -6,6 +6,7 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 
 export const Main = ({ match }) => {
+console.log("---: Main -> match", match);
 
 	useEffect(() => {
 		if (process.env.NODE_ENV === "development") {

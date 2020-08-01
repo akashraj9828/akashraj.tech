@@ -1,13 +1,32 @@
+@import "./../assets/styles/chunks/variables";
 .navbar {
 	background: transparent !important;
 	box-shadow: none;
+	position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+	#logo {
+		min-width: 150px;
+		max-height: 40px;
+	}
 	.halucinate {
 		/* -webkit-animation: change-col 2s infinite linear; */
 		animation: change-col 5s linear infinite;
 	}
-	.nav-link.active {
-		color: #ff7a7a;
-		padding-bottom: 0.5rem;
-		border-bottom: 0.05rem solid #ff7a7a;
+	.nav-link{
+		line-height: 2em;
+		font-size: 1.75rem;
+		font-weight: 300;
+		color: black;
+		color: $primary-color;
+		margin: .5rem 0 0 0;
+		padding: .5rem 1rem;
+		padding-top: 0;
+		&.active {
+			border-bottom: 0.1rem solid #ff7a7a;
+		}
 	}
 }

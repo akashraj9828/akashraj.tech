@@ -1,3 +1,14 @@
+.slow-shaking {
+    animation: shake 2s infinite linear;
+}
+
+.fly {
+    animation: fly 2s linear forwards;
+}
+
+.shrink {
+    animation: shrink 2s linear forwards;
+}
 @keyframes rotation {
     0% {
         -webkit-transform: rotate(0deg);

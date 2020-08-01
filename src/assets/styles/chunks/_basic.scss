@@ -3,6 +3,21 @@ $scrollbar-color: #4b8dde;
 	box-sizing: border-box;
 }
 
+html{
+	scroll-behavior: smooth;
+}
+
+body {
+	counter-reset: section;
+	margin: 0;
+	font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",-apple-system, BlinkMacSystemFont, "Segoe UI",  sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transition: .5s;
+	font-size: 24px;
+	line-height: 1.5rem;
+}
+
 // custom scrollbar
 ::-webkit-scrollbar {
 	width: 6px;
@@ -25,14 +40,6 @@ $scrollbar-color: #4b8dde;
 	scrollbar-color: $scrollbar-color transparent;
 }
 
-body {
-	counter-reset: section;
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	transition: .5s;
-}
 
 // if data-help is present show the help on hover
 [data-help] {

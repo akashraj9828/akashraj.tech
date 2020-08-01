@@ -9,7 +9,7 @@ import { toggleTheme } from "../redux/actions/app";
 const Header = ({ theme, dispatch }) => {
 	/* OLD NAVBAR */
 	return (
-		<nav className={`navbar navbar-expand-sm pl-4 ${theme === "dark" ? "navbar-dark bg-dark" : "navbar-light bg-light"}`}>
+		<nav className={`navbar navbar-expand-sm px-4 pb-3 pt-0 ${theme === "dark" ? "navbar-dark bg-dark" : "navbar-light bg-light"}`}>
 			<Link className='navbar-brand halucinate' to='/'>
 				<img className='img img-fluid' id='logo' src={logo} alt='akash Logo' />
 			</Link>
@@ -44,11 +44,11 @@ const Header = ({ theme, dispatch }) => {
 							CONTACT
 						</NavLink>
 					</li>
-					<li className='nav-item'>
+					{/* <li className='nav-item'>
 						<button className='btn mx-1 no-highlight' onClick={(_) => dispatch(toggleTheme())}>
 							{theme === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
 						</button>
-					</li>
+					</li> */}
 				</ul>
 			</div>
 		</nav>
