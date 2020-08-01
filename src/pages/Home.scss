@@ -6,7 +6,6 @@
 	}
 	.part1,
 	.part2 {
-		// height: $nav-height;
 		flex-direction: column;
 		header {
 			margin-top: 0px;
@@ -21,7 +20,6 @@
 		}
 	}
 	.button-cta {
-		color: invert($color: $secondary-color);
 		background: $primary-color;
 		width: 180px;
 		font-weight: 400;
@@ -32,12 +30,20 @@
 		border: none;
 		border-radius: 5px;
 		transition: 0.3s;
+		cursor: pointer;
 		&:hover {
 			background: transparentize($primary-color, 0.5);
-			color: lighten(invert($color: $secondary-color), 40);
+			color: lighten($secondary-color, 40);
 			box-shadow: 6px 3px 8px 0px #00000052;
 			transition: 0.1s;
 			text-decoration: none;
+		}
+	}
+	a {
+		color: $secondary-color;
+		text-decoration: none;
+		&:hover {
+			color: $primary-color;
 		}
 	}
 	.hi {

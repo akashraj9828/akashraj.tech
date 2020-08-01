@@ -1,0 +1,61 @@
+@import "../assets/styles/chunks/_variables.scss";
+@import "../assets/styles/chunks/animations";
+.contact-page {
+	.container.center {
+		flex-direction: column;
+		max-width: 800px;
+	}
+	header.contact {
+		font-size: 4rem;
+		font-weight: 300;
+		margin-bottom: 20px;
+		margin-top: 3rem !important;
+	}
+	#why-contact {
+		font-weight: 300;
+		display: grid;
+		text-align: left;
+		width: 100%;
+	}
+	.lh-less {
+		line-height: inherit;
+		font-weight: 300;
+	}
+	.contact-div {
+		margin: 10px 30px !important;
+		flex-direction: column;
+	}
+
+	a {
+		color: $secondary-color;
+		text-decoration: none;
+		&:hover {
+			color: $primary-color;
+		}
+	}
+
+	#socials {
+		margin: auto;
+		width: fit-content;
+		figure {
+			display: inline-block;
+			width: auto;
+			margin: auto;
+			padding: 25px;
+			margin: 2px;
+			/* position: relative; */
+			top: -200px;
+			img {
+				border-radius: 50%;
+				width: 75px;
+				height: 75px;
+				-webkit-animation: rotation 1s infinite linear;
+				animation: rotation 1s infinite linear;
+				&:hover {
+					rotate: 15deg;
+					transition: 0.1s;
+				}
+			}
+		}
+	}
+}

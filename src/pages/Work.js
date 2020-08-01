@@ -7,9 +7,10 @@ import { FiGithub as GithubIcon, FiLink as LinkIcon } from "react-icons/fi";
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const Project = ({ name, img_src, link_code, link_live }) => {
+	if (link_live) link_live = link_live + "?ref=akashraj.tech/work";
 	return (
 		<figure>
-			<a href={link_live} target='_blank' rel='noopener noreferrer'>
+			<a href={link_live || link_code} target='_blank' rel='noopener noreferrer'>
 				<img src={img_src} alt={name} />
 			</a>
 			<figcaption>

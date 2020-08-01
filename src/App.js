@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Main from "./pages/Main";
 import Home from "./pages/Home";
 import Work from "./pages/Work";
+import Contact from "./pages/Contact";
 // import Landing from "./pages/Landing";
 import { connect } from "react-redux";
 import ProtectedRoute from "./ProtectedRoute";
@@ -19,8 +20,8 @@ export const App = () => {
 						{/* <Route path='/' exact component={Landing} /> */}
 						<Route path='/' exact component={Home} />
 						<Route path='/work' exact component={Work} />
-						<Route path='/contact' exact component={Main} />
 						<Route path='/resume' exact component={Main} />
+						<Route path='/contact' exact component={Contact} />
 						<ProtectedRoute path='/dashboard' exact component={Main} />
 						<Route path='*' component={() => "404 Page not found"} />
 					</Switch>

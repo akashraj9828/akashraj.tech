@@ -9,10 +9,10 @@
 		margin-bottom: 20px;
 		margin-top: 3rem !important;
 		font-weight: 300;
-		color: #ff7b7b;
-		background: #ff7b7b12;
+		color: $primary-color;
+		background: transparentize($color: $primary-color, $amount: 0.97);
 		border-radius: 10px;
-		border: #ff7b7b solid;
+		border: $primary-color solid;
 		border-bottom: unset;
 		border-top: unset;
 	}
@@ -32,7 +32,7 @@
 			flex: 0 0 33%;
 			a {
 				text-decoration: none;
-				color: black;
+				color: $secondary-color;
 				font-weight: 300;
 				&:hover {
 					color: $primary-color;
