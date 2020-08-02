@@ -11,7 +11,7 @@
 
 .light {
 	$bg-color: white;
-	$primary-color: grey;
+	$primary-color: #ff7a7a;
 	$secondary-color: black;
 	& {
 		@import "./base.scss";
