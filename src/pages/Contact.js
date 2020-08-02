@@ -31,11 +31,11 @@ const Contact = ({ match }) => {
 	return (
 		<Fragment>
 			<div className='contact-page mx-5'>
-				<section class='container center' id='contact'>
-					<header class='contact mt-5 center'>Hello there...</header>
+				<section className='container center' id='contact'>
+					<header className='contact mt-5 center'>Hello there...</header>
 
-					<div class='text-left mw-700 m-auto contact-div center'>
-						<p class='lh-less'>
+					<div className='text-left mw-700 m-auto contact-div center'>
+						<p className='lh-less'>
 							Looks like you'd like to get in touch with me.
 							<br />
 							We're all busy person and I respect your time and hope the same from you. I'll reply as soon as possible.
@@ -53,7 +53,7 @@ const Contact = ({ match }) => {
 						</ul>
 						<br />
 						<br />
-						<p class='d-inline lh-less'>
+						<p className='d-inline lh-less'>
 							I’m so thankful that you stopped by and I’d love to hear from you. Feel free to e-mail me at
 							<a className='font-weight-bold' href='mailto:akashraj9828@gmail.com'>
 								<span>
@@ -68,7 +68,7 @@ const Contact = ({ match }) => {
 					</div>
 				</section>
 
-				<section class='' id='socials'>
+				<section className='' id='socials'>
 					{contact.map((e) => Social(e))}
 				</section>
 			</div>

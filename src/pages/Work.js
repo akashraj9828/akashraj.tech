@@ -62,7 +62,7 @@ const Work = ({ match }) => {
 		<Fragment>
 			<div className='work mx-5'>
 				<section>
-					<header class='games mt-5'>Projects</header>
+					<header className='games mt-5'>Projects</header>
 				</section>
 
 				<section className='features'>{projects.map((e) => Project(e))}</section>
