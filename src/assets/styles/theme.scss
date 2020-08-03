@@ -1,3 +1,29 @@
+@import "./mixin.scss";
+
+$min_width: 600px;
+$max_width: 1200px;
+$min_font: 12px;
+$max_font: 16px;
+
+html {
+	scroll-behavior: smooth;
+
+	// $min_width, $max_width, $min_font, $max_font
+	@include fluid-type(600px, 1200px, 12px, 18px);
+	//   @include fluid-type(300px,600px,10px,12px);
+}
+
+// html {
+// 	font-size: 18px;
+// }
+
+// phone
+// @media only screen and (max-width: 600px) {
+// 	html {
+// 		font-size: 10px;
+// 	}
+// }
+
 .dark {
 	$bg-color: #181a1b;
 	$primary-color: #ff7a7a;

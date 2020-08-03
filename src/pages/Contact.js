@@ -30,7 +30,7 @@ const Contact = ({ match }) => {
 
 	return (
 		<Fragment>
-			<div className='contact-page mx-5'>
+			<div className='contact-page mx-0 mx-sm-4 mx-md-5'>
 				<section className='container center' id='contact'>
 					<header className='contact mt-5 center'>Hello there...</header>
 
@@ -41,19 +41,17 @@ const Contact = ({ match }) => {
 							We're all busy person and I respect your time and hope the same from you. I'll reply as soon as possible.
 							<br />
 							<br />
-							Contact me if....
-						</p>
-
-						<ul id='why-contact'>
-							<li>You need engineering help on your project.🤓</li>
-							<li>You would like to invite me to a meetup.</li>
-							<li>You want to recommend me a movie/TV series.📽</li>
-							<li>You have an offer for me I cannot resist.💲💲</li>
-							<li>You simply want to connect with me.</li>
-						</ul>
-						<br />
-						<br />
-						<p className='d-inline lh-less'>
+							<span className='h3'>Contact me if....</span>
+							<br />
+							<br />
+							<ul class='contact-reasons'>
+								<li>You need engineering help on your project.🤓</li>
+								<li>You would like to invite me to a meetup.</li>
+								<li>You want to recommend me a movie/TV series.📽</li>
+								<li>You have an offer for me I cannot resist.💲💲</li>
+								<li>You simply want to connect with me.</li>
+							</ul>
+							<br />
 							I’m so thankful that you stopped by and I’d love to hear from you. Feel free to e-mail me at
 							<a className='font-weight-bold' href='mailto:akashraj9828@gmail.com'>
 								<span>

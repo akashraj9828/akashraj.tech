@@ -1,27 +1,33 @@
 .contact-page {
 	.container.center {
 		flex-direction: column;
-		max-width: 800px;
+		// screen <1400
+		@media screen and (max-width: 1400px) {
+			max-width: 800px;
+		}
+		// screen >1400
+		@media screen and (min-width: 1400px) {
+			max-width: 1000px;
+		}
 	}
 	header.contact {
 		font-size: 4rem;
 		font-weight: 300;
-		margin-bottom: 20px;
-		margin-top: 3rem !important;
+		margin: 0.5em 0;
 	}
-	#why-contact {
-		font-weight: 300;
-		display: grid;
-		text-align: left;
-		width: 100%;
-	}
-	.lh-less {
-		line-height: inherit;
-		font-weight: 300;
-	}
+
 	.contact-div {
-		margin: 10px 30px !important;
+		margin: 1em 2em !important;
 		flex-direction: column;
+		font-size: 1.5rem;
+		font-weight: 300;
+		.lh-less {
+			line-height: inherit;
+		}
+		.contact-reasons {
+			align-self: flex-start;
+			line-height: inherit;
+		}
 	}
 
 	a {
@@ -39,14 +45,14 @@
 			display: inline-block;
 			width: auto;
 			margin: auto;
-			padding: 25px;
-			margin: 2px;
+			padding: 1em;
+			margin: 0.1em;
 			/* position: relative; */
 			top: -200px;
 			img {
 				border-radius: 50%;
-				width: 75px;
-				height: 75px;
+				width: 3rem;
+				height: 3rem;
 				-webkit-animation: rotation 1s infinite linear;
 				animation: rotation 1s infinite linear;
 				&:hover {

@@ -43,6 +43,7 @@ const Work = ({ match }) => {
 	}, []);
 
 	let projects = [
+		{ name: "SVG Text animation generator", img_src: require("assets/img/projects/svg text.png"), link_code: "https://github.com/akashraj9828/svg-text-animation-generator", link_live: "https://akashraj9828.github.io/svg-text-animation-generator/" },
 		{ name: "Git - Stats", img_src: require("assets/img/projects/gitstats.png"), link_code: "https://github.com/akashraj9828/gitstats", link_live: "https://gitstats.me" },
 		{ name: "COVID-19 Interactive(using React)", img_src: require("assets/img/projects/map.png"), link_code: "https://github.com/akashraj9828/COVID-19-REACT", link_live: "https://akashraj.tech/corona/interactive/" },
 		{ name: "COVID-19 Live Dashboard", img_src: require("assets/img/projects/corona.png"), link_code: "", link_live: "https://akashraj.tech/corona/world" },
@@ -62,10 +63,9 @@ const Work = ({ match }) => {
 		<Fragment>
 			<div className='work mx-5'>
 				<section>
-					<header className='games mt-5'>Projects</header>
+					<header className='mt-5'>Projects</header>
 				</section>
-
-				<section className='features'>{projects.map((e) => Project(e))}</section>
+				<section className='projects'>{projects.map((e) => Project(e))}</section>
 			</div>
 		</Fragment>
 	);

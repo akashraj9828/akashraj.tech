@@ -1,22 +1,26 @@
-.react-pdf__Page {
-	* {
-		// fill: $secondary-color;
-	}
-	.react-pdf__Page__svg {
-		background-color: $bg-color !important;
-	}
-	svg {
-		path {
-			fill: transparent !important;
-		}
-		text {
-			fill: $primary-color !important;
-			tspan:not([fill]) {
-				fill: $secondary-color !important;
-			}
-			tspan[fill] {
-				fill: $primary-color !important;
-			}
-		}
-	}
-}
+// .react-pdf__Page {
+// 	* {
+// 		// fill: $secondary-color;
+// 	}
+// 	.react-pdf__Page__svg {
+// 		background-color: $bg-color !important;
+// 	}
+// 	svg {
+// 		// path:not([fill]) {
+// 		// 	fill: transparent !important;
+// 		// }
+// 		path{
+// 			// fill: transparent !important;
+// 			// fill: none !important;
+// 		}
+// 		text {
+// 			fill: $primary-color !important;
+// 			tspan:not([fill]) {
+// 				fill: $secondary-color !important;
+// 			}
+// 			tspan[fill] {
+// 				fill: $primary-color !important;
+// 			}
+// 		}
+// 	}
+// }

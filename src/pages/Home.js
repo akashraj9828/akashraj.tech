@@ -15,20 +15,26 @@ const Home = ({ match }) => {
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+	const [fly, setFly] = useState(false);
 
+	const scrollToMiddle = (e) => {
+		e && e.preventDefault();
+		scrollToRef(part2);
+		setFly(true);
+	};
 	return (
 		<Fragment>
 			<div className='home'>
-				<section className='part1 vh-100 '>
+				<section className='part1 vh-100 center '>
 					<div className='intro-container center'>
-						<header className='intro h1'>
+						<header className='intro h1 center flex-col'>
 							<img src={MyImage} className='img img-fluid' alt='Akash raj' />
-							Student, Explorer, Creator.
+							<span className='text-center'>Student, Explorer, Creator.</span>
 						</header>
 						<div className='center'>
-							<a className='a button-cta' onClick={(e) => e.preventDefault && scrollToRef(part2)} to='#middle'>
-								Know more.
-							</a>
+							<Link className='a button-cta' onClick={scrollToMiddle} to='#middle'>
+								Know more
+							</Link>
 							<Link className='button-cta' target='' to='/resume'>
 								Hire me
 							</Link>
@@ -59,7 +65,7 @@ const Home = ({ match }) => {
 							{/* <!-- <strong>Looking for a good paying job 🤑 and more learning opportunity.</strong> --> */}
 						</p>
 					</div>
-					<div className='center'>
+					<div className='center flex-wrap'>
 						<Link className='button-cta' to='/work'>
 							Projects
 						</Link>
@@ -72,7 +78,7 @@ const Home = ({ match }) => {
 					</div>
 				</section>
 
-				<img src={Rocket} className='rocket slow-shaking' onclick='fly()' alt='Rocket' />
+				<img src={Rocket} className={`rocket slow-shaking ${fly && "fly"}`} onClick={scrollToMiddle} alt='Rocket' />
 			</div>
 		</Fragment>
 	);
