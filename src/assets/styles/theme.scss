@@ -3,20 +3,19 @@
 	$primary-color: #ff7a7a;
 	$secondary-color: white;
 
-	& {
-		@import "./base.scss";
-		@import "./main.scss";
-	}
+	@import "./base.scss";
+	@import "./components.scss";
+	@import "./pages.scss";
 }
 
 .light {
 	$bg-color: white;
 	$primary-color: #ff7a7a;
 	$secondary-color: black;
-	& {
-		@import "./base.scss";
-		@import "./main.scss";
-	}
+
+	@import "./base.scss";
+	@import "./components.scss";
+	@import "./pages.scss";
 }
 
 // All themes

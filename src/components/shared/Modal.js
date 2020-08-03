@@ -1,5 +1,4 @@
 import React from "react";
-import "./Modal.scss";
 import { IoMdCloseCircle as CloseIcon } from "react-icons/io";
 
 const Modal = (props) => {

@@ -1,5 +1,4 @@
 import React from "react";
-import "./Loader.scss";
 import { RiLoader2Line as LoaderSmall } from "react-icons/ri";
 import loader from "assets/img/me.png";
 export const FullScreenLoader = ({ msg }) => {
