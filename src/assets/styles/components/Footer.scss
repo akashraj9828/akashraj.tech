@@ -1,0 +1,21 @@
+footer {
+	line-height: 1.5;
+	color: $secondary-color;
+	box-sizing: border-box;
+	font-weight: 300;
+	font-size: 1rem;
+	display: block;
+	text-align: center;
+	bottom: 0pt;
+	.divider {
+		border: 1px solid $primary-color;
+		margin: 0 0.5em;
+	}
+	a {
+		color: $secondary-color;
+		text-decoration: none;
+		&:hover {
+			color: $primary-color;
+		}
+	}
+}

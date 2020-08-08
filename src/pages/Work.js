@@ -15,13 +15,13 @@ const Project = ({ name, img_src, link_code, link_live }) => {
 			</a>
 			<figcaption>
 				{link_code && (
-					<a className='link-icons' href={link_code} target='_blank' rel='noopener noreferrer'>
+					<a className='link-icons' href={link_code} target='_blank' rel='noopener noreferrer' alt={`View ${name} in Github`}>
 						<GithubIcon />
 					</a>
 				)}
 				&nbsp;
 				{link_live && (
-					<a className='link-icons' href={link_live} target='_blank' rel='noopener noreferrer'>
+					<a className='link-icons' href={link_live} target='_blank' rel='noopener noreferrer' alt={`View ${name} live`}>
 						<LinkIcon />
 					</a>
 				)}

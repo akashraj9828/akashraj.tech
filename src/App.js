@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Switch, Route } from "react-router";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Work from "./pages/Work";
 import Resume from "./pages/Resume";
@@ -34,6 +35,7 @@ export const App = () => {
 						}}
 					/>
 				</div>
+				<Footer />
 			</Router>
 		</div>
 	);

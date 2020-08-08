@@ -1,8 +1,9 @@
 .navbar {
 	background: transparent !important;
 	box-shadow: none;
-	position: relative;
-	display: -ms-flexbox;
+	// position: sticky;
+	top: 0;
+	// background: $bg-color;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -28,51 +29,60 @@
 		}
 	}
 
-	.theme-changer {
+	.floating-buttons {
 		position: fixed;
 		top: 1rem;
-		right: 2rem;
+		right: 1rem;
 	}
-
-	.navbar-collapse,
-	.collapse {
-		display: none !important;
+	.theme-changer,
+	.navbar-toggler {
+		z-index: 3;
+		background-color: none;
+		padding: 0.5em 1em;
+		margin: 0 0.5em;
+		svg {
+			fill: $primary-color;
+		}
+		&:hover,
+		&:active,
+		&:focus {
+			background: none;
+		}
 	}
 
 	.mobile-nav-container {
-		display: none;
+		// display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
 		.mobile-nav-backdrop {
-			opacity: 0;
-		}
-		&.show {
-			display: block;
-			position: fixed;
-			top: 0;
-			left: 0;
-			.mobile-nav-backdrop {
-				transition: 0.3s;
-				opacity: 1;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				position: absolute;
-				width: 100vw;
-				height: 100vh;
-				background: transparentize($color: $secondary-color, $amount: 0.1);
-				// animation: ease-in-out nav 0.3s forwards;
-				a {
-					text-align: center;
-					font-weight: bold;
-					color: $primary-color !important;
-					&.active {
-						border-bottom: 0.5rem solid $primary-color;
-					}
+			clip-path: circle(90vh at center);
+			transition: 0.3s;
+			opacity: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			width: 100vw;
+			height: 100vh;
+			background: transparentize($color: $bg-color, $amount: 0.1);
+			a {
+				text-align: center;
+				font-weight: bold;
+				color: $primary-color !important;
+				&.active {
+					border-bottom: 0.5rem solid $primary-color;
 				}
 			}
 		}
-	}
-	.navbar-toggler {
-		z-index: 3;
+		&.hide {
+			visibility: hidden;
+			.mobile-nav-backdrop {
+				transition: 0.3s;
+				opacity: 0;
+				clip-path: circle(0 at center);
+			}
+		}
 	}
 }
 

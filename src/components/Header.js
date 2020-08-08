@@ -6,7 +6,8 @@ import logo from "assets/img/logo.png";
 import { FaSun as LightModeIcon, FaMoon as DarkModeIcon } from "react-icons/fa";
 import { toggleTheme } from "../redux/actions/app";
 
-import { RiMenuLine as HamburgerIcon, RiCloseLine as CloseIcon } from "react-icons/ri";
+import { RiMenuLine as HamburgerIcon } from "react-icons/ri";
+import { AiOutlineClose as CloseIcon } from "react-icons/ai";
 // MObile nav idea
 // https://codepen.io/hexagoncircle/pen/XdoLYw?editors=1100
 
@@ -14,33 +15,31 @@ const Header = ({ theme, dispatch }) => {
 	/* OLD NAVBAR */
 	const [mobileNavBarOpen, setMobileNavBarOpen] = useState(false);
 	return (
-		<nav className={`navbar navbar-expand-sm px-4 pb-3 pt-0`}>
+		<nav className={`navbar navbar-expand-md px-4 pb-3 pt-0`}>
 			<Link className='navbar-brand halucinate' to='/'>
 				<img className='img img-fluid' id='logo' src={logo} alt='akash Logo' />
 			</Link>
-			<button className='navbar-toggler bg-dark' onClick={() => setMobileNavBarOpen((s) => !s)} type='button' aria-label='Toggle navigation'>
-				{mobileNavBarOpen ? <CloseIcon /> : <HamburgerIcon />}
-			</button>
+
 			<div className={`mobile-nav-container ${mobileNavBarOpen ? "show" : "hide"}`}>
 				<div className='mobile-nav-backdrop'>
 					<div className='mobile-nav'>
-						<NavLink to='/' className='nav-link' activeClassName='active' exact={true}>
+						<NavLink to='/' className='nav-link' activeClassName='active' exact={true} onClick={() => setMobileNavBarOpen(false)}>
 							HOME{" "}
 						</NavLink>
 
-						<NavLink to='/work' className='nav-link' activeClassName='active' exact={true}>
+						<NavLink to='/work' className='nav-link' activeClassName='active' exact={true} onClick={() => setMobileNavBarOpen(false)}>
 							WORK
 						</NavLink>
 
-						<a href='https://gitstats.me/akashraj9828?ref=akashraj.tech' className='nav-link'>
+						<a href='https://gitstats.me/akashraj9828?ref=akashraj.tech' className='nav-link' onClick={() => setMobileNavBarOpen(false)}>
 							STATS
 						</a>
 
-						<NavLink to='/resume' className='nav-link' activeClassName='active' exact={true}>
+						<NavLink to='/resume' className='nav-link' activeClassName='active' exact={true} onClick={() => setMobileNavBarOpen(false)}>
 							HIRE ME
 						</NavLink>
 
-						<NavLink to='/contact' className='nav-link' activeClassName='active' exact={true}>
+						<NavLink to='/contact' className='nav-link' activeClassName='active' exact={true} onClick={() => setMobileNavBarOpen(false)}>
 							CONTACT
 						</NavLink>
 					</div>
@@ -76,9 +75,14 @@ const Header = ({ theme, dispatch }) => {
 					</li>
 				</ul>
 			</div>
-			<button className={`btn btn-danger theme-changer z-1 ${theme === "dark" ? "svg-fill-white" : ""}`} onClick={(_) => dispatch(toggleTheme())}>
-				{theme === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
-			</button>
+			<div className='floating-buttons'>
+				<button className={`btn theme-changer`} onClick={(_) => dispatch(toggleTheme())}>
+					{theme === "dark" ? <LightModeIcon size='1.5rem' /> : <DarkModeIcon size='1.5rem' />}
+				</button>
+				<button className='btn navbar-toggler ' onClick={() => setMobileNavBarOpen((s) => !s)} type='button' aria-label='Toggle navigation'>
+					{mobileNavBarOpen ? <CloseIcon size='1.5rem' /> : <HamburgerIcon size='1.5rem' />}
+				</button>
+			</div>
 		</nav>
 	);
 };
