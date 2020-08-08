@@ -1,14 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { basic } from "data";
+import { footer } from "data";
 const Footer = ({ theme, dispatch }) => {
 	return (
 		<footer>
-			<a href={basic.website} className='repo-link'>
-				©{new Date().getFullYear()} {basic.name}
+			<a href={footer.fullWebsite} className='repo-link'>
+				©{new Date().getFullYear()} {footer.name}
 			</a>
-			<span className='divider'></span>{" "}
-			<a href='https://github.com/akashraj9828/akashraj.tech' className='repo-link'>
+			<span className='divider'></span>
+			<a href={footer.sourceCodeUrl} className='repo-link'>
 				Source Code
 			</a>
 		</footer>

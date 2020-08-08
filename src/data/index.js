@@ -7,7 +7,9 @@ export const basic = {
 	firstName: "Akash",
 	lastName: "Raj",
 	email: "akashraj9828@gmail.com",
-	website: "https://akashraj.tech",
+	github: "akashraj9828",
+	website: "akashraj.tech",
+	fullWebsite: "https://akashraj.tech",
 	currentCompany: "Snap2Insight",
 	currentCompanyLink: "https://snap2insight.com",
 };
@@ -17,9 +19,20 @@ export const home = {
 	heading: "Student, Explorer, Creator.",
 	full_intro: (
 		<Fragment>
-			<span>It's me Akash✌️, a 21 year old Full Stack Developer.</span>
+			<span>
+				It's me Akash
+				<span role='img' aria-label='Peace'>
+					✌️
+				</span>{" "}
+				, a 21 year old Full Stack Developer.
+			</span>
 			<br />
-			<span>I like to make stuff.👨‍💻</span>
+			<span>
+				I like to make stuff.
+				<span role='img' aria-label='Coder'>
+					👨‍💻
+				</span>
+			</span>
 			<br />
 			<span>
 				Currently engineering{" "}
@@ -30,7 +43,17 @@ export const home = {
 				with some awesome folks.
 			</span>
 			<br />
-			<span>Game development 🕹️ and AI 🤖 are my latest interests.</span>
+			<span>
+				Game development{" "}
+				<span role='img' aria-label='Joystick'>
+					🕹️
+				</span>{" "}
+				and AI{" "}
+				<span role='img' aria-label='Robot'>
+					🤖
+				</span>{" "}
+				are my latest interests.
+			</span>
 		</Fragment>
 	),
 };
@@ -69,4 +92,35 @@ export const contact = {
 		{ link: "https://www.facebook.com/profile.php?id=100003852667560", img_src: require("assets/img/social/facebook.png"), name: "Facebook" },
 		{ link: "https://www.instagram.com/akashraj.exe", img_src: require("assets/img/social/instagram.png"), name: "Instagram" },
 	],
+};
+
+export const header = {
+	navItems: [
+		{
+			label: "HOME",
+			to: "/",
+		},
+		{
+			label: "WORK",
+			to: "/work",
+		},
+		{
+			label: "STATS",
+			to: `https://gitstats.me/${basic.github}?ref=${basic.website}`,
+			direct: true,
+		},
+		{
+			label: "HIRE ME",
+			to: "/resume",
+		},
+		{
+			label: "CONTACT",
+			to: "/contact",
+		},
+	],
+};
+
+export const footer = {
+	...basic,
+	sourceCodeUrl: "https://github.com/akashraj9828/akashraj.tech",
 };

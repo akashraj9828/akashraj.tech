@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { Fragment } from "react";
 import { FiGithub as GithubIcon, FiLink as LinkIcon } from "react-icons/fi";
 import { work } from "data";
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const Project = ({ name, img_src, link_code, link_live }) => {
 	if (link_live) link_live = link_live + "?ref=akashraj.tech/work";
@@ -49,7 +48,11 @@ const Work = ({ match }) => {
 				<section>
 					<header className='mt-5'>Projects</header>
 				</section>
-				<section className='projects'>{work.map((e) => Project(e))}</section>
+				<section className='projects'>
+					{work.map((e, i) => (
+						<Fragment key={i}>{Project(e)}</Fragment>
+					))}
+				</section>
 			</div>
 		</Fragment>
 	);

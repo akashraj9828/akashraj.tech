@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import logo from "assets/img/logo.png";
@@ -8,6 +8,7 @@ import { toggleTheme } from "../redux/actions/app";
 
 import { RiMenuLine as HamburgerIcon } from "react-icons/ri";
 import { AiOutlineClose as CloseIcon } from "react-icons/ai";
+import { header } from "data";
 // MObile nav idea
 // https://codepen.io/hexagoncircle/pen/XdoLYw?editors=1100
 
@@ -23,56 +24,45 @@ const Header = ({ theme, dispatch }) => {
 			<div className={`mobile-nav-container ${mobileNavBarOpen ? "show" : "hide"}`}>
 				<div className='mobile-nav-backdrop'>
 					<div className='mobile-nav'>
-						<NavLink to='/' className='nav-link' activeClassName='active' exact={true} onClick={() => setMobileNavBarOpen(false)}>
-							HOME{" "}
-						</NavLink>
-
-						<NavLink to='/work' className='nav-link' activeClassName='active' exact={true} onClick={() => setMobileNavBarOpen(false)}>
-							WORK
-						</NavLink>
-
-						<a href='https://gitstats.me/akashraj9828?ref=akashraj.tech' className='nav-link' onClick={() => setMobileNavBarOpen(false)}>
-							STATS
-						</a>
-
-						<NavLink to='/resume' className='nav-link' activeClassName='active' exact={true} onClick={() => setMobileNavBarOpen(false)}>
-							HIRE ME
-						</NavLink>
-
-						<NavLink to='/contact' className='nav-link' activeClassName='active' exact={true} onClick={() => setMobileNavBarOpen(false)}>
-							CONTACT
-						</NavLink>
+						{header.navItems.map((e, i) => {
+							if (e.direct) {
+								return (
+									<a href={e.to} key={i} className='nav-link'>
+										{e.label}
+									</a>
+								);
+							} else {
+								return (
+									<NavLink to={e.to} key={i} className='nav-link' activeClassName='active' exact={true} onClick={() => setMobileNavBarOpen(false)}>
+										{e.label}
+									</NavLink>
+								);
+							}
+						})}
 					</div>
 				</div>
 			</div>
 			<div className='collapse navbar-collapse'>
 				<ul className='nav navbar-nav nav-fill w-100 h3'>
-					<li className='nav-item'>
-						<NavLink to='/' className='nav-link' activeClassName='active' exact={true}>
-							HOME{" "}
-						</NavLink>
-					</li>
-					<li className='nav-item'>
-						<NavLink to='/work' className='nav-link' activeClassName='active' exact={true}>
-							WORK
-						</NavLink>
-					</li>
-
-					<li className='nav-item'>
-						<a href='https://gitstats.me/akashraj9828?ref=akashraj.tech' className='nav-link'>
-							STATS
-						</a>
-					</li>
-					<li className='nav-item'>
-						<NavLink to='/resume' className='nav-link' activeClassName='active' exact={true}>
-							HIRE ME
-						</NavLink>
-					</li>
-					<li className='nav-item'>
-						<NavLink to='/contact' className='nav-link' activeClassName='active' exact={true}>
-							CONTACT
-						</NavLink>
-					</li>
+					{header.navItems.map((e, i) => {
+						if (e.direct) {
+							return (
+								<li className='nav-item' key={i}>
+									<a href={e.to} className='nav-link'>
+										{e.label}
+									</a>
+								</li>
+							);
+						} else {
+							return (
+								<li className='nav-item' key={i}>
+									<NavLink to={e.to} className='nav-link' activeClassName='active' exact={true}>
+										{e.label}
+									</NavLink>
+								</li>
+							);
+						}
+					})}
 				</ul>
 			</div>
 			<div className='floating-buttons'>

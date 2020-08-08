@@ -8,8 +8,7 @@ import { resume } from "data";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Resume = ({ theme }) => {
-	const { width, height } = useWindowSize();
-	console.log("---: Resume -> height", height);
+	const { width } = useWindowSize();
 	return (
 		<div className='resume'>
 			<div className='center'>

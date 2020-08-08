@@ -1,9 +1,7 @@
 .navbar {
 	background: transparent !important;
 	box-shadow: none;
-	// position: sticky;
 	top: 0;
-	// background: $bg-color;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -13,7 +11,6 @@
 		max-height: 40px;
 	}
 	.halucinate {
-		/* -webkit-animation: change-col 2s infinite linear; */
 		animation: change-col 5s linear infinite;
 	}
 	.nav-link {
@@ -51,13 +48,12 @@
 	}
 
 	.mobile-nav-container {
-		// display: block;
 		position: fixed;
 		top: 0;
 		left: 0;
 		.mobile-nav-backdrop {
 			clip-path: circle(90vh at center);
-			transition: 0.3s;
+			transition: 0.8s;
 			opacity: 1;
 			display: flex;
 			justify-content: center;
@@ -65,7 +61,8 @@
 			position: absolute;
 			width: 100vw;
 			height: 100vh;
-			background: transparentize($color: $bg-color, $amount: 0.1);
+			// background: transparentize($color: $bg-color, $amount: 0.1);
+			background: complement($color: $bg-color);
 			a {
 				text-align: center;
 				font-weight: bold;
@@ -78,7 +75,7 @@
 		&.hide {
 			visibility: hidden;
 			.mobile-nav-backdrop {
-				transition: 0.3s;
+				transition: 0.8s;
 				opacity: 0;
 				clip-path: circle(0 at center);
 			}
