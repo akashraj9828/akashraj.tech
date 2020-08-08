@@ -2,14 +2,14 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Switch, Route } from "react-router";
 import Header from "./components/Header";
-import Main from "./pages/Main";
+// import Main from "./pages/Main";
 import Home from "./pages/Home";
 import Work from "./pages/Work";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 // import Landing from "./pages/Landing";
 import { connect } from "react-redux";
-import ProtectedRoute from "./ProtectedRoute";
+// import ProtectedRoute from "./ProtectedRoute";
 export const App = () => {
 	return (
 		<div className={`App`}>

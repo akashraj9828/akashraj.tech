@@ -2,7 +2,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Fragment } from "react";
-
+import { contact } from "data";
+// const TypeFormEmbed = React.lazy(() => import("components/TypeFormEmbed"));
+import TypeFormEmbed from "components/TypeFormEmbed";
 const Social = ({ name, link, img_src }) => (
 	<figure>
 		<a href={link} target='_blank' rel='noopener noreferrer'>
@@ -19,15 +21,6 @@ const Contact = ({ match }) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	const contact = [
-		{ link: "https://twitter.com/akashraj9828", img_src: require("assets/img/social/twitter.png"), name: "Twitter" },
-		{ link: "https://github.com/akashraj9828", img_src: require("assets/img/social/github.png"), name: "Github" },
-		{ link: "https://www.linkedin.com/in/akashraj9828/", img_src: require("assets/img/social/linkedin.png"), name: "Linkedin" },
-		{ link: "mailto:akashraj9828@gmail.com", img_src: require("assets/img/social/email.png"), name: "mail" },
-		{ link: "https://www.facebook.com/profile.php?id=100003852667560", img_src: require("assets/img/social/facebook.png"), name: "Facebook" },
-		{ link: "https://www.instagram.com/akashraj.exe", img_src: require("assets/img/social/instagram.png"), name: "Instagram" },
-	];
-
 	return (
 		<Fragment>
 			<div className='contact-page mx-0 mx-sm-4 mx-md-5'>
@@ -36,38 +29,52 @@ const Contact = ({ match }) => {
 
 					<div className='text-left mw-700 m-auto contact-div center'>
 						<p className='lh-less'>
-							Looks like you'd like to get in touch with me.
+							<span>Looks like you'd like to get in touch with me.</span>
 							<br />
-							We're all busy person and I respect your time and hope the same from you. I'll reply as soon as possible.
+							<span>We're all busy person and I respect your time and hope the same from you. I'll reply as soon as possible.</span>
 							<br />
 							<br />
 							<span className='h3'>Contact me if....</span>
 							<br />
 							<br />
-							<ul class='contact-reasons'>
-								<li>You need engineering help on your project.🤓</li>
-								<li>You would like to invite me to a meetup.</li>
-								<li>You want to recommend me a movie/TV series.📽</li>
-								<li>You have an offer for me I cannot resist.💲💲</li>
-								<li>You simply want to connect with me.</li>
-							</ul>
-							<br />
-							I’m so thankful that you stopped by and I’d love to hear from you. Feel free to e-mail me at
-							<a className='font-weight-bold' href='mailto:akashraj9828@gmail.com'>
-								<span>
-									<strong> akashraj9828@gmail.com </strong>
-								</span>
-							</a>
-							or contact me through the form
-							<br />
-							Or find me on social media platforms.
 						</p>
+
+						<ul className='contact-reasons'>
+							{contact.contact_reasons.map((e, i) => (
+								<li key={i}>{e}</li>
+							))}
+						</ul>
+						{contact.contact_form && (
+							<Fragment>
+								<br />
+								{/* <Suspense fallback={<div>Loading...</div>}> */}
+								<TypeFormEmbed style={{ width: "100%", height: "350px", position: "relative" }} url={contact.contact_form}></TypeFormEmbed>
+								{/* </Suspense> */}
+								<br />
+							</Fragment>
+						)}
 						<br />
+						<p className='lh-less'>
+							<span>
+								I’m so thankful that you stopped by and I’d love to hear from you. Feel free to e-mail me at
+								<a className='font-weight-bold' href={`mailto:${contact.email}`}>
+									<span>
+										<strong> {contact.email} </strong>
+									</span>
+								</a>
+								{contact.contact_form && "or contact me through the form."}
+							</span>
+							<br />
+							<br />
+							<span>Or find me on social media platforms.</span>
+						</p>
 					</div>
 				</section>
 
 				<section className='' id='socials'>
-					{contact.map((e) => Social(e))}
+					{contact.socials.map((e, i) => (
+						<Fragment key={i}>{Social(e)}</Fragment>
+					))}
 				</section>
 			</div>
 		</Fragment>

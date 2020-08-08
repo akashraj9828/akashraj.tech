@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import MyImage from "assets/img/me.png";
 import Rocket from "assets/img/rocket.png";
+import { home } from "data";
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
 const Home = ({ match }) => {
@@ -29,7 +30,7 @@ const Home = ({ match }) => {
 					<div className='intro-container center'>
 						<header className='intro h1 center flex-col'>
 							<img src={MyImage} className='img img-fluid' alt='Akash raj' />
-							<span className='text-center'>Student, Explorer, Creator.</span>
+							<span className='text-center'>{home.heading}</span>
 						</header>
 						<div className='center'>
 							<Link className='a button-cta' onClick={scrollToMiddle} to='#middle'>
@@ -45,25 +46,7 @@ const Home = ({ match }) => {
 				<section className='part2 p-5 center' ref={part2}>
 					<header className='hi'>Hi!</header>
 					<div>
-						<p className='bio center'>
-							It's me Akash✌️, a 21 year old Full Stack Developer.
-							<br />
-							I like to make stuff.
-							<br />
-							Currently pursuing Computer Science 🙇💻🙇 Bachelors at Indraprastha University, New Delhi, India.
-							<br />
-							{/* <!-- I am a sucker for knowledge 👾 and a active self learner. --> */}
-							<br />
-							{/* <!-- I know 8 different programming languages 👨‍💻 and have coded countless programs on various */}
-							{/* domains. */}
-							{/* <br/> --> */}
-							Game development 🕹️ and AI 🤖 are my latest interests.
-							<br />
-							{/* <!-- JavaScript and Python are my go to language.🐍 --> */}
-							<br />
-							<br />
-							{/* <!-- <strong>Looking for a good paying job 🤑 and more learning opportunity.</strong> --> */}
-						</p>
+						<p className='bio center'>{home.full_intro}</p>
 					</div>
 					<div className='center flex-wrap'>
 						<Link className='button-cta' to='/work'>
