@@ -5,16 +5,47 @@ import logo from "assets/img/logo.png";
 
 import { FaSun as LightModeIcon, FaMoon as DarkModeIcon } from "react-icons/fa";
 import { toggleTheme } from "../redux/actions/app";
+
+import { RiMenuLine as HamburgerIcon, RiCloseLine as CloseIcon } from "react-icons/ri";
+// MObile nav idea
+// https://codepen.io/hexagoncircle/pen/XdoLYw?editors=1100
+
 const Header = ({ theme, dispatch }) => {
 	/* OLD NAVBAR */
+	const [mobileNavBarOpen, setMobileNavBarOpen] = useState(false);
 	return (
 		<nav className={`navbar navbar-expand-sm px-4 pb-3 pt-0`}>
 			<Link className='navbar-brand halucinate' to='/'>
 				<img className='img img-fluid' id='logo' src={logo} alt='akash Logo' />
 			</Link>
-			<button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
-				<span className='navbar-toggler-icon'></span>
+			<button className='navbar-toggler bg-dark' onClick={() => setMobileNavBarOpen((s) => !s)} type='button' aria-label='Toggle navigation'>
+				{mobileNavBarOpen ? <CloseIcon /> : <HamburgerIcon />}
 			</button>
+			<div className={`mobile-nav-container ${mobileNavBarOpen ? "show" : "hide"}`}>
+				<div className='mobile-nav-backdrop'>
+					<div className='mobile-nav'>
+						<NavLink to='/' className='nav-link' activeClassName='active' exact={true}>
+							HOME{" "}
+						</NavLink>
+
+						<NavLink to='/work' className='nav-link' activeClassName='active' exact={true}>
+							WORK
+						</NavLink>
+
+						<a href='https://gitstats.me/akashraj9828?ref=akashraj.tech' className='nav-link'>
+							STATS
+						</a>
+
+						<NavLink to='/resume' className='nav-link' activeClassName='active' exact={true}>
+							HIRE ME
+						</NavLink>
+
+						<NavLink to='/contact' className='nav-link' activeClassName='active' exact={true}>
+							CONTACT
+						</NavLink>
+					</div>
+				</div>
+			</div>
 			<div className='collapse navbar-collapse'>
 				<ul className='nav navbar-nav nav-fill w-100 h3'>
 					<li className='nav-item'>

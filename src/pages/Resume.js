@@ -18,11 +18,11 @@ const Resume = ({ theme }) => {
 					file={theme === "dark" ? resume.resume_dark : resume.resume_light}
 					onLoadSuccess={(...e) => {
 						console.log(e, ": success");
-						debugger;
+						// debugger;
 					}}
 					onLoadError={(...e) => {
 						console.log(e, ": error");
-						debugger;
+						// debugger;
 					}}
 					externalLinkTarget='_blank'
 					//  inputRef={e}

@@ -33,4 +33,57 @@
 		top: 1rem;
 		right: 2rem;
 	}
+
+	.navbar-collapse,
+	.collapse {
+		display: none !important;
+	}
+
+	.mobile-nav-container {
+		display: none;
+		.mobile-nav-backdrop {
+			opacity: 0;
+		}
+		&.show {
+			display: block;
+			position: fixed;
+			top: 0;
+			left: 0;
+			.mobile-nav-backdrop {
+				transition: 0.3s;
+				opacity: 1;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: absolute;
+				width: 100vw;
+				height: 100vh;
+				background: transparentize($color: $secondary-color, $amount: 0.1);
+				// animation: ease-in-out nav 0.3s forwards;
+				a {
+					text-align: center;
+					font-weight: bold;
+					color: $primary-color !important;
+					&.active {
+						border-bottom: 0.5rem solid $primary-color;
+					}
+				}
+			}
+		}
+	}
+	.navbar-toggler {
+		z-index: 3;
+	}
+}
+
+@keyframes nav {
+	0% {
+		opacity: 0;
+		// scale: 0;
+	}
+	100% {
+		opacity: 1;
+		// scale: 1;
+		// rotate: 360deg;
+	}
 }
