@@ -29,7 +29,7 @@ const Home = ({ match }) => {
 				<section className='part1 vh-100 center '>
 					<div className='intro-container center'>
 						<header className='intro h1 center flex-col'>
-							<img src={MyImage} className='img img-fluid' alt='Akash raj' />
+							<img src={MyImage} className='img img-fluid' alt={home.name} />
 							<span className='text-center'>{home.heading}</span>
 						</header>
 						<div className='center'>
@@ -43,7 +43,7 @@ const Home = ({ match }) => {
 					</div>
 				</section>
 
-				<section className='part2 p-5 center' ref={part2}>
+				<section className='part2 vh-100 p-5 center' ref={part2}>
 					<header className='hi'>Hi!</header>
 					<div>
 						<p className='bio center'>{home.full_intro}</p>

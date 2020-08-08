@@ -13,7 +13,20 @@ const Resume = ({ theme }) => {
 	return (
 		<div className='resume'>
 			<div className='center'>
-				<Document renderMode='svg' file={theme === "dark" ? resume.resume_dark : resume.resume_light} onLoadSuccess={console.log} onLoadError={console.error}>
+				<Document
+					renderMode='svg'
+					file={theme === "dark" ? resume.resume_dark : resume.resume_light}
+					onLoadSuccess={(...e) => {
+						console.log(e, ": success");
+						debugger;
+					}}
+					onLoadError={(...e) => {
+						console.log(e, ": error");
+						debugger;
+					}}
+					externalLinkTarget='_blank'
+					//  inputRef={e}
+				>
 					<Page pageNumber={1} width={width - 20} />
 				</Document>
 			</div>

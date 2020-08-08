@@ -1,3 +1,20 @@
+.fade-appear,
+.fade-enter,
+.fade-exit-active {
+	opacity: 0;
+}
+
+.fade-appear-active,
+.fade-enter-active {
+	transition: opacity 0.3s linear;
+	opacity: 1;
+}
+
+.fade-exit {
+	transition: opacity 0.2s linear;
+	opacity: 1;
+}
+
 .slow-shaking {
 	animation: shake 2s infinite linear;
 }
@@ -11,23 +28,23 @@
 }
 @keyframes rotation {
 	0% {
-		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
 	}
 
 	25% {
-		-webkit-transform: rotate(2deg);
+		transform: rotate(3deg);
 	}
 
 	50% {
-		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
 	}
 
 	75% {
-		-webkit-transform: rotate(-2deg);
+		transform: rotate(-3deg);
 	}
 
 	100% {
-		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
 	}
 }
 
@@ -38,7 +55,6 @@
 
 	100% {
 		filter: hue-rotate(360deg);
-		/* -webkit-transform: rotate(0deg); */
 	}
 }
 

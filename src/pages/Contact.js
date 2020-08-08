@@ -8,7 +8,7 @@ import TypeFormEmbed from "components/TypeFormEmbed";
 const Social = ({ name, link, img_src }) => (
 	<figure>
 		<a href={link} target='_blank' rel='noopener noreferrer'>
-			<img src={img_src} alt={`Akash Raj on ${name}`} />
+			<img src={img_src} alt={`${contact.name} on ${name}`} />
 		</a>
 	</figure>
 );
