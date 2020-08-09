@@ -1,3 +1,4 @@
+/* HELPER FUNCTION TO GET/SET COOKIES */
 function cookie() {
 	function set(name, value, days) {
 		var expires = "";

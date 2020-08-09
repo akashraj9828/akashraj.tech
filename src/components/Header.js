@@ -1,29 +1,27 @@
+/* REACT */
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import logo from "assets/img/logo.png";
 
-// import { FaSun as LightModeIcon, FaMoon as DarkModeIcon } from "react-icons/fa";
-import { RiSunLine as LightModeIcon } from "react-icons/ri";
-import { FaRegMoon as DarkModeIcon } from "react-icons/fa";
+/* REDUX */
 import { toggleTheme } from "../redux/actions/app";
 
+/* ICONS */
+import logo from "assets/img/logo.png";
+import { RiSunLine as LightModeIcon } from "react-icons/ri";
+import { FaRegMoon as DarkModeIcon } from "react-icons/fa";
 import { RiMenuLine as HamburgerIcon } from "react-icons/ri";
 import { AiOutlineClose as CloseIcon } from "react-icons/ai";
+
+/* DATA */
 import { header } from "data";
-// MObile nav idea
-// https://codepen.io/hexagoncircle/pen/XdoLYw?editors=1100
 
 const Header = ({ theme, dispatch }) => {
-	/* OLD NAVBAR */
 	const [mobileNavBarOpen, setMobileNavBarOpen] = useState(false);
 	return (
 		<nav className={`navbar navbar-expand-md px-4 pb-3 pt-0`}>
 			<Link className='navbar-brand halucinate' to='/'>
 				<img className='img img-fluid' id='logo' src={logo} alt='akash Logo' />
-				{/* {header.firstName} */}
-				{/* <br/> */}
-				{/* {header.lastName} */}
 			</Link>
 
 			<div className={`mobile-nav-container ${mobileNavBarOpen ? "show" : "hide"}`}>
@@ -82,8 +80,8 @@ const Header = ({ theme, dispatch }) => {
 	);
 };
 const mapStateToProps = (state) => {
-	let { user, app } = state;
-	return { userStatus: user.status, userId: user.userId, firstName: user.firstName, lastName: user.lastName, theme: app.theme };
+	let { app } = state;
+	return { theme: app.theme };
 };
 
 export default connect(mapStateToProps, null)(Header);

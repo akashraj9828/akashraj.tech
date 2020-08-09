@@ -1,4 +1,4 @@
-// intercept request and add auth string
+/* REQUEST MIDDLEMAN */
 export const reqIntercept = async (url, method = "POST", body = null, contentType = "application/json") => {
 	try {
 		// extra data for post
@@ -20,7 +20,6 @@ export const reqIntercept = async (url, method = "POST", body = null, contentTyp
 		const res = await fetch(url, extras);
 		// const status = res ? res.status : null;
 		// if (status === 401) {
-		// window.location = "/logout";
 		// return;
 		// }
 		const json = await res.json();

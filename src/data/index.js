@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
+/* RESUME */
 import ResumeLight from "assets/doc/resume_light.pdf";
 import ResumeDark from "assets/doc/resume_dark.pdf";
 
+/* BASIC DATA */
 export const basic = {
 	name: "Akash Raj",
 	firstName: "Akash",
@@ -14,6 +16,35 @@ export const basic = {
 	currentCompanyLink: "https://snap2insight.com",
 };
 
+/* DATA FOR HEADER / NAVBAR */
+export const header = {
+	...basic,
+	navItems: [
+		{
+			label: "HOME",
+			to: "/",
+		},
+		{
+			label: "WORK",
+			to: "/work",
+		},
+		{
+			label: "STATS",
+			to: `https://gitstats.me/${basic.github}?ref=${basic.website}`,
+			direct: true,
+		},
+		{
+			label: "HIRE ME",
+			to: "/resume",
+		},
+		{
+			label: "CONTACT",
+			to: "/contact",
+		},
+	],
+};
+
+/* DATA FOR HOMEPAGE */
 export const home = {
 	...basic,
 	heading: "Student, Explorer, Creator.",
@@ -58,6 +89,7 @@ export const home = {
 	),
 };
 
+/* DATA FOR PROJECTS/WORK */
 export const work = [
 	{ name: "Git - Stats", img_src: require("assets/img/projects/gitstats.png"), link_code: "https://github.com/akashraj9828/gitstats", link_live: "https://gitstats.me" },
 	{ name: "COVID-19 INDIA (Interactive)", img_src: require("assets/img/projects/map.png"), link_code: "https://github.com/akashraj9828/COVID-19-REACT", link_live: "https://akashraj.tech/corona/interactive/" },
@@ -75,11 +107,13 @@ export const work = [
 	{ name: "Lissajous Table", img_src: require("assets/img/projects/lissajous.png"), link_code: "https://github.com/akashraj9828/lissajous-table", link_live: "https://akashraj9828.github.io/lissajous-table/" },
 ];
 
+/* DATA FOR HIRE ME/RESUME */
 export const resume = {
 	resume_light: ResumeLight,
 	resume_dark: ResumeDark,
 };
 
+/* DATA FOR CONTACT ME */
 export const contact = {
 	...basic,
 	contact_reasons: ["You need engineering help on your project.🤓", "You would like to invite me to a meetup.", "You want to recommend me a movie/TV series.📽", "You have an offer for me I cannot resist.💲💲", "You simply want to connect with me."],
@@ -94,33 +128,7 @@ export const contact = {
 	],
 };
 
-export const header = {
-	...basic,
-	navItems: [
-		{
-			label: "HOME",
-			to: "/",
-		},
-		{
-			label: "WORK",
-			to: "/work",
-		},
-		{
-			label: "STATS",
-			to: `https://gitstats.me/${basic.github}?ref=${basic.website}`,
-			direct: true,
-		},
-		{
-			label: "HIRE ME",
-			to: "/resume",
-		},
-		{
-			label: "CONTACT",
-			to: "/contact",
-		},
-	],
-};
-
+/* DATA FOR FOOTER */
 export const footer = {
 	...basic,
 	sourceCodeUrl: "https://github.com/akashraj9828/akashraj.tech",

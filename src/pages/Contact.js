@@ -1,19 +1,13 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect } from "react";
+/* REACT */
+import React, { Fragment, useEffect } from "react";
+/* REDUX */
 import { connect } from "react-redux";
-import { Fragment } from "react";
-import { contact } from "data";
-// const TypeFormEmbed = React.lazy(() => import("components/TypeFormEmbed"));
+/* COMPONENTS */
 import TypeFormEmbed from "components/TypeFormEmbed";
-const Social = ({ name, link, img_src }) => (
-	<figure>
-		<a href={link} target='_blank' rel='noopener noreferrer'>
-			<img src={img_src} alt={`${contact.name} on ${name}`} />
-		</a>
-	</figure>
-);
+/* DATA */
+import { contact } from "data";
 
-const Contact = ({ match }) => {
+const Contact = () => {
 	useEffect(() => {
 		if (process.env.NODE_ENV === "development") {
 			// some stuff    to do in dev
@@ -86,3 +80,11 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, null)(Contact);
+
+const Social = ({ name, link, img_src }) => (
+	<figure>
+		<a href={link} target='_blank' rel='noopener noreferrer'>
+			<img src={img_src} alt={`${contact.name} on ${name}`} />
+		</a>
+	</figure>
+);

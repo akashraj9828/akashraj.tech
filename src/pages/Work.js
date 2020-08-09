@@ -1,37 +1,11 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect } from "react";
+/* REACT */
+import React, { Fragment, useEffect } from "react";
+/* REDUX */
 import { connect } from "react-redux";
-import { Fragment } from "react";
+/* ICONS */
 import { FiGithub as GithubIcon, FiLink as LinkIcon } from "react-icons/fi";
+/* DATA */
 import { work } from "data";
-
-const Project = ({ name, img_src, link_code, link_live }) => {
-	if (link_live) link_live = link_live + "?ref=akashraj.tech/work";
-	return (
-		<figure>
-			<a href={link_live || link_code} target='_blank' rel='noopener noreferrer'>
-				<img src={img_src} alt={name} />
-			</a>
-			<figcaption>
-				{link_code && (
-					<a className='link-icons' href={link_code} target='_blank' rel='noopener noreferrer' alt={`View ${name} in Github`}>
-						<GithubIcon />
-					</a>
-				)}
-				&nbsp;
-				{link_live && (
-					<a className='link-icons' href={link_live} target='_blank' rel='noopener noreferrer' alt={`View ${name} live`}>
-						<LinkIcon />
-					</a>
-				)}
-				<br />
-				<a href={link_live} target='_blank' rel='noopener noreferrer'>
-					{name}
-				</a>
-			</figcaption>
-		</figure>
-	);
-};
 
 const Work = ({ match }) => {
 	useEffect(() => {
@@ -63,3 +37,32 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, null)(Work);
+
+// Projects component
+const Project = ({ name, img_src, link_code, link_live }) => {
+	if (link_live) link_live = link_live + "?ref=akashraj.tech/work";
+	return (
+		<figure>
+			<a href={link_live || link_code} target='_blank' rel='noopener noreferrer'>
+				<img src={img_src} alt={name} />
+			</a>
+			<figcaption>
+				{link_code && (
+					<a className='link-icons' href={link_code} target='_blank' rel='noopener noreferrer' alt={`View ${name} in Github`}>
+						<GithubIcon />
+					</a>
+				)}
+				&nbsp;
+				{link_live && (
+					<a className='link-icons' href={link_live} target='_blank' rel='noopener noreferrer' alt={`View ${name} live`}>
+						<LinkIcon />
+					</a>
+				)}
+				<br />
+				<a href={link_live} target='_blank' rel='noopener noreferrer'>
+					{name}
+				</a>
+			</figcaption>
+		</figure>
+	);
+};

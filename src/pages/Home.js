@@ -1,14 +1,20 @@
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect, useMemo, useRef } from "react";
-import { connect } from "react-redux";
-import { Fragment } from "react";
+/* REACT */
+import React, { Fragment, useState, useEffect, useRef } from "react";
+
+/* REACT-ROUTER */
 import { Link } from "react-router-dom";
+
+/* REDUX */
+import { connect } from "react-redux";
+
+/* ICONS */
 import MyImage from "assets/img/me.png";
 import Rocket from "assets/img/rocket.png";
-import { home } from "data";
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
-const Home = ({ match }) => {
+/* DATA */
+import { home } from "data";
+
+const Home = () => {
 	const part2 = useRef(null);
 	useEffect(() => {
 		if (process.env.NODE_ENV === "development") {
@@ -72,3 +78,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, null)(Home);
+
+// Helper function to scroll to a given ref
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);

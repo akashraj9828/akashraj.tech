@@ -1,4 +1,7 @@
+/* REACT */
 import React from "react";
+
+/* ICONS */
 import { RiLoader2Line as LoaderSmall } from "react-icons/ri";
 import loader from "assets/img/me.png";
 export const FullScreenLoader = ({ msg }) => {
@@ -15,7 +18,6 @@ export const SectionLoader = ({ msg }) => {
 	return (
 		<div className='section-loader pt-5'>
 			<span className='svg-color-white'>
-				{/* <LoaderSmall fontSize={100} /> */}
 				<img src={loader} alt='loader' />
 			</span>
 			{msg && <h5 className='text-center my-5'>{msg}</h5>}

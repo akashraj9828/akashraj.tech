@@ -1,11 +1,20 @@
 import React from "react";
-import "bootstrap-material-design/dist/css/bootstrap-material-design.min.css";
-import "./assets/styles/theme.scss";
-import App from "./App";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+
+/* 
+	IF YOU DON'T WANT TO GENERATE STATIC SNAPSHOTS 
+	USE "render" FROM "react-dom" 
+	instead of "react-snapsot" 
+*/
+
 // import {render} from "react-dom";
 import { render } from "react-snapshot";
+
+import App from "./App";
+
+import "bootstrap-material-design/dist/css/bootstrap-material-design.min.css";
+import "./assets/styles/theme.scss";
 
 render(
 	<React.StrictMode>
