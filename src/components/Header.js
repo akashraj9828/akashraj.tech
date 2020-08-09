@@ -5,11 +5,11 @@ import logo from "assets/img/logo.png";
 
 // import { FaSun as LightModeIcon, FaMoon as DarkModeIcon } from "react-icons/fa";
 import { RiSunLine as LightModeIcon } from "react-icons/ri";
-import {  FaRegMoon as DarkModeIcon } from "react-icons/fa";
+import { FaRegMoon as DarkModeIcon } from "react-icons/fa";
 import { toggleTheme } from "../redux/actions/app";
 
 import { RiMenuLine as HamburgerIcon } from "react-icons/ri";
-import { AiOutlineClose as CloseIcon } from "react-icons/ai";	
+import { AiOutlineClose as CloseIcon } from "react-icons/ai";
 import { header } from "data";
 // MObile nav idea
 // https://codepen.io/hexagoncircle/pen/XdoLYw?editors=1100
@@ -28,12 +28,11 @@ const Header = ({ theme, dispatch }) => {
 
 			<div className={`mobile-nav-container ${mobileNavBarOpen ? "show" : "hide"}`}>
 				<div className='mobile-nav-backdrop'>
-
 					<div className='mobile-nav'>
 						{header.navItems.map((e, i) => {
 							if (e.direct) {
 								return (
-									<a href={e.to} key={i} className='nav-link' target="_blank" rel="noopener noreferrer" >
+									<a href={e.to} key={i} className='nav-link' target='_blank' rel='noopener noreferrer'>
 										{e.label}
 									</a>
 								);
@@ -54,7 +53,7 @@ const Header = ({ theme, dispatch }) => {
 						if (e.direct) {
 							return (
 								<li className='nav-item' key={i}>
-									<a href={e.to} className='nav-link' target="_blank" rel="noopener noreferrer" >
+									<a href={e.to} className='nav-link' target='_blank' rel='noopener noreferrer'>
 										{e.label}
 									</a>
 								</li>
