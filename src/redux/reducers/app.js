@@ -20,7 +20,7 @@ export default function app(state = default_state.app, action) {
 			let new_theme = state.theme === "dark" ? "light" : "dark";
 			document.body.parentElement.classList.add(new_theme);
 			try {
-				window.localStorage.setItem("akash_theme", new_theme);
+				window.localStorage.setItem("page_theme", new_theme);
 			} catch (error) {}
 			return { ...state, theme: new_theme };
 		case SET_ERROR:

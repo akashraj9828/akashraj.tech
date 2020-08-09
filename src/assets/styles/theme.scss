@@ -4,6 +4,30 @@ $min_width: 600px;
 $max_width: 1200px;
 $min_font: 12px;
 $max_font: 16px;
+// My orignal pallete
+$white: white;
+$white-blue: #dbf1fb;
+$orignal-pink: #ff7a7a;
+$pink2: #ef596f;
+$kinda-orange: #c2723d;
+$editor-green: #89ca78;
+
+
+$editor-dark: #181a1b;
+$black: black;
+$slategrey: slategrey;
+$grey: grey;
+$brownish: #5d2727;
+$slate: #5c6370;
+
+
+// Extra colors
+$dark-blue:#232653;
+$purple:#ac88bf;
+$max-yellow:#FCFF4B;
+$yale-blue:#044389;
+$carrabean-green:#06D6A0;
+$calm-dark-blue:#383e56;
 
 html {
 	scroll-behavior: smooth;
@@ -11,9 +35,9 @@ html {
 }
 
 .dark {
-	$bg-color: #181a1b;
-	$primary-color: #ff7a7a;
-	$secondary-color: white;
+	$bg-color: $editor-dark;
+	$primary-color: $pink2;
+	$secondary-color: $white;
 
 	@import "./base.scss";
 	@import "./components.scss";
@@ -21,16 +45,16 @@ html {
 }
 
 .light {
-	$bg-color: white;
-	$primary-color: #ff7a7a;
-	$secondary-color: black;
+	$bg-color: $white;
+	$primary-color: $pink2;
+	$secondary-color: $black;
 
 	@import "./base.scss";
 	@import "./components.scss";
 	@import "./pages.scss";
 }
 
-// All themes
+// Good combo
 // pallet 1
 $bg-color: #181a1b;
 $primary-color: #ff7a7a;

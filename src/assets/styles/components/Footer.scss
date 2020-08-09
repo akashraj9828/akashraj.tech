@@ -8,8 +8,12 @@ footer {
 	text-align: center;
 	bottom: 0pt;
 	.divider {
-		border: 1px solid $primary-color;
+		border: 2px solid $primary-color;
+		border-left: unset;;
+		border-bottom: unset;;
+		border-top: unset;;
 		margin: 0 0.5em;
+		rotate: 45deg;
 	}
 	a {
 		color: $secondary-color;

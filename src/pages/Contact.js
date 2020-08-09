@@ -48,7 +48,7 @@ const Contact = ({ match }) => {
 							<Fragment>
 								<br />
 								{/* <Suspense fallback={<div>Loading...</div>}> */}
-								<TypeFormEmbed style={{ width: "100%", height: "350px", position: "relative" }} url={contact.contact_form}></TypeFormEmbed>
+								<TypeFormEmbed mode="drawer_right" style={{ width: "100%", height: "350px", position: "relative" }} url={contact.contact_form}></TypeFormEmbed>
 								{/* </Suspense> */}
 								<br />
 							</Fragment>

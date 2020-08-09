@@ -26,7 +26,7 @@ const Home = ({ match }) => {
 	return (
 		<Fragment>
 			<div className='home'>
-				<section className='part1 vh-100 center '>
+				<section className='part1 vh-100 '>
 					<div className='intro-container center'>
 						<header className='intro h1 center flex-col'>
 							<img src={MyImage} className='img img-fluid' alt={home.name} />

@@ -1,4 +1,5 @@
 export const default_state = {
+	// will use this when I'll add blog
 	user: {
 		login: false,
 		userId: "",

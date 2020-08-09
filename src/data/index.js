@@ -28,19 +28,19 @@ export const home = {
 			</span>
 			<br />
 			<span>
-				I like to make stuff.
-				<span role='img' aria-label='Coder'>
-					👨‍💻
-				</span>
-			</span>
-			<br />
-			<span>
 				Currently engineering{" "}
 				<a className='d-inline font-weight-bold' href={basic.currentCompanyLink} target=''>
 					{" "}
 					@{basic.currentCompany}{" "}
 				</a>
 				with some awesome folks.
+			</span>
+			<br />
+			<span>
+				I like to make cool stuff.
+				<span role='img' aria-label='Coder'>
+					👨‍💻
+				</span>
 			</span>
 			<br />
 			<span>
@@ -59,13 +59,13 @@ export const home = {
 };
 
 export const work = [
-	{ name: "SVG Text animation generator", img_src: require("assets/img/projects/svg text.png"), link_code: "https://github.com/akashraj9828/svg-text-animation-generator", link_live: "https://akashraj9828.github.io/svg-text-animation-generator/" },
 	{ name: "Git - Stats", img_src: require("assets/img/projects/gitstats.png"), link_code: "https://github.com/akashraj9828/gitstats", link_live: "https://gitstats.me" },
-	{ name: "COVID-19 Interactive(using React)", img_src: require("assets/img/projects/map.png"), link_code: "https://github.com/akashraj9828/COVID-19-REACT", link_live: "https://akashraj.tech/corona/interactive/" },
-	{ name: "COVID-19 Live Dashboard", img_src: require("assets/img/projects/corona.png"), link_code: "", link_live: "https://akashraj.tech/corona/world" },
+	{ name: "COVID-19 INDIA (Interactive)", img_src: require("assets/img/projects/map.png"), link_code: "https://github.com/akashraj9828/COVID-19-REACT", link_live: "https://akashraj.tech/corona/interactive/" },
+	{ name: "SVG Text animation generator", img_src: require("assets/img/projects/svg text.png"), link_code: "https://github.com/akashraj9828/svg-text-animation-generator", link_live: "https://akashraj9828.github.io/svg-text-animation-generator/" },
 	{ name: "Deep Dance(Dance by AI)", img_src: require("assets/img/projects/deep-dance.gif"), link_code: "https://github.com/akashraj9828/Deep-Dance", link_live: "" },
-	{ name: "Image 2 Sound", img_src: require("assets/img/projects/i2s.svg"), link_code: "https://github.com/akashraj9828/image2sound", link_live: "" },
 	{ name: "Information Universe", img_src: require("assets/img/projects/information-universe.png"), link_code: "https://github.com/akashraj9828/Information-Universe", link_live: "https://information-universe.herokuapp.com/" },
+	{ name: "Image 2 Sound", img_src: require("assets/img/projects/i2s.svg"), link_code: "https://github.com/akashraj9828/image2sound", link_live: "" },
+	{ name: "COVID-19 Live Dashboard", img_src: require("assets/img/projects/corona.png"), link_code: "", link_live: "https://akashraj.tech/corona/world" },
 	{ name: "Collaborative Drawing", img_src: require("assets/img/projects/col-draw.png"), link_code: "https://github.com/akashraj9828/Collaborative_Drawing", link_live: "https://col-draw.herokuapp.com/" },
 	{ name: "Weird Mirror", img_src: require("assets/img/projects/weird-mirror.gif"), link_code: "https://github.com/akashraj9828/weird-mirror", link_live: "https://akashraj9828.github.io/weird-mirror/" },
 	{ name: "Classic Snake with Speech recognition", img_src: require("assets/img/projects/snake voice.png"), link_code: "https://github.com/akashraj9828/SnakeGame-speech-recognition", link_live: "https://akashraj9828.github.io/SnakeGame-speech-recognition" },
@@ -83,7 +83,7 @@ export const resume = {
 export const contact = {
 	...basic,
 	contact_reasons: ["You need engineering help on your project.🤓", "You would like to invite me to a meetup.", "You want to recommend me a movie/TV series.📽", "You have an offer for me I cannot resist.💲💲", "You simply want to connect with me."],
-	// contact_form: "https://akashraj9828.typeform.com/to/GmMPE2",
+	contact_form: "https://akashraj9828.typeform.com/to/GmMPE2",
 	socials: [
 		{ link: "https://twitter.com/akashraj9828", img_src: require("assets/img/social/twitter.png"), name: "Twitter" },
 		{ link: "https://github.com/akashraj9828", img_src: require("assets/img/social/github.png"), name: "Github" },
@@ -95,6 +95,7 @@ export const contact = {
 };
 
 export const header = {
+	...basic,
 	navItems: [
 		{
 			label: "HOME",
