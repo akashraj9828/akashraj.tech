@@ -16,12 +16,19 @@ export default function app(state = default_state.app, action) {
 			return { ...state, help: !state.help };
 
 		case TOGGLE_THEME:
-			document.body.parentElement.classList.remove(state.theme);
 			let new_theme = state.theme === "dark" ? "light" : "dark";
-			document.body.parentElement.classList.add(new_theme);
 			try {
+				document.body.parentElement.classList.remove(state.theme);
+				document.body.parentElement.classList.add(new_theme);
 				window.localStorage.setItem("page_theme", new_theme);
-			} catch (error) {}
+				if (new_theme === "dark") {
+					document.querySelector('meta[name="theme-color"]').setAttribute("content", "#181a1b");
+				} else {
+					document.querySelector('meta[name="theme-color"]').setAttribute("content", "white");
+				}
+			} catch (error) {
+				console.error(error);
+			}
 			return { ...state, theme: new_theme };
 		case SET_ERROR:
 			return { ...state, error: value };
