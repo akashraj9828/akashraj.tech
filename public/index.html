@@ -158,10 +158,9 @@
       }
     </script>
     <script>
+      loader.classList.remove("content-loaded")
       window.onload = (e) => {
-        console.log("---: document.onload -> e", e);
         let loader = document.getElementById("loader")
-        console.log("---: document.onload -> loader", loader);
         loader.classList.add("content-loaded")
       }
     </script>
