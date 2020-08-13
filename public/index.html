@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
   <head>
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -38,79 +38,33 @@
     <title>Akash Raj</title>
 
     <style>
-      .dark .loader {
-        background-color: #181a1b;
+      .dark #loader {
+        background-color: #181a1b !important;
       }
 
-      .light .loader {
-        background-color: white;
+      .light #loader {
+        background-color: white !important;
       }
 
-      .dark .loader span {
-        background-color: white;
+      .dark #loader span {
+        background-color: white !important;
       }
 
-      .light .loader span {
-        background-color: #181a1b;
+      .light #loader span {
+        background-color: #181a1b !important;
       }
 
-      .loader {
-        display: flex;
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        z-index: 20;
-      }
-
-      .loader span {
+      #loader span {
         display: block;
         width: .5rem;
         margin: auto .25rem;
         animation: loading 1s infinite;
       }
 
-      .loader span:nth-child(1) {
-        animation-delay: .1s;
-      }
-
-      .loader span:nth-child(2) {
-        animation-delay: .2s;
-      }
-
-      .loader span:nth-child(3) {
-        animation-delay: .3s;
-      }
-
-      .loader span:nth-child(4) {
-        animation-delay: .4s;
-      }
-
-      .loader span:nth-child(5) {
-        animation-delay: .5s;
-      }
-
-      .loader span:nth-child(6) {
-        animation-delay: .6s;
-      }
-
-      .loader span:nth-child(7) {
-        animation-delay: .7s;
-      }
-
-      .loader span:nth-child(8) {
-        animation-delay: .8s;
-      }
-
-      .loader span:nth-child(9) {
-        animation-delay: .9s;
-      }
-
-      .loader.content-loaded {
-        opacity: 0;
-        z-index: -1;
-        transition: .5s;
+      #loader.content-loaded {
+        opacity: 0 !important;
+        z-index: -1 !important;
+        transition: .5s !important;
       }
 
       @keyframes loading {
@@ -134,18 +88,18 @@
 
   </head>
 
-  <body>
+  <body style="margin: 0;">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="loader" class="loader">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
+    <div id="loader" style="display: flex;position: fixed;width: 100vw;height: 100vh;justify-content: center;align-items: center;z-index: 20;background: white;" >
+      <span style="animation-delay:.1s;background:#181a1b;"></span>
+      <span style="animation-delay:.2s;background:#181a1b;"></span>
+      <span style="animation-delay:.3s;background:#181a1b;"></span>
+      <span style="animation-delay:.4s;background:#181a1b;"></span>
+      <span style="animation-delay:.5s;background:#181a1b;"></span>
+      <span style="animation-delay:.6s;background:#181a1b;"></span>
+      <span style="animation-delay:.7s;background:#181a1b;"></span>
+      <span style="animation-delay:.8s;background:#181a1b;"></span>
+      <span style="animation-delay:.9s;background:#181a1b;"></span>
     </div>
     <div id="root"></div>
     <script>
@@ -160,9 +114,9 @@
         let loader = document.getElementById("loader")
         // this prevents capturing the fully loaded state when using react-snapshot to generate static pages
         // this will run if host is no localhost or if env is not prodution
-        if(location.hostname!=="localhost" || "%NODE_ENV%" !== "production"){
-          loader.classList.add("content-loaded")
-        }
+        // if (location.hostname !== "localhost" || "%NODE_ENV%" !== "production") {
+        loader.classList.add("content-loaded")
+        // }
       }
     </script>
   </body>
