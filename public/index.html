@@ -156,12 +156,13 @@
         c.src = "https://akashraj.tech/js/a.js";
         k.appendChild(c);
       }
-    </script>
-    <script>
-      loader.classList.remove("content-loaded")
       window.onload = (e) => {
         let loader = document.getElementById("loader")
-        loader.classList.add("content-loaded")
+        // this prevents capturing the fully loaded state when using react-snapshot to generate static pages
+        // this will run if host is no localhost or if env is not prodution
+        if(location.hostname!=="localhost" || "%NODE_ENV%" !== "production"){
+          loader.classList.add("content-loaded")
+        }
       }
     </script>
   </body>
