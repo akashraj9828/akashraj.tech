@@ -24,7 +24,6 @@ $max-yellow: #fcff4b;
 $yale-blue: #044389;
 $carrabean-green: #06d6a0;
 $calm-dark-blue: #383e56;
-
 html {
 	$min_width: 600px;
 	$max_width: 1200px;
@@ -34,7 +33,11 @@ html {
 	@include fluid-type(600px, 1200px, 12px, 18px);
 }
 
-
+// for mozilla
+* {
+	scrollbar-width: thin;
+	scrollbar-color: $pink2 transparent;
+}
 .dark {
 	$bg-color: $editor-dark;
 	$primary-color: $pink2;

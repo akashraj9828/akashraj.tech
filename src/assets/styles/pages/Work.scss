@@ -11,6 +11,9 @@
 		background-color: transparentize($color: $secondary-color, $amount: 0.9);
 	}
 	.projects {
+		overflow-y: auto;
+		overscroll-behavior-y: contain;
+		scroll-snap-type: y mandatory;
 		font-size: 1.25rem;
 		@media only screen and (max-width: 600px) {
 			font-size: 1.5rem;
@@ -22,6 +25,7 @@
 		justify-content: center;
 		$size: 10em;
 		figure {
+			scroll-snap-align: center;
 			border-radius: 50%;
 			margin: 1em auto;
 			text-align: center;
