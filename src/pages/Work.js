@@ -4,6 +4,8 @@ import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 /* ICONS */
 import { FiGithub as GithubIcon, FiLink as LinkIcon } from "react-icons/fi";
+/* HOOKS */
+import { useTitle } from "react-use";
 /* DATA */
 import { work } from "data";
 
@@ -23,7 +25,7 @@ const Work = ({ match }) => {
 					<header className='mt-5'>Projects</header>
 				</section>
 				<section className='projects'>
-					{work.map((e, i) => (
+					{work.projects.map((e, i) => (
 						<Fragment key={i}>{Project(e)}</Fragment>
 					))}
 				</section>
@@ -40,6 +42,7 @@ export default connect(mapStateToProps, null)(Work);
 
 // Projects component
 const Project = ({ name, img_src, link_code, link_live }) => {
+	useTitle(work.title)
 	if (link_live) link_live = link_live + "?ref=akashraj.tech/work";
 	return (
 		<figure>

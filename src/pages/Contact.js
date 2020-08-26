@@ -4,10 +4,13 @@ import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 /* COMPONENTS */
 import TypeFormEmbed from "components/TypeFormEmbed";
+/* HOOKS */
+import { useTitle } from "react-use";
 /* DATA */
 import { contact } from "data";
 
 const Contact = () => {
+	useTitle(contact.title)
 	useEffect(() => {
 		if (process.env.NODE_ENV === "development") {
 			// some stuff    to do in dev

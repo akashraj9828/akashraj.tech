@@ -25,6 +25,7 @@ export const App = () => {
 									<CSSTransition key={pathname.split("/")[1] || "/"} timeout={{ enter: 300, exit: 200 }} classNames='fade'>
 										<Switch>
 											<Route path='/' exact component={Home} />
+											<Route path='/lab' exact component={Work} />
 											<Route path='/work' exact component={Work} />
 											<Route path='/resume' exact component={Resume} />
 											<Route path='/contact' exact component={Contact} />

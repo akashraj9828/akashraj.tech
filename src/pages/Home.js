@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 /* REDUX */
 import { connect } from "react-redux";
 
+/* HOOKS */
+import { useTitle } from "react-use";
+
 /* ICONS */
 import MyImage from "assets/img/me.png";
 import Rocket from "assets/img/rocket.png";
@@ -15,6 +18,7 @@ import Rocket from "assets/img/rocket.png";
 import { home } from "data";
 
 const Home = () => {
+	useTitle(home.title)
 	const part2 = useRef(null);
 	useEffect(() => {
 		if (process.env.NODE_ENV === "development") {
