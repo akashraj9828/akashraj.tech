@@ -13,7 +13,7 @@ import { resume } from "data";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Resume = ({ theme }) => {
-	useTitle(resume.title)
+	useTitle(resume.title);
 	const { width } = useWindowSize();
 	return (
 		<div className='resume'>

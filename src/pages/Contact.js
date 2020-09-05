@@ -10,7 +10,7 @@ import { useTitle } from "react-use";
 import { contact } from "data";
 
 const Contact = () => {
-	useTitle(contact.title)
+	useTitle(contact.title);
 	useEffect(() => {
 		if (process.env.NODE_ENV === "development") {
 			// some stuff    to do in dev

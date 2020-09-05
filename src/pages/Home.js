@@ -18,7 +18,7 @@ import Rocket from "assets/img/rocket.png";
 import { home } from "data";
 
 const Home = () => {
-	useTitle(home.title)
+	useTitle(home.title);
 	const part2 = useRef(null);
 	useEffect(() => {
 		if (process.env.NODE_ENV === "development") {

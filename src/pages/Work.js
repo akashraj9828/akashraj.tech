@@ -42,7 +42,7 @@ export default connect(mapStateToProps, null)(Work);
 
 // Projects component
 const Project = ({ name, img_src, link_code, link_live }) => {
-	useTitle(work.title)
+	useTitle(work.title);
 	if (link_live) link_live = link_live + "?ref=akashraj.tech/work";
 	return (
 		<figure>
