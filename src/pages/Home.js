@@ -59,7 +59,7 @@ const Home = () => {
 						<p className='bio center'>{home.full_intro}</p>
 					</div>
 					<div className='center flex-wrap'>
-						<Link className='button-cta' to='/work'>
+						<Link className='button-cta' to='/lab'>
 							Projects
 						</Link>
 						<Link className='button-cta' to='/resume'>
