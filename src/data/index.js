@@ -3,6 +3,11 @@ import React, { Fragment } from "react";
 import ResumeLight from "assets/doc/resume_light.pdf";
 import ResumeDark from "assets/doc/resume_dark.pdf";
 
+import { HiHome as IconHome } from "react-icons/hi";
+import { AiOutlineExperiment as IconLab } from "react-icons/ai";
+import { ImStatsBars as IconStats } from "react-icons/im";
+import { RiContactsLine as IconContact } from "react-icons/ri";
+
 /* BASIC DATA */
 export const basic = {
 	name: "Akash Raj",
@@ -10,6 +15,7 @@ export const basic = {
 	lastName: "Raj",
 	email: "akashraj9828@gmail.com",
 	github: "akashraj9828",
+	internet_alias: "akashraj9828",
 	website: "akashraj.tech",
 	fullWebsite: "https://akashraj.tech",
 	currentCompany: "Snap2Insight",
@@ -23,23 +29,28 @@ export const header = {
 		{
 			label: "HOME",
 			to: "/",
+			icon: <IconHome />,
 		},
 		{
 			label: "LAB",
 			to: "/lab",
+			icon: <IconLab />,
 		},
 		{
 			label: "STATS",
 			to: `https://gitstats.me/${basic.github}?ref=${basic.website}`,
+			icon: <IconStats />,
 			direct: true,
 		},
 		// {
 		// 	label: "HIRE ME",
 		// 	to: "/resume",
+		// icon:,
 		// },
 		{
 			label: "CONTACT",
 			to: "/contact",
+			icon: <IconContact />,
 		},
 	],
 };

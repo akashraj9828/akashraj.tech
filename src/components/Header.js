@@ -14,10 +14,11 @@ import { RiMenuLine as HamburgerIcon } from "react-icons/ri";
 import { AiOutlineClose as CloseIcon } from "react-icons/ai";
 
 /* DATA */
-import { header } from "data";
+import { header, home } from "data";
+import MyImage from "assets/img/me.png";
 
 const Header = ({ theme, dispatch }) => {
-	const [mobileNavBarOpen, setMobileNavBarOpen] = useState(false);
+	const [mobileNavBarOpen, setMobileNavBarOpen] = useState(true);
 	return (
 		<nav className={`navbar navbar-expand-md px-4 pb-3 pt-0`}>
 			<Link className='navbar-brand halucinate' to='/'>
@@ -26,18 +27,22 @@ const Header = ({ theme, dispatch }) => {
 
 			<div className={`mobile-nav-container ${mobileNavBarOpen ? "show" : "hide"}`}>
 				<div className='mobile-nav-backdrop'>
+
 					<div className='mobile-nav'>
+						<img src={MyImage} className='img img-fluid img-thumb img-round' alt={home.name} />
+						<span class="name">{home.name}</span>
+						<span class="alias" >@{home.internet_alias}</span>
 						{header.navItems.map((e, i) => {
 							if (e.direct) {
 								return (
 									<a href={e.to} key={i} className='nav-link' target='_blank' rel='noopener noreferrer'>
-										{e.label}
+									<span className="mr-3"> {e.icon} </span>	{e.label}
 									</a>
 								);
 							} else {
 								return (
 									<NavLink to={e.to} key={i} className='nav-link' activeClassName='active' exact={true} onClick={() => setMobileNavBarOpen(false)}>
-										{e.label}
+										<span className="mr-3"> {e.icon} </span>	{e.label}
 									</NavLink>
 								);
 							}
