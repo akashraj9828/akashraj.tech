@@ -27,9 +27,16 @@
 		margin: 0.5rem 0 0 0;
 		padding: 0.5rem 1rem;
 		padding-top: 0;
+		color: transparentize($color: $secondary-color, $amount: 0.4) !important;
+		.icon{
+			visibility: hidden;
+		}
 		&.active {
 			border-bottom: 0.1rem solid $primary-color;
 			color: $primary-color !important;
+			.icon{
+				visibility: visible;
+			}
 		}
 	}
 
@@ -65,29 +72,45 @@
 		left: 0;
 		z-index: 2;
 		$animation-duration: 0.3s;
+		.nav-link{
+			padding: 0.5rem 0rem;
+		}
 		.mobile-nav{
-			padding: 2rem;
+			padding: 0rem 2rem;
+			letter-spacing: .2rem;
+			position: absolute;
+			top: 15%;
+		}
+		.img-thumb{
+			width: 10rem;
+			height: 10rem;
+		}
+		
+		.img-round{
+			border-radius: 50%;
 		}
 		.name{
-			font-size: 2rem;
+			font-size: 3rem;
 			display: block;
 		}
 		.alias{
-			font-size: 1rem;
+			font-size: 1.2rem;
 			display: block;
-			opacity: .3;
+			opacity: .6;
 			margin-bottom: 3rem;
+			letter-spacing: normal;
 		}
 
 		.mobile-nav-backdrop {
 			transition: $animation-duration;
 			opacity: 1;
 			display: flex;
-			justify-content: right;
+			justify-content: center;
 			align-items: center;
 			position: absolute;
 			width: 100vw;
 			height: 100vh;
+			overflow: auto;
 			background: complement($color: $bg-color);
 			// backdrop-filter: blur(20px) brightness(.5);
 			a {

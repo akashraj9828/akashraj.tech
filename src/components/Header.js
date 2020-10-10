@@ -18,7 +18,7 @@ import { header, home } from "data";
 import MyImage from "assets/img/me.png";
 
 const Header = ({ theme, dispatch }) => {
-	const [mobileNavBarOpen, setMobileNavBarOpen] = useState(true);
+	const [mobileNavBarOpen, setMobileNavBarOpen] = useState(false);
 	return (
 		<nav className={`navbar navbar-expand-md px-4 pb-3 pt-0`}>
 			<Link className='navbar-brand halucinate' to='/'>
@@ -28,8 +28,8 @@ const Header = ({ theme, dispatch }) => {
 			<div className={`mobile-nav-container ${mobileNavBarOpen ? "show" : "hide"}`}>
 				<div className='mobile-nav-backdrop'>
 
-					<div className='mobile-nav'>
-						<img src={MyImage} className='img img-fluid img-thumb img-round' alt={home.name} />
+					<div className='mobile-nav ml-4 w-100'>
+						<img src={MyImage} className='img img-fluid img-thumb img-round mb-2' alt={home.name} />
 						<span class="name">{home.name}</span>
 						<span class="alias" >@{home.internet_alias}</span>
 						{header.navItems.map((e, i) => {
@@ -57,7 +57,7 @@ const Header = ({ theme, dispatch }) => {
 							return (
 								<li className='nav-item' key={i}>
 									<a href={e.to} className='nav-link' target='_blank' rel='noopener noreferrer'>
-										{e.label}
+									<span className="icon mr-3"> {e.icon} </span>{e.label}
 									</a>
 								</li>
 							);
@@ -65,7 +65,7 @@ const Header = ({ theme, dispatch }) => {
 							return (
 								<li className='nav-item' key={i}>
 									<NavLink to={e.to} className='nav-link' activeClassName='active' exact={true}>
-										{e.label}
+									<span className="icon mr-3"> {e.icon} </span>{e.label}
 									</NavLink>
 								</li>
 							);
