@@ -3,6 +3,14 @@ import React, { Fragment } from "react";
 import ResumeLight from "assets/doc/resume_light.pdf";
 import ResumeDark from "assets/doc/resume_dark.pdf";
 
+// import { BiHome as IconHome } from "react-icons/bi";
+// import { VscHome as IconHome } from "react-icons/vsc";
+import { RiHomeLine as IconHome } from "react-icons/ri";
+import { AiOutlineExperiment as IconLab } from "react-icons/ai";
+import { ImStatsBars as IconStats } from "react-icons/im";
+import { RiContactsLine as IconContact } from "react-icons/ri";
+import { GiTakeMyMoney as IconHire } from "react-icons/gi";
+
 /* BASIC DATA */
 export const basic = {
 	name: "Akash Raj",
@@ -10,10 +18,12 @@ export const basic = {
 	lastName: "Raj",
 	email: "akashraj9828@gmail.com",
 	github: "akashraj9828",
+	internet_alias: "akashraj9828",
 	website: "akashraj.tech",
 	fullWebsite: "https://akashraj.tech",
 	currentCompany: "Snap2Insight",
 	currentCompanyLink: "https://snap2insight.com",
+	dob:new Date(1998,11,2), // for age calculation // month is 0 indexed so JAN=0
 };
 
 /* DATA FOR HEADER / NAVBAR */
@@ -23,23 +33,28 @@ export const header = {
 		{
 			label: "HOME",
 			to: "/",
+			icon: <IconHome />,
 		},
 		{
 			label: "LAB",
 			to: "/lab",
+			icon: <IconLab />,
 		},
 		{
 			label: "STATS",
 			to: `https://gitstats.me/${basic.github}?ref=${basic.website}`,
+			icon: <IconStats />,
 			direct: true,
 		},
-		// {
-		// 	label: "HIRE ME",
-		// 	to: "/resume",
-		// },
+		{
+			label: "HIRE ME",
+			to: "/resume",
+			icon: <IconHire />,
+		},
 		{
 			label: "CONTACT",
 			to: "/contact",
+			icon: <IconContact />,
 		},
 	],
 };
@@ -56,7 +71,7 @@ export const home = {
 				<span role='img' aria-label='Peace'>
 					✌️
 				</span>{" "}
-				, a 21 year old Full Stack Developer.
+				, a { (new Date() - basic.dob)/1000/60/60/24/365 >> 0 } year old Full Stack Developer.
 			</span>
 			<br />
 			<span>

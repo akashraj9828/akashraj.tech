@@ -14,7 +14,8 @@ import { RiMenuLine as HamburgerIcon } from "react-icons/ri";
 import { AiOutlineClose as CloseIcon } from "react-icons/ai";
 
 /* DATA */
-import { header } from "data";
+import { header, home } from "data";
+import MyImage from "assets/img/me.png";
 
 const Header = ({ theme, dispatch }) => {
 	const [mobileNavBarOpen, setMobileNavBarOpen] = useState(false);
@@ -26,18 +27,22 @@ const Header = ({ theme, dispatch }) => {
 
 			<div className={`mobile-nav-container ${mobileNavBarOpen ? "show" : "hide"}`}>
 				<div className='mobile-nav-backdrop'>
-					<div className='mobile-nav'>
+
+					<div className='mobile-nav ml-4 w-100'>
+						<img src={MyImage} className='img img-fluid img-thumb img-round mb-2' alt={home.name} />
+						<span class="name">{home.name}</span>
+						<span class="alias" >@{home.internet_alias}</span>
 						{header.navItems.map((e, i) => {
 							if (e.direct) {
 								return (
 									<a href={e.to} key={i} className='nav-link' target='_blank' rel='noopener noreferrer'>
-										{e.label}
+									<span className="mr-3"> {e.icon} </span>	{e.label}
 									</a>
 								);
 							} else {
 								return (
 									<NavLink to={e.to} key={i} className='nav-link' activeClassName='active' exact={true} onClick={() => setMobileNavBarOpen(false)}>
-										{e.label}
+										<span className="mr-3"> {e.icon} </span>	{e.label}
 									</NavLink>
 								);
 							}
@@ -52,7 +57,7 @@ const Header = ({ theme, dispatch }) => {
 							return (
 								<li className='nav-item' key={i}>
 									<a href={e.to} className='nav-link' target='_blank' rel='noopener noreferrer'>
-										{e.label}
+									<span className="icon mr-3"> {e.icon} </span>{e.label}
 									</a>
 								</li>
 							);
@@ -60,7 +65,7 @@ const Header = ({ theme, dispatch }) => {
 							return (
 								<li className='nav-item' key={i}>
 									<NavLink to={e.to} className='nav-link' activeClassName='active' exact={true}>
-										{e.label}
+									<span className="icon mr-3"> {e.icon} </span>{e.label}
 									</NavLink>
 								</li>
 							);
