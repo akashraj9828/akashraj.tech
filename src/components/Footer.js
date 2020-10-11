@@ -4,15 +4,17 @@ import React from "react";
 import { connect } from "react-redux";
 /* DATA */
 import { footer } from "data";
+import { AiOutlineCopyright as IconCopyright } from "react-icons/ai";
+import { RiCodeSSlashFill as IconCode } from "react-icons/ri";
 const Footer = ({ theme, dispatch }) => {
 	return (
 		<footer>
 			<a href={footer.fullWebsite} target='_blank' rel='noopener noreferrer'>
-				©{new Date().getFullYear()} {footer.name}
+				<IconCopyright/> {footer.name}
 			</a>
 			<span className='divider'></span>
 			<a href={footer.sourceCodeUrl} target='_blank' rel='noopener noreferrer'>
-				Source Code
+				<IconCode/> Source Code
 			</a>
 		</footer>
 	);
