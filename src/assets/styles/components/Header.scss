@@ -30,12 +30,14 @@
 		color: transparentize($color: $secondary-color, $amount: 0.4) !important;
 		.icon{
 			visibility: hidden;
+			// opacity: 0;
 		}
 		&.active {
 			border-bottom: 0.1rem solid $primary-color;
 			color: $primary-color !important;
 			.icon{
 				visibility: visible;
+				// opacity: 1;
 			}
 		}
 	}

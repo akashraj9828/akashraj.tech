@@ -53,7 +53,7 @@
 
 				box-shadow: 0px 0px 20px 2px transparentize($color: $primary-color, $amount: 0.7);
 				&:hover {
-					rotate: 15deg;
+					transform: rotate(15deg);
 					box-shadow: 0px 0px 20px 6px transparentize($color: $primary-color, $amount: 0);
 					transition: 0.2s;
 				}

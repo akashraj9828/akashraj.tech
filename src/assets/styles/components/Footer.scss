@@ -13,7 +13,7 @@ footer {
 		border-bottom: unset;
 		border-top: unset;
 		margin: 0 0.5em;
-		rotate: 45deg;
+		transform: rotate(45deg);
 	}
 	a {
 		color: $secondary-color;
