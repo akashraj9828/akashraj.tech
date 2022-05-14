@@ -139,7 +139,7 @@ export const contact = {
 	...basic,
 	title: "Akash Raj - Contact",
 	contact_reasons: ["You need engineering help on your project.🤓", "You would like to invite me to a meetup.", "You want to recommend me a movie/TV series.📽", "You have an offer for me I cannot resist.💲💲", "You simply want to connect with me."],
-	contact_form: "https://akashraj9828.typeform.com/to/GmMPE2",
+	contact_form: "https://form.typeform.com/to/pMV7SzcQ",
 	socials: [
 		{ link: "https://twitter.com/akashraj9828", img_src: require("assets/img/social/twitter.png"), name: "Twitter" },
 		{ link: "https://github.com/akashraj9828", img_src: require("assets/img/social/github.png"), name: "Github" },
