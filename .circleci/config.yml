@@ -5,7 +5,7 @@ orbs:
 jobs:
   build-publish:
     docker:
-      - image: cimg/node:14
+      - image: cimg/node:14.19
     steps:
       - checkout
       - node/install-packages:
