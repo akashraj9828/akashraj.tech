@@ -1,0 +1,26 @@
+version: 2.1 
+orbs:
+  node: circleci/node@4.7
+
+jobs:
+  build-publish:
+    docker:
+      - image: cimg/node:14.19
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Build App
+          command: CI=false yarn build
+      - run:
+          name: Deploy
+          command: CI=false bash ./deploy.sh
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - build-publish:
+        filters:
+          branches:
+            only: master
