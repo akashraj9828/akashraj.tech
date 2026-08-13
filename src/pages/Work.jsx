@@ -11,7 +11,7 @@ import { work } from "data";
 
 const Work = ({ match }) => {
 	useEffect(() => {
-		if (process.env.NODE_ENV === "development") {
+		if (import.meta.env.DEV) {
 			// some stuff    to do in dev
 			window.scrollTo(0, 0);
 		}

@@ -4,13 +4,14 @@ import React from "react";
 import { connect } from "react-redux";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
 /* HOOKS */
 import { useWindowSize } from "react-use";
 import { useTitle } from "react-use";
 /* DATA */
 import { resume } from "data";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.min.mjs", import.meta.url).toString();
 
 const Resume = ({ theme }) => {
 	useTitle(resume.title);

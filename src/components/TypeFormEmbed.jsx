@@ -2,7 +2,8 @@
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import * as typeformEmbed from "@typeform/embed";
+import { createPopup, createWidget } from "@typeform/embed";
+import "@typeform/embed/build/css/widget.css";
 
 const styleDefault = {
 	position: "absolute",
@@ -16,6 +17,7 @@ const styleDefault = {
 class TypeFormEmbed extends Component {
 	componentDidMount() {
 		const { url, hideHeaders, hideFooter, opacity, buttonText, popup, mode, autoOpen, autoClose, onSubmit } = this.props;
+		const formId = url.split("/").filter(Boolean).pop();
 
 		const options = {
 			hideHeaders,
@@ -31,15 +33,19 @@ class TypeFormEmbed extends Component {
 		// Popup Mode
 		if (popup) {
 			// Load Typeform embed popup
-			this.typeform = typeformEmbed.makePopup(url, options);
+			this.typeform = createPopup(formId, options);
 
 			// Widget Mode (default)
 		} else {
 			const elm = this.typeformElm;
 
 			// Load Typeform embed widget
-			typeformEmbed.makeWidget(elm, url, options);
+			this.typeform = createWidget(formId, { ...options, container: elm });
 		}
+	}
+
+	componentWillUnmount() {
+		this.typeform?.unmount?.();
 	}
 
 	render() {

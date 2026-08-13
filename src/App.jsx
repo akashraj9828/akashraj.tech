@@ -1,0 +1,52 @@
+import React, { useRef } from "react";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import { connect } from "react-redux";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+/* COMPONENTS */
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+/* PAGES */
+import Home from "./pages/Home";
+import Work from "./pages/Work";
+import Resume from "./pages/Resume";
+import Contact from "./pages/Contact";
+
+const AnimatedRoutes = () => {
+	const location = useLocation();
+	const nodeRef = useRef(null);
+
+	return (
+		<TransitionGroup component={null}>
+			<CSSTransition nodeRef={nodeRef} key={location.pathname.split("/")[1] || "/"} timeout={{ enter: 300, exit: 200 }} classNames='fade'>
+				<div ref={nodeRef}><Routes location={location}>
+					<Route path='/' element={<Home />} />
+					<Route path='/lab' element={<Work />} />
+					<Route path='/work' element={<Work />} />
+					<Route path='/resume' element={<Resume />} />
+					<Route path='/contact' element={<Contact />} />
+					<Route path='*' element={<>404 Page not found</>} />
+				</Routes></div>
+			</CSSTransition>
+		</TransitionGroup>
+	);
+};
+
+export const App = () => {
+	return (
+		<div className={`App`}>
+			<Router>
+				<Header />
+				<div className='main-content'><AnimatedRoutes /></div>
+				<Footer />
+			</Router>
+		</div>
+	);
+};
+
+const mapStateToProps = (state) => {
+	// let { app } = state;
+	// return { theme:app.theme };
+	return {};
+};
+
+export default connect(mapStateToProps, null)(App);
