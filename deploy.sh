@@ -1,9 +1,16 @@
-rm -rf build/
-yarn install
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+: "${ENC_KEY:?ENC_KEY is required}"
+: "${USER:?USER is required}"
+: "${SERVER:?SERVER is required}"
+
 yarn build:snap
-openssl aes-256-cbc -a -d -in key.pem.enc -out key.pem -k $ENC_KEY
-chmod 600 key.pem
-# clear old files
-# ssh -o StrictHostKeyChecking=no -i key.pem -p 65002 $USER@$SERVER "rm -rf domains/akashraj.tech/public_html/static/*"
-# upload build files
-scp -o  StrictHostKeyChecking=no -P 65002 -i key.pem  -r build/* $USER@$SERVER:domains/akashraj.tech/public_html/
+
+key_file="$(mktemp)"
+trap 'rm -f "$key_file"' EXIT
+openssl aes-256-cbc -a -d -in key.pem.enc -out "$key_file" -pass env:ENC_KEY
+chmod 600 "$key_file"
+
+scp -o StrictHostKeyChecking=no -P 65002 -i "$key_file" -r build/* "$USER@$SERVER:domains/akashraj.tech/public_html/"

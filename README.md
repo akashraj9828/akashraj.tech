@@ -37,6 +37,17 @@ Prettify the code
 
 Analyze the build bundle
 
+## Deployment
+
+Pushes to `master` deploy through GitHub Actions. The `Deploy` workflow can also
+be started manually from the Actions tab.
+
+Configure these repository secrets before running the workflow:
+
+- `ENC_KEY`: password used to decrypt `key.pem.enc`
+- `USER`: SSH user for the production server
+- `SERVER`: production server hostname
+
 > ## Samples.
 
 - ### Nav
