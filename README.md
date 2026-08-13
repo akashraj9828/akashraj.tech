@@ -44,7 +44,7 @@ be started manually from the Actions tab.
 
 Configure these repository secrets before running the workflow:
 
-- `ENC_KEY`: password used to decrypt `key.pem.enc`
+- `ENC_KEY`: password used to decrypt `id_rsa.enc`
 - `USER`: SSH user for the production server
 - `SERVER`: production server hostname
 

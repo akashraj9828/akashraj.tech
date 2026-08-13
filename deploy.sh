@@ -36,8 +36,19 @@ cleanup() {
 trap cleanup EXIT
 
 log "Decrypting the SSH key into a temporary file"
-openssl aes-256-cbc -a -d -in key.pem.enc -out "$key_file" -pass env:ENC_KEY
+openssl enc -d -aes-256-cbc \
+    -pbkdf2 \
+    -iter 100000 \
+    -in id_rsa.enc \
+    -out "$key_file" \
+    -pass env:ENC_KEY
 chmod 600 "$key_file"
+
+if ! ssh-keygen -y -f "$key_file" >/dev/null 2>&1; then
+    log "ERROR: Decrypted file is not a valid SSH private key"
+    exit 1
+fi
+
 log "SSH key is ready"
 
 if [[ "$dry_run" == true ]]; then
