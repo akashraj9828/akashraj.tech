@@ -55,21 +55,29 @@ const Header = ({ theme, dispatch }) => {
 		if (soundEnabled) play("toggle");
 		toggleSound();
 	};
-	const renderItems = (className, onNavigate) => header.navItems.map((item, index) => {
-		const contents = <><span className='nav-icon' aria-hidden='true'>{item.icon}</span><span>{item.label}</span></>;
-		if (item.direct) {
-			return (
-				<a href={item.to} key={index} className={className} target='_blank' rel='noopener noreferrer' onClick={onNavigate}>
-					{contents}
-				</a>
+	const renderItems = (className, onNavigate) =>
+		header.navItems.map((item, index) => {
+			const contents = (
+				<>
+					<span className='nav-icon' aria-hidden='true'>
+						{item.icon}
+					</span>
+					<span>{item.label}</span>
+				</>
 			);
-		}
-		return (
-			<NavLink to={item.to} key={index} end className={({ isActive }) => `${className}${isActive ? " active" : ""}`} onClick={onNavigate}>
-				{contents}
-			</NavLink>
-		);
-	});
+			if (item.direct) {
+				return (
+					<a href={item.to} key={index} className={className} target='_blank' rel='noopener noreferrer' onClick={onNavigate}>
+						{contents}
+					</a>
+				);
+			}
+			return (
+				<NavLink to={item.to} key={index} end className={({ isActive }) => `${className}${isActive ? " active" : ""}`} onClick={onNavigate}>
+					{contents}
+				</NavLink>
+			);
+		});
 
 	return (
 		<header className='site-header'>
@@ -78,26 +86,35 @@ const Header = ({ theme, dispatch }) => {
 					<img id='logo' src={logo} alt='' />
 				</Link>
 
-				<div className='desktop-navigation'>{renderItems('nav-link', navigate)}</div>
+				<div className='desktop-navigation'>{renderItems("nav-link", navigate)}</div>
 
 				<div className='header-actions'>
 					<button className='theme-changer' type='button' onClick={handleThemeChange} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}>
 						{theme === "dark" ? <LightModeIcon aria-hidden='true' /> : <DarkModeIcon aria-hidden='true' />}
 					</button>
-					<button className='sound-changer' type='button' onClick={handleSoundToggle} aria-pressed={soundEnabled} aria-label={soundEnabled ? 'Mute interface sounds' : 'Enable interface sounds'}>
+					<button className='sound-changer' type='button' onClick={handleSoundToggle} aria-pressed={soundEnabled} aria-label={soundEnabled ? "Mute interface sounds" : "Enable interface sounds"}>
 						{soundEnabled ? <SoundOnIcon aria-hidden='true' /> : <SoundOffIcon aria-hidden='true' />}
 					</button>
-					<button ref={menuButton} className='navbar-toggler' onClick={handleMenuToggle} type='button' aria-expanded={menuOpen} aria-controls='mobile-navigation' aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}>
+					<button ref={menuButton} className='navbar-toggler' onClick={handleMenuToggle} type='button' aria-expanded={menuOpen} aria-controls='mobile-navigation' aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}>
 						{menuOpen ? <CloseIcon aria-hidden='true' /> : <HamburgerIcon aria-hidden='true' />}
 					</button>
 				</div>
 			</nav>
 
-			<div id='mobile-navigation' className={`mobile-nav-container${menuOpen ? ' is-open' : ''}`} aria-hidden={!menuOpen}>
-				<button className='mobile-nav-backdrop' type='button' tabIndex={menuOpen ? 0 : -1} aria-label='Close navigation menu' onClick={() => { play("toggle"); closeMenu(); }} />
+			<div id='mobile-navigation' className={`mobile-nav-container${menuOpen ? " is-open" : ""}`} aria-hidden={!menuOpen}>
+				<button
+					className='mobile-nav-backdrop'
+					type='button'
+					tabIndex={menuOpen ? 0 : -1}
+					aria-label='Close navigation menu'
+					onClick={() => {
+						play("toggle");
+						closeMenu();
+					}}
+				/>
 				<div className='mobile-nav' role='dialog' aria-modal='true' aria-label='Navigation menu'>
 					<p className='mobile-nav-label'>Navigate</p>
-					{renderItems('nav-link', navigate)}
+					{renderItems("nav-link", navigate)}
 				</div>
 			</div>
 		</header>

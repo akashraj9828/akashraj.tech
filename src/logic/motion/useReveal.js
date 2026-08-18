@@ -13,12 +13,15 @@ export const useReveal = ({ delay = 0, threshold = 0.12 } = {}) => {
 			return undefined;
 		}
 		if (!node) return undefined;
-		const observer = new IntersectionObserver(([entry]) => {
-			if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
-				setVisible(true);
-				observer.disconnect();
-			}
-		}, { threshold, rootMargin: "0px 0px -6%" });
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+					setVisible(true);
+					observer.disconnect();
+				}
+			},
+			{ threshold, rootMargin: "0px 0px -6%" },
+		);
 		observer.observe(node);
 		return () => observer.disconnect();
 	}, [node, reducedMotion, threshold]);

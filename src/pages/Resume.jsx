@@ -80,8 +80,16 @@ const Resume = () => {
 			<div ref={actionsReveal.ref} style={actionsReveal.style} className={`resume-actions ${actionsReveal.className}`} aria-label='Resume actions'>
 				<p>Interested in working together?</p>
 				<div className='resume-action-buttons'>
-					<Link className='resume-contact-button' to='/contact' onClick={() => play("navigate")}>Contact</Link>
-					<button type='button' onClick={() => { play("toggle"); window.print(); }} aria-label='Print resume or save it as a PDF'>
+					<Link className='resume-contact-button' to='/contact' onClick={() => play("navigate")}>
+						Contact
+					</Link>
+					<button
+						type='button'
+						onClick={() => {
+							play("toggle");
+							window.print();
+						}}
+						aria-label='Print resume or save it as a PDF'>
 						Print / save as PDF
 					</button>
 				</div>
@@ -113,13 +121,7 @@ const Resume = () => {
 							const ProfileIcon = profileIcons[profile.network] || FiGlobe;
 
 							return (
-								<a
-									key={profile.network}
-									href={profile.url}
-									target='_blank'
-									rel='noreferrer'
-									aria-label={`${profile.network}: ${profile.username}`}
-								>
+								<a key={profile.network} href={profile.url} target='_blank' rel='noreferrer' aria-label={`${profile.network}: ${profile.username}`}>
 									<ProfileIcon aria-hidden='true' />
 									{profile.username}
 								</a>

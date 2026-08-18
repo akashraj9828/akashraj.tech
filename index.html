@@ -1,125 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="dark">
+	<head>
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="theme-color" content="#00000" />
+		<link rel="apple-touch-icon" href="/logo192.png" />
+		<link rel="manifest" href="/manifest.json" />
 
-  <head>
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="theme-color" content="#00000" />
-    <link rel="apple-touch-icon" href="/logo192.png" />
-    <link rel="manifest" href="/manifest.json" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="google-site-verification" content="rw54bpenR98e5ARo_4TKtdk53H2E2khgrpXArY-wEwY" />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="google-site-verification" content="rw54bpenR98e5ARo_4TKtdk53H2E2khgrpXArY-wEwY" />
+		<!-- Primary Meta Tags -->
+		<meta name="author" content="Akash Raj" />
+		<meta name="Description" content="It's me Akash✌️, a student and a computer enthusiast.I like to make stuff." />
+		<meta name="Keywords" content="akash,raj,akashraj,akash raj,akashraj9828,akashraj.exe,tech,computer engineer,computer science,full stack,developer,front end,backend,programmer,machine learning,AI" />
 
-    <!-- Primary Meta Tags -->
-    <meta name="author" content="Akash Raj">
-    <meta name="Description" content="It's me Akash✌️, a student and a computer enthusiast.I like to make stuff.">
-    <meta name="Keywords"
-      content="akash,raj,akashraj,akash raj,akashraj9828,akashraj.exe,tech,computer engineer,computer science,full stack,developer,front end,backend,programmer,machine learning,AI">
+		<!-- Open Graph / Facebook -->
+		<meta property="og:image" content="https://akashraj.tech/images/banner.png" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://akashraj.tech/" />
+		<meta property="og:title" content="Akash Raj" />
+		<meta property="og:description" content="Hey there! It's me Akash. Follow me @ github/akashraj9828. Contact me at akashraj9828@gmail.com." />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:image" content="https://akashraj.tech/images/banner.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://akashraj.tech/">
-    <meta property="og:title" content="Akash Raj">
-    <meta property="og:description"
-      content="Hey there! It's me Akash. Follow me @ github/akashraj9828. Contact me at akashraj9828@gmail.com.">
+		<!-- Twitter -->
+		<meta property="twitter:image" content="https://akashraj.tech/images/banner.png" />
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://akashraj.tech/" />
+		<meta property="twitter:title" content="Akash Raj" />
+		<meta property="twitter:description" content="Hey there! It's me Akash. Follow me @ github/akashraj9828. Contact me at akashraj9828@gmail.com." />
 
-    <!-- Twitter -->
-    <meta property="twitter:image" content="https://akashraj.tech/images/banner.png">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://akashraj.tech/">
-    <meta property="twitter:title" content="Akash Raj">
-    <meta property="twitter:description"
-      content="Hey there! It's me Akash. Follow me @ github/akashraj9828. Contact me at akashraj9828@gmail.com.">
+		<title>Akash Raj</title>
 
+		<style>
+			.dark #loader {
+				background-color: #181a1b !important;
+			}
 
-    <title>Akash Raj</title>
+			.light #loader {
+				background-color: white !important;
+			}
 
-    <style>
-      .dark #loader {
-        background-color: #181a1b !important;
-      }
+			.dark #loader span {
+				background-color: white !important;
+			}
 
-      .light #loader {
-        background-color: white !important;
-      }
+			.light #loader span {
+				background-color: #181a1b !important;
+			}
 
-      .dark #loader span {
-        background-color: white !important;
-      }
+			#loader span {
+				display: block;
+				width: 0.5rem;
+				margin: auto 0.25rem;
+				animation: loading 1s infinite;
+			}
 
-      .light #loader span {
-        background-color: #181a1b !important;
-      }
+			#loader.content-loaded {
+				opacity: 0 !important;
+				z-index: -1 !important;
+				transition: 0.5s !important;
+			}
 
-      #loader span {
-        display: block;
-        width: .5rem;
-        margin: auto .25rem;
-        animation: loading 1s infinite;
-      }
+			@keyframes loading {
+				0%,
+				30% {
+					height: 2rem;
+				}
 
-      #loader.content-loaded {
-        opacity: 0 !important;
-        z-index: -1 !important;
-        transition: .5s !important;
-      }
+				50% {
+					height: 3rem;
+				}
 
-      @keyframes loading {
+				70%,
+				100% {
+					height: 2rem;
+				}
+			}
+		</style>
+	</head>
 
-        0%,
-        30% {
-          height: 2rem;
-        }
-
-        50% {
-          height: 3rem;
-        }
-
-        70%,
-        100% {
-          height: 2rem;
-        }
-      }
-    </style>
-
-
-  </head>
-
-  <body style="margin: 0;">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="loader" style="display: flex;position: fixed;width: 100vw;height: 100vh;justify-content: center;align-items: center;z-index: 20;background: white;" >
-      <span style="animation-delay:.1s;background:#181a1b;"></span>
-      <span style="animation-delay:.2s;background:#181a1b;"></span>
-      <span style="animation-delay:.3s;background:#181a1b;"></span>
-      <span style="animation-delay:.4s;background:#181a1b;"></span>
-      <span style="animation-delay:.5s;background:#181a1b;"></span>
-      <span style="animation-delay:.6s;background:#181a1b;"></span>
-      <span style="animation-delay:.7s;background:#181a1b;"></span>
-      <span style="animation-delay:.8s;background:#181a1b;"></span>
-      <span style="animation-delay:.9s;background:#181a1b;"></span>
-    </div>
-    <div id="root"></div>
-    <script type="module">
-      if (import.meta.env.PROD) {
-        var k = document.getElementsByTagName("head")[0]
-        var c = document.createElement("script"); c.async = true; c.type = "text/javascript"; c.charset = "utf-8";
-        c.setAttribute("crossorigin", "anonymous");
-        c.src = "https://akashraj.tech/js/a.js";
-        k.appendChild(c);
-      }
-      window.onload = (e) => {
-        let loader = document.getElementById("loader")
-        // this prevents capturing the fully loaded state when using react-snapshot to generate static pages
-        // this will run if host is no localhost or if env is not prodution
-        if (location.hostname !== "localhost" || !import.meta.env.PROD) {
-        loader.classList.add("content-loaded")
-        }
-      }
-    </script>
-    <script type="module" src="/src/index.jsx"></script>
-  </body>
-
+	<body style="margin: 0">
+		<noscript>You need to enable JavaScript to run this app.</noscript>
+		<div id="loader" style="display: flex; position: fixed; width: 100vw; height: 100vh; justify-content: center; align-items: center; z-index: 20; background: white">
+			<span style="animation-delay: 0.1s; background: #181a1b"></span>
+			<span style="animation-delay: 0.2s; background: #181a1b"></span>
+			<span style="animation-delay: 0.3s; background: #181a1b"></span>
+			<span style="animation-delay: 0.4s; background: #181a1b"></span>
+			<span style="animation-delay: 0.5s; background: #181a1b"></span>
+			<span style="animation-delay: 0.6s; background: #181a1b"></span>
+			<span style="animation-delay: 0.7s; background: #181a1b"></span>
+			<span style="animation-delay: 0.8s; background: #181a1b"></span>
+			<span style="animation-delay: 0.9s; background: #181a1b"></span>
+		</div>
+		<div id="root"></div>
+		<script type="module">
+			if (import.meta.env.PROD) {
+				var k = document.getElementsByTagName("head")[0];
+				var c = document.createElement("script");
+				c.async = true;
+				c.type = "text/javascript";
+				c.charset = "utf-8";
+				c.setAttribute("crossorigin", "anonymous");
+				c.src = "https://akashraj.tech/js/a.js";
+				k.appendChild(c);
+			}
+			window.onload = (e) => {
+				let loader = document.getElementById("loader");
+				// this prevents capturing the fully loaded state when using react-snapshot to generate static pages
+				// this will run if host is no localhost or if env is not prodution
+				if (location.hostname !== "localhost" || !import.meta.env.PROD) {
+					loader.classList.add("content-loaded");
+				}
+			};
+		</script>
+		<script type="module" src="/src/index.jsx"></script>
+	</body>
 </html>

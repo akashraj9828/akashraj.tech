@@ -15,4 +15,3 @@ test("theme changes leave exactly one root theme class", () => {
 	expect(document.documentElement.classList.contains("light")).toBe(true);
 	expect(window.localStorage.getItem("page_theme")).toBe("light");
 });
-

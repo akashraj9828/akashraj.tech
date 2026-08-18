@@ -3,20 +3,21 @@ import { SET_ERROR, RESET_ERROR, TOGGLE_THEME, TOGGLE_HELP, SET_VALIDATION_ERROR
 export default function app(state = default_state.app, action) {
 	const { type, value } = action;
 	switch (type) {
-		case SET_VALIDATION_ERROR:
+		case SET_VALIDATION_ERROR: {
 			let updated_error = value;
 			// if there are existing validation errors push these too
 			if (state.validationError) {
 				updated_error = [...state.validationError, ...value];
 			}
 			return { ...state, validationError: updated_error };
+		}
 		case RESET_VALIDATION_ERROR:
 			return { ...state, validationError: null };
 		case TOGGLE_HELP:
 			return { ...state, help: !state.help };
 
-		case TOGGLE_THEME:
-			let new_theme = state.theme === "dark" ? "light" : "dark";
+		case TOGGLE_THEME: {
+			const new_theme = state.theme === "dark" ? "light" : "dark";
 			try {
 				document.documentElement.classList.remove("dark", "light");
 				document.documentElement.classList.add(new_theme);
@@ -30,6 +31,7 @@ export default function app(state = default_state.app, action) {
 				console.error(error);
 			}
 			return { ...state, theme: new_theme };
+		}
 		case SET_ERROR:
 			return { ...state, error: value };
 		case RESET_ERROR:

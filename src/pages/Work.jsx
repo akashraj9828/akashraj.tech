@@ -10,7 +10,7 @@ import { useTitle } from "react-use";
 import { work } from "data";
 import { useReveal } from "../logic/motion/useReveal";
 
-const Work = ({ match }) => {
+const Work = () => {
 	useTitle(work.title);
 
 	useEffect(() => {
@@ -18,7 +18,6 @@ const Work = ({ match }) => {
 			// some stuff    to do in dev
 			window.scrollTo(0, 0);
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
@@ -29,13 +28,15 @@ const Work = ({ match }) => {
 				<p>Small tools, visual experiments, and ideas made to be explored.</p>
 			</header>
 			<section className='projects' aria-label='Project collection'>
-				{work.projects.map((project, index) => <Project key={project.name} index={index} {...project} />)}
+				{work.projects.map((project, index) => (
+					<Project key={project.name} index={index} {...project} />
+				))}
 			</section>
 		</main>
 	);
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = () => {
 	return {};
 };
 
@@ -51,10 +52,24 @@ const Project = ({ name, img_src, link_code, link_live, index }) => {
 				<img src={img_src} alt='' />
 			</a>
 			<div className='project-content'>
-				<h2><a href={destination} target='_blank' rel='noopener noreferrer'>{name}</a></h2>
+				<h2>
+					<a href={destination} target='_blank' rel='noopener noreferrer'>
+						{name}
+					</a>
+				</h2>
 				<div className='project-links' aria-label={`${name} links`}>
-					{link_code && <a href={link_code} target='_blank' rel='noopener noreferrer' aria-label={`View ${name} source on GitHub`}><GithubIcon aria-hidden='true' /><span>Code</span></a>}
-					{link_live && <a href={link_live} target='_blank' rel='noopener noreferrer' aria-label={`Open ${name} live project`}><LinkIcon aria-hidden='true' /><span>Visit</span></a>}
+					{link_code && (
+						<a href={link_code} target='_blank' rel='noopener noreferrer' aria-label={`View ${name} source on GitHub`}>
+							<GithubIcon aria-hidden='true' />
+							<span>Code</span>
+						</a>
+					)}
+					{link_live && (
+						<a href={link_live} target='_blank' rel='noopener noreferrer' aria-label={`Open ${name} live project`}>
+							<LinkIcon aria-hidden='true' />
+							<span>Visit</span>
+						</a>
+					)}
 				</div>
 			</div>
 		</article>

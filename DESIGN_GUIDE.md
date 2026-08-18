@@ -17,13 +17,13 @@ When making a design decision, choose the option that makes the content easier t
 
 ### Color
 
-| Token | Role | Light mode | Dark mode |
-| --- | --- | --- | --- |
-| Canvas | Main page background | White | `#181a1b` |
-| Ink | Primary text and icons | Black | White |
-| Coral | Accent, action, focus | `#ef596f` | `#ef596f` |
-| Soft surface | Quiet grouping | Translucent ink/coral | Translucent ink/coral |
-| Border | Separation | Low-contrast ink | Low-contrast ink |
+| Token        | Role                   | Light mode            | Dark mode             |
+| ------------ | ---------------------- | --------------------- | --------------------- |
+| Canvas       | Main page background   | White                 | `#181a1b`             |
+| Ink          | Primary text and icons | Black                 | White                 |
+| Coral        | Accent, action, focus  | `#ef596f`             | `#ef596f`             |
+| Soft surface | Quiet grouping         | Translucent ink/coral | Translucent ink/coral |
+| Border       | Separation             | Low-contrast ink      | Low-contrast ink      |
 
 Coral is an accent, not a background color. Use it to guide attention: active navigation, an eyebrow label, a primary action, a key link, or a focus ring. Do not use it for large decorative areas.
 
@@ -31,13 +31,13 @@ Coral is an accent, not a background color. Use it to guide attention: active na
 
 Roboto is the site typeface, supported by a system-font fallback. Type is functional, not ornamental.
 
-| Level | Use | Style |
-| --- | --- | --- |
-| Display | Page title | Large, 400–500 weight, tight tracking, short line length |
-| Section title | Major content group | Medium/large, 400–500 weight |
-| Eyebrow | Context label | Small, uppercase, bold, coral, letter-spaced |
-| Body | Reading copy | 1rem+, relaxed line height, left aligned |
-| Metadata | Dates, labels, supporting detail | Smaller but readable, reduced contrast |
+| Level         | Use                              | Style                                                    |
+| ------------- | -------------------------------- | -------------------------------------------------------- |
+| Display       | Page title                       | Large, 400–500 weight, tight tracking, short line length |
+| Section title | Major content group              | Medium/large, 400–500 weight                             |
+| Eyebrow       | Context label                    | Small, uppercase, bold, coral, letter-spaced             |
+| Body          | Reading copy                     | 1rem+, relaxed line height, left aligned                 |
+| Metadata      | Dates, labels, supporting detail | Smaller but readable, reduced contrast                   |
 
 The global base type size must never fall below 16px. Do not center paragraphs longer than two lines.
 
@@ -92,12 +92,12 @@ The header is a utility, not a hero.
 
 Use buttons sparingly. A section should normally have one primary action.
 
-| Variant | Use | Appearance |
-| --- | --- | --- |
-| Primary | Main next step | Coral fill, white label |
-| Secondary | Supporting action | Transparent, ink border and label |
-| Text link | Low-emphasis navigation | Ink text with coral underline/accent |
-| Icon button | Compact utility | Circular or square touch target; clear accessible name |
+| Variant     | Use                     | Appearance                                             |
+| ----------- | ----------------------- | ------------------------------------------------------ |
+| Primary     | Main next step          | Coral fill, white label                                |
+| Secondary   | Supporting action       | Transparent, ink border and label                      |
+| Text link   | Low-emphasis navigation | Ink text with coral underline/accent                   |
+| Icon button | Compact utility         | Circular or square touch target; clear accessible name |
 
 Button labels should start with a verb: “View projects”, “Start a conversation”, “Print résumé”. Avoid vague labels such as “Click here” or “Learn more” without context.
 
@@ -221,14 +221,14 @@ Accessibility is a design requirement, not a finishing task.
 
 Review every visual change at desktop and mobile widths in both themes.
 
-| Check | Requirement |
-| --- | --- |
-| Width | No horizontal page overflow |
-| Type | Body text remains readable without zoom |
-| Layout | Grids collapse before content becomes cramped |
-| Controls | Buttons and icons remain tappable |
-| Theme | Contrast and hierarchy match in light and dark modes |
-| Motion | Reduced-motion preference remains usable |
+| Check    | Requirement                                          |
+| -------- | ---------------------------------------------------- |
+| Width    | No horizontal page overflow                          |
+| Type     | Body text remains readable without zoom              |
+| Layout   | Grids collapse before content becomes cramped        |
+| Controls | Buttons and icons remain tappable                    |
+| Theme    | Contrast and hierarchy match in light and dark modes |
+| Motion   | Reduced-motion preference remains usable             |
 
 Use 1440px and 390px as the minimum review widths. If a layout needs a special-case breakpoint to avoid breaking, simplify the layout before adding the breakpoint.
 

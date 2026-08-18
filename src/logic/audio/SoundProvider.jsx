@@ -21,9 +21,12 @@ const readPreference = () => {
 export const SoundProvider = ({ children }) => {
 	const [enabled, setEnabled] = useState(readPreference);
 
-	const play = useCallback((cue) => {
-		if (enabled) void playMicroSound(cue);
-	}, [enabled]);
+	const play = useCallback(
+		(cue) => {
+			if (enabled) void playMicroSound(cue);
+		},
+		[enabled],
+	);
 
 	const toggle = useCallback(() => {
 		const next = !enabled;

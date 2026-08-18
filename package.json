@@ -31,7 +31,7 @@
 		"precommit": "lint-staged --concurrent false",
 		"prepare": "husky",
 		"test": "vitest run",
-		"pretty": "prettier --write \"./src/**/*.{js,jsx,json,scss,css}\"",
+		"pretty": "prettier --write .",
 		"analyze": "source-map-explorer 'build/assets/*.js'"
 	},
 	"browserslist": {

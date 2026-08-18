@@ -25,8 +25,8 @@ export default [
 			"react-hooks": reactHooks,
 		},
 		rules: {
-			"no-case-declarations": "warn",
-			"no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^React$" }],
+			"no-case-declarations": "error",
+			"no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^React$" }],
 			"react-hooks/exhaustive-deps": "error",
 			"react-hooks/rules-of-hooks": "error",
 		},
