@@ -2,11 +2,12 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath, URL } from "node:url";
 
+const productionBase = process.env.VERCEL ? "/" : "/portfolio/";
+
 export default defineConfig(({ command }) => ({
-	// Keep production assets isolated from the other projects sharing the
-	// domain document root. The development server remains root-based so its
-	// SPA fallback handles local routes such as /contact.
-	base: command === "build" ? "/portfolio/" : "/",
+	// Vercel previews own their domain root. Hostinger production shares its
+	// document root, so its assets remain isolated under /portfolio/.
+	base: command === "build" ? productionBase : "/",
 	plugins: [react({ include: /\.[jt]sx?$/ })],
 	resolve: {
 		alias: {
