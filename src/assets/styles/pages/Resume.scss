@@ -54,6 +54,18 @@
 		justify-content: center;
 		gap: 0.35rem 1rem;
 		font-size: 0.86rem;
+
+		a,
+		span {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.32rem;
+		}
+
+		svg {
+			flex: 0 0 auto;
+			font-size: 1em;
+		}
 	}
 	a {
 		color: $primary-color;

@@ -1,8 +1,15 @@
 /* REACT */
 import React from "react";
 import { useTitle } from "react-use";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FiGlobe, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 import { resume } from "data";
 import resumeData from "data/resume.json";
+
+const profileIcons = {
+	GitHub: FaGithub,
+	LinkedIn: FaLinkedin,
+};
 
 const DateRange = ({ item }) => (
 	<span className='resume-date'>
@@ -74,15 +81,40 @@ const Resume = () => {
 					<h1>{basics.name}</h1>
 					<p className='resume-label'>{basics.label}</p>
 					<div className='resume-contact'>
-						{basics.location && <span>{basics.location}</span>}
-						<a href={`mailto:${basics.email}`}>{basics.email}</a>
-						<a href={`tel:${basics.phone}`}>{basics.phone}</a>
-						<a href={basics.website.url}>{basics.website.label}</a>
-						{basics.profiles.map((profile) => (
-							<a key={profile.network} href={profile.url} target='_blank' rel='noreferrer'>
-								{profile.network}
-							</a>
-						))}
+						{basics.location && (
+							<span>
+								<FiMapPin aria-hidden='true' />
+								{basics.location}
+							</span>
+						)}
+						<a href={`mailto:${basics.email}`}>
+							<FiMail aria-hidden='true' />
+							{basics.email}
+						</a>
+						<a href={`tel:${basics.phone}`}>
+							<FiPhone aria-hidden='true' />
+							{basics.phone}
+						</a>
+						<a href={basics.website.url}>
+							<FiGlobe aria-hidden='true' />
+							{basics.website.label}
+						</a>
+						{basics.profiles.map((profile) => {
+							const ProfileIcon = profileIcons[profile.network] || FiGlobe;
+
+							return (
+								<a
+									key={profile.network}
+									href={profile.url}
+									target='_blank'
+									rel='noreferrer'
+									aria-label={`${profile.network}: ${profile.username}`}
+								>
+									<ProfileIcon aria-hidden='true' />
+									{profile.username}
+								</a>
+							);
+						})}
 					</div>
 					<p className='resume-summary'>{basics.summary}</p>
 				</header>
