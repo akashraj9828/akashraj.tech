@@ -2,6 +2,7 @@
 	background: transparent !important;
 	box-shadow: none;
 	top: 0;
+	z-index: 1000;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -49,7 +50,7 @@
 			top: 1.2rem;
 		}
 		right: 1rem;
-		z-index: 3;
+		z-index: 1001;
 	}
 	.theme-changer,
 	.navbar-toggler {
@@ -72,7 +73,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		z-index: 2;
+		z-index: 1000;
 		$animation-duration: 0.3s;
 		.nav-link{
 			padding: 0.5rem 0rem;
