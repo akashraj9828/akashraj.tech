@@ -37,6 +37,17 @@ Prettify the code
 
 Analyze the build bundle
 
+### `yarn screenshots:readme`
+
+Regenerates every desktop and phone screenshot used below with a pinned Chromium
+version, fixed viewports, themes, locale, timezone, reduced motion, and disabled
+animations. The Stats captures use fixed API fixtures, so they also work offline
+and do not drift with live GitHub data. Install the matching browser once with
+`yarn playwright install chromium`.
+
+Playwright captures into `/tmp/playwright-screenshot/akashraj-tech-readme/` before
+copying the verified PNGs into `out/`.
+
 ## Deployment
 
 Pushes to `master` deploy through GitHub Actions. The `Deploy` workflow can also
@@ -74,6 +85,26 @@ Configure these repository secrets before running the workflow:
   <br>
   <kbd> <img src="./out/Work_phone_light.png" height="300"/> </kbd> 
   <kbd> <img src="./out/Work_pc_light.png" height="300"/> </kbd> 
+</p>
+
+- ### Resume
+
+<p float="left">
+  <kbd> <img src="./out/Resume_phone_dark.png" height="300"/> </kbd>
+  <kbd> <img src="./out/Resume_pc_dark.png" height="300"/> </kbd>
+  <br>
+  <kbd> <img src="./out/Resume_phone_light.png" height="300"/> </kbd>
+  <kbd> <img src="./out/Resume_pc_light.png" height="300"/> </kbd>
+</p>
+
+- ### Stats
+
+<p float="left">
+  <kbd> <img src="./out/Stats_phone_dark.png" height="300"/> </kbd>
+  <kbd> <img src="./out/Stats_pc_dark.png" height="300"/> </kbd>
+  <br>
+  <kbd> <img src="./out/Stats_phone_light.png" height="300"/> </kbd>
+  <kbd> <img src="./out/Stats_pc_light.png" height="300"/> </kbd>
 </p>
 
 * ### Contact
