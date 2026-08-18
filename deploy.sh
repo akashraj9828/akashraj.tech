@@ -56,6 +56,11 @@ if [[ "$dry_run" == true ]]; then
     exit 0
 fi
 
-log "Copying build files to $USER@$SERVER:domains/akashraj.tech/public_html/"
-scp -o StrictHostKeyChecking=no -P 65002 -i "$key_file" -r build/* "$USER@$SERVER:domains/akashraj.tech/public_html/"
+deploy_dir="domains/akashraj.tech/public_html/portfolio/"
+log "Synchronizing build files to $USER@$SERVER:$deploy_dir"
+# --delete is deliberately scoped to the portfolio directory, so files from
+# other applications in public_html are never removed by this deployment.
+rsync -az --delete \
+    -e "ssh -o StrictHostKeyChecking=no -p 65002 -i $key_file" \
+    build/ "$USER@$SERVER:$deploy_dir"
 log "Deployment completed successfully"
