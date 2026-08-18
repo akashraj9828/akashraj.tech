@@ -41,9 +41,8 @@ export const header = {
 		},
 		{
 			label: "STATS",
-			to: `https://gitstats.me/${basic.github}?ref=${basic.website}`,
+			to: "/stats",
 			icon: <IconStats />,
-			direct: true,
 		},
 		{
 			label: "HIRE ME",

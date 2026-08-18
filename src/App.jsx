@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Work from "./pages/Work";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
+import Stats from "./pages/Stats";
 
 const AnimatedRoutes = () => {
 	const location = useLocation();
@@ -24,6 +25,7 @@ const AnimatedRoutes = () => {
 					<Route path='/work' element={<Work />} />
 					<Route path='/resume' element={<Resume />} />
 					<Route path='/contact' element={<Contact />} />
+					<Route path='/stats' element={<Stats />} />
 					<Route path='*' element={<>404 Page not found</>} />
 				</Routes></div>
 			</CSSTransition>

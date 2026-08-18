@@ -17,3 +17,5 @@ sketch
 build
 .env.deploy
 .yarn/install-state.gz
+
+.playwright-mcp
