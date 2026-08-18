@@ -31,11 +31,14 @@ const Home = () => {
 
 	const scrollToIntroduction = (event) => {
 		event.preventDefault();
-		if (!fly) play("launch");
-		setFly(true);
 		introduction.current?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
 		if (reducedMotion) introduction.current?.focus();
 		else window.setTimeout(() => introduction.current?.focus(), 500);
+	};
+	const launchRocket = (event) => {
+		if (!fly) play("launch");
+		setFly(true);
+		scrollToIntroduction(event);
 	};
 
 	return (
@@ -67,7 +70,7 @@ const Home = () => {
 						</div>
 					</div>
 				</section>
-				<button className={`home-rocket ${fly ? "home-rocket--flying" : ""}`} type='button' onClick={scrollToIntroduction} aria-label='Launch rocket and jump to introduction'>
+				<button className={`home-rocket ${fly ? "home-rocket--flying" : ""}`} type='button' onClick={launchRocket} aria-label='Launch rocket and jump to introduction'>
 					<img src={Rocket} alt='' />
 				</button>
 			</main>
