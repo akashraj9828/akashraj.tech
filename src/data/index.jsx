@@ -65,11 +65,15 @@ export const home = {
 	full_intro: (
 		<Fragment>
 			<span>
-				It's me, Akash
+				Hey, I'm Akash
 				<span role='img' aria-label='Peace'>
 					✌️
 				</span>{" "}
-				I'm a full-stack engineer currently working with some great people at Veramatic.
+				I'm a full-stack engineer currently working with some great people at{" "}
+				<a className='d-inline font-weight-bold' href={basic.currentCompanyLink} target='_blank' rel='noopener noreferrer'>
+					Veramatic
+				</a>
+				.
 			</span>
 			<br />
 			<span>
