@@ -48,6 +48,13 @@ and do not drift with live GitHub data. Install the matching browser once with
 Playwright captures into `/tmp/playwright-screenshot/akashraj-tech-readme/` before
 copying the verified PNGs into `out/`.
 
+## Pre-commit checks
+
+Running `yarn install` enables the repository-managed pre-commit hook. Before a
+commit, it formats and lints staged source files. If staged application, public
+asset, dependency, Vite, or screenshot-generator files can affect the rendered
+site, it also regenerates and stages the README screenshots automatically.
+
 ## Deployment
 
 Pushes to `master` deploy through GitHub Actions. The `Deploy` workflow can also
@@ -79,6 +86,7 @@ Configure these repository secrets before running the workflow:
 </p>
 
 - ### Projects
+
 <p float="left">
   <kbd> <img src="./out/Work_phone_dark.png" height="300"/> </kbd>
   <kbd> <img src="./out/Work_pc_dark.png" height="300"/> </kbd>
@@ -107,7 +115,8 @@ Configure these repository secrets before running the workflow:
   <kbd> <img src="./out/Stats_pc_light.png" height="300"/> </kbd>
 </p>
 
-* ### Contact
+- ### Contact
+
 <p float="left">
   <kbd> <img src="./out/Contact_phone_dark.png" height="300"/> </kbd>
   <kbd> <img src="./out/Contact_pc_dark.png" height="300"/> </kbd>
