@@ -30,6 +30,7 @@
 		},
 		{
 			"company": "Snap2Insight",
+			"companyUrl": "https://snap2insight.com/",
 			"position": "Senior Software Engineer",
 			"location": "Bangalore",
 			"startDate": "Aug 2023",
@@ -39,6 +40,7 @@
 		},
 		{
 			"company": "Snap2Insight",
+			"companyUrl": "https://snap2insight.com/",
 			"position": "Software Engineer",
 			"location": "Bangalore",
 			"startDate": "May 2020",
@@ -63,6 +65,7 @@
 		},
 		{
 			"company": "Defense Research and Development Organization",
+			"companyUrl": "https://drdo.gov.in/drdo/en/home",
 			"position": "Machine Learning Project Trainee",
 			"location": "Delhi",
 			"startDate": "Jun 2019",

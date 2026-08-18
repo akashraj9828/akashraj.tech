@@ -1,0 +1,106 @@
+@page {
+	size: A4 portrait;
+	margin: 12mm;
+}
+
+@media print {
+	html,
+	body {
+		background: white !important;
+		color: #171717 !important;
+		font-size: 10.25pt !important;
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+
+	.site-header,
+	.site-footer,
+	.resume-actions,
+	.home-rocket {
+		display: none !important;
+	}
+
+	#main,
+	.main-content {
+		min-height: 0 !important;
+		padding: 0 !important;
+	}
+
+	.resume {
+		width: auto !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	.resume .resume-sheet {
+		max-width: none !important;
+		padding: 0 !important;
+		border: 0 !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		background: transparent !important;
+		color: #171717 !important;
+	}
+
+	.resume .resume-header {
+		margin-bottom: 5mm !important;
+		padding-bottom: 5mm !important;
+		border-color: #c9c9c9 !important;
+	}
+
+	.resume .resume-header h1 {
+		font-size: 28pt !important;
+		line-height: 1 !important;
+		color: #171717 !important;
+	}
+
+	.resume .resume-label,
+	.resume .resume-section h2,
+	.resume .resume-sheet a {
+		color: #b92f4b !important;
+	}
+
+	.resume .resume-summary {
+		margin-top: 4mm !important;
+		font-size: 10.25pt !important;
+		line-height: 1.45 !important;
+	}
+
+	.resume .resume-contact,
+	.resume .resume-technologies,
+	.resume .resume-date,
+	.resume .resume-entry-meta {
+		font-size: 8.5pt !important;
+		color: #555 !important;
+	}
+
+	.resume .resume-columns {
+		gap: 9mm !important;
+	}
+
+	.resume .resume-section {
+		margin-bottom: 5mm !important;
+		break-inside: avoid-page;
+	}
+
+	.resume .resume-section h2 {
+		margin-bottom: 3mm !important;
+		padding-bottom: 1.5mm !important;
+		border-color: #c9c9c9 !important;
+		font-size: 8.5pt !important;
+	}
+
+	.resume .resume-entry {
+		margin-bottom: 3.5mm !important;
+		break-inside: avoid-page;
+	}
+
+	.resume .resume-entry p,
+	.resume .resume-entry ul {
+		margin: 1.5mm 0 !important;
+	}
+
+	.resume .resume-entry li {
+		margin-bottom: .8mm !important;
+	}
+}

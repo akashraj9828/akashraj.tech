@@ -1,5 +1,6 @@
 /* REACT */
 import React from "react";
+import { Link } from "react-router-dom";
 import { useTitle } from "react-use";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FiGlobe, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
@@ -71,10 +72,14 @@ const Resume = () => {
 
 	return (
 		<div className='resume'>
-			<div className='resume-actions'>
-				<button type='button' onClick={() => window.print()} aria-label='Print resume or save it as a PDF'>
-					Print / save as PDF
-				</button>
+			<div className='resume-actions' aria-label='Resume actions'>
+				<p>Interested in working together?</p>
+				<div className='resume-action-buttons'>
+					<Link className='resume-contact-button' to='/contact'>Contact</Link>
+					<button type='button' onClick={() => window.print()} aria-label='Print resume or save it as a PDF'>
+						Print / save as PDF
+					</button>
+				</div>
 			</div>
 			<main className='resume-sheet'>
 				<header className='resume-header'>

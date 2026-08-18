@@ -7,6 +7,7 @@ import App from "./App";
 
 import "bootstrap-material-design/dist/css/bootstrap-material-design.min.css";
 import "./assets/styles/theme.scss";
+import "./assets/styles/print.scss";
 
 createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
