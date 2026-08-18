@@ -1,5 +1,17 @@
 # [akashraj.tech ](https://akashraj.tech)
 
+## Experimental WebMCP support
+
+Browsers that expose the experimental `navigator.modelContext` API can discover and call portfolio tools for:
+
+- reading a portfolio overview;
+- searching projects and their links;
+- retrieving structured resume data;
+- finding public contact options; and
+- navigating between portfolio sections.
+
+The integration is feature-detected, so browsers without WebMCP support continue to use the site normally.
+
 > ---
 >
 > ## This is a project to port my website orignally in `PHP` to `React`
