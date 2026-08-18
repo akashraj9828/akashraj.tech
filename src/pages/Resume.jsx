@@ -72,7 +72,7 @@ const Resume = () => {
 	return (
 		<div className='resume'>
 			<div className='resume-actions'>
-				<button type='button' onClick={() => window.print()}>
+				<button type='button' onClick={() => window.print()} aria-label='Print resume or save it as a PDF'>
 					Print / save as PDF
 				</button>
 			</div>
@@ -95,7 +95,7 @@ const Resume = () => {
 							<FiPhone aria-hidden='true' />
 							{basics.phone}
 						</a>
-						<a href={basics.website.url}>
+						<a href={basics.website.url} target='_blank' rel='noreferrer'>
 							<FiGlobe aria-hidden='true' />
 							{basics.website.label}
 						</a>

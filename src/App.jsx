@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -33,12 +33,23 @@ const AnimatedRoutes = () => {
 	);
 };
 
+const ScrollToTop = () => {
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+	}, [pathname]);
+
+	return null;
+};
+
 export const App = () => {
 	return (
 		<div className={`App`}>
 			<Router>
+				<ScrollToTop />
 				<Header />
-				<div className='main-content'><AnimatedRoutes /></div>
+				<div id='main' className='main-content'><AnimatedRoutes /></div>
 				<Footer />
 			</Router>
 		</div>

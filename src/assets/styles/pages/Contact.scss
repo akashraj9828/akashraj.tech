@@ -1,66 +1,21 @@
 .contact-page {
-	.container.center {
-		flex-direction: column;
-		// screen <1400
-		@media screen and (max-width: 1400px) {
-			max-width: 900px;
-		}
-		// screen >1400
-		@media screen and (min-width: 1400px) {
-			max-width: 1000px;
-		}
-	}
-	header.contact {
-		font-size: 4rem;
-		font-weight: 300;
-		margin: 0.5em 0;
-	}
-
-	.contact-div {
-		margin: 1em 2em !important;
-		flex-direction: column;
-		font-size: 1.5rem;
-		font-weight: 300;
-		.lh-less {
-			line-height: inherit;
-		}
-		.contact-reasons {
-			align-self: flex-start;
-			line-height: inherit;
-		}
-	}
-
-	a {
-		color: $secondary-color;
-		text-decoration: none;
-		&:hover {
-			color: $primary-color;
-		}
-	}
-
-	#socials {
-		justify-content: center;
-		display: flex;
-		flex-wrap: wrap;
-		padding: 2em 0;
-		figure {
-			display: inline-block;
-			width: auto;
-			margin: 1em;
-			top: -200px;
-			img {
-				border-radius: 50%;
-				width: 3rem;
-				height: 3rem;
-				animation: rotation 0.7s infinite linear;
-				transition: 1s;
-				&:hover {
-					// rotate: 360deg;
-					transition: 0.1s;
-					filter: drop-shadow(0px 0px 5px color.adjust($secondary-color, $alpha: -0.5));
-					scale: 1.4;
-				}
-			}
-		}
-	}
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: clamp(3.5rem, 9vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+	.contact-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(18rem, .9fr); gap: clamp(2.5rem, 8vw, 7rem); align-items: start; }
+	.contact-eyebrow { margin: 0 0 .75rem; color: $primary-color; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+	h1, h2 { margin: 0; font-weight: 400; letter-spacing: -.04em; line-height: 1.1; }
+	h1 { font-size: clamp(2.7rem, 6vw, 5rem); }
+	h2 { font-size: clamp(1.65rem, 3vw, 2.2rem); }
+	.contact-lede { max-width: 33rem; margin: 1.4rem 0 2rem; font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.65; opacity: .8; }
+	.contact-email { display: inline-flex; flex-direction: column; gap: .2rem; max-width: 100%; padding: 1rem 1.1rem; border-left: 3px solid $primary-color; color: $secondary-color; background: color.adjust($primary-color, $alpha: -0.92); text-decoration: none; transition: background .2s ease, transform .2s ease; span { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; } strong { overflow-wrap: anywhere; font-size: clamp(1rem, 2vw, 1.2rem); } &:hover { color: $secondary-color; background: color.adjust($primary-color, $alpha: -0.84); transform: translateX(3px); } &:focus-visible { outline: 3px solid $primary-color; outline-offset: 4px; } }
+	.contact-card { padding: clamp(1.35rem, 3vw, 2rem); border: 1px solid color.adjust($secondary-color, $alpha: -0.84); border-radius: .7rem; background: color.adjust($primary-color, $alpha: -0.95); }
+	.contact-card ul { display: grid; gap: .9rem; margin: 1.5rem 0 1.75rem; padding: 0; list-style: none; }
+	.contact-card li { display: grid; grid-template-columns: .55rem 1fr; gap: .7rem; line-height: 1.55; &::before { content: ""; width: .38rem; height: .38rem; margin-top: .48rem; border-radius: 50%; background: $primary-color; } }
+	.contact-form-link { color: $primary-color; font-weight: 600; text-decoration: underline; text-underline-offset: .24em; &:hover { color: $primary-color; } &:focus-visible { outline: 3px solid $primary-color; outline-offset: 4px; } }
+	.contact-socials { display: flex; justify-content: space-between; gap: 2rem; margin-top: clamp(4rem, 10vw, 8rem); padding-top: 2rem; border-top: 1px solid color.adjust($secondary-color, $alpha: -0.87); }
+	.contact-socials nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .55rem; }
+	.contact-socials nav a { display: grid; place-items: center; width: 2.7rem; height: 2.7rem; padding: .38rem; color: $secondary-color; border: 1px solid color.adjust($secondary-color, $alpha: -0.78); border-radius: 50%; text-decoration: none; transition: border-color .2s ease, transform .2s ease; img { width: 100%; height: 100%; border-radius: 50%; } span { display: none; } &:hover { border-color: $primary-color; transform: translateY(-2px); } &:focus-visible { outline: 3px solid $primary-color; outline-offset: 3px; } }
+	@media (max-width: 720px) { .contact-hero { grid-template-columns: 1fr; } .contact-socials { flex-direction: column; } .contact-socials nav { justify-content: flex-start; } }
+	@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
 }

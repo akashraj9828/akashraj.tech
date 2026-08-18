@@ -1,159 +1,127 @@
+.site-header {
+	position: relative;
+	z-index: 100;
+	border-bottom: 1px solid color.adjust($secondary-color, $alpha: -0.9);
+}
+
 .navbar {
-	background: transparent !important;
-	box-shadow: none;
-	top: 0;
-	z-index: 1000;
+	width: min(100%, 76rem);
+	min-height: 4.75rem;
+	margin: 0 auto;
+	padding: 0.75rem clamp(1rem, 4vw, 2rem);
 	display: flex;
-	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
+	gap: 1rem;
+	background: transparent !important;
+}
+
+.navbar-brand {
+	display: inline-flex;
+	align-items: center;
+	flex: 0 0 auto;
+	border-radius: 0.25rem;
 	#logo {
-		min-width: 150px;
-		max-height: 40px;
-	}
-	.navbar-brand {
-		text-transform: uppercase;
-		font-size: 30px;
-		font-weight: bold;
-		color: $primary-color !important;
-	}
-	.halucinate {
-		animation: change-col 5s linear infinite;
-	}
-	.nav-link {
-		line-height: 2em;
-		font-size: 1.5rem;
-		font-weight: 300;
-		color: $secondary-color !important;
-		margin: 0.5rem 0 0 0;
-		padding: 0.5rem 1rem;
-		padding-top: 0;
-		color: color.adjust($secondary-color, $alpha: -0.4) !important;
-		.icon{
-			visibility: hidden;
-			// opacity: 0;
-		}
-		&.active {
-			border-bottom: 0.1rem solid $primary-color;
-			color: $primary-color !important;
-			.icon{
-				visibility: visible;
-				// opacity: 1;
-			}
-		}
-	}
-
-	.floating-buttons {
-		position: fixed;
-		top: 0.75rem;
-		@media only screen and (max-width: 600px) {
-			top: 1.2rem;
-		}
-		right: 1rem;
-		z-index: 1001;
-	}
-	.theme-changer,
-	.navbar-toggler {
-		z-index: 3;
-		background-color: none;
-		padding: 0.5em 1em;
-		margin: 0 0.5em;
-		svg {
-			fill: $primary-color;
-			color: $primary-color;
-		}
-		&:hover,
-		&:active,
-		&:focus {
-			background: none;
-		}
-	}
-
-	.mobile-nav-container {
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 1000;
-		$animation-duration: 0.3s;
-		.nav-link{
-			padding: 0.5rem 0rem;
-		}
-		.mobile-nav{
-			padding: 0rem 2rem;
-			letter-spacing: .2rem;
-			position: absolute;
-			top: 15%;
-		}
-		.img-thumb{
-			width: 10rem;
-			height: 10rem;
-		}
-		
-		.img-round{
-			border-radius: 50%;
-		}
-		.name{
-			font-size: 3rem;
-			display: block;
-		}
-		.alias{
-			font-size: 1.2rem;
-			display: block;
-			opacity: .6;
-			margin-bottom: 3rem;
-			letter-spacing: normal;
-		}
-
-		.mobile-nav-backdrop {
-			transition: $animation-duration;
-			opacity: 1;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			position: absolute;
-			width: 100vw;
-			height: 100vh;
-			overflow: auto;
-			background: color.complement($bg-color);
-			// backdrop-filter: blur(20px) brightness(.5);
-			a {
-				transition: $animation-duration;
-				transition-delay: $animation-duration;
-				// transform: translateY(-50%);
-				text-align: left;
-				font-weight: bold;
-				// color: $secondary-color !important;
-				color: color.adjust($secondary-color, $alpha: -0.5) !important;
-				// border-left: 0.5rem solid transparent;
-				// border-right: 0.5rem solid transparent;
-				// padding: 0 1em;
-				border-bottom: none;
-				font-size: 2rem;
-				&:hover,
-				&.active {
-					color: $primary-color !important;
-					border-bottom: none;
-					// border-left: 0.5rem solid $primary-color;
-					// border-right: 0.5rem solid $primary-color;
-				}
-			}
-		}
-		&.hide {
-			visibility: hidden;
-			.mobile-nav-backdrop {
-				transition: $animation-duration;
-				opacity: 0;
-				a {
-					opacity: 0;
-					transition-delay: $animation-duration;
-					transition: $animation-duration;
-					transform: translateY(40%);
-				}
-			}
-		}
-	}
-
-	.navbar-collapse {
-		padding-right: 2em;
+		display: block;
+		width: auto;
+		height: 2rem;
+		max-width: min(9rem, 34vw);
+		object-fit: contain;
 	}
 }
+
+.desktop-navigation {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.15rem;
+	margin-left: auto;
+}
+
+.nav-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.55rem 0.7rem;
+	border-radius: 0.35rem;
+	font-size: 0.92rem;
+	font-weight: 400;
+	line-height: 1.2;
+	letter-spacing: 0.01em;
+	color: color.adjust($secondary-color, $alpha: -0.28) !important;
+	text-decoration: none;
+	transition: color 160ms ease, background-color 160ms ease;
+	&:hover, &.active { color: $primary-color !important; background: color.adjust($primary-color, $alpha: -0.91); }
+	.nav-icon { display: inline-flex; font-size: 1.02em; }
+}
+
+.header-actions { display: flex; align-items: center; gap: 0.15rem; }
+.theme-changer, .navbar-toggler {
+	display: inline-grid;
+	place-items: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	color: $secondary-color;
+	background: transparent;
+	cursor: pointer;
+	transition: color 160ms ease, background-color 160ms ease;
+	svg { width: 1.12rem; height: 1.12rem; fill: currentColor; }
+	&:hover { color: $primary-color; background: color.adjust($primary-color, $alpha: -0.9); }
+}
+.navbar-toggler { display: none; }
+
+.mobile-nav-container { display: none; }
+
+.navbar a:focus-visible, .navbar button:focus-visible, .mobile-nav a:focus-visible, .mobile-nav-backdrop:focus-visible, .site-footer a:focus-visible {
+	outline: 2px solid $primary-color;
+	outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+	.navbar { min-height: 4.25rem; }
+	.desktop-navigation { display: none; }
+	.navbar-toggler { display: inline-grid; }
+	.mobile-nav-container {
+		display: block;
+		position: fixed;
+		inset: 0;
+		z-index: 99;
+		visibility: hidden;
+		pointer-events: none;
+		&.is-open { visibility: visible; pointer-events: auto; }
+	}
+	.mobile-nav-backdrop {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+		background: color.adjust($bg-color, $alpha: -0.08);
+		backdrop-filter: blur(3px);
+		opacity: 0;
+		transition: opacity 180ms ease;
+		.is-open & { opacity: 1; }
+	}
+	.mobile-nav {
+		position: absolute;
+		top: 0.65rem;
+		right: 0.65rem;
+		left: 0.65rem;
+		padding: 5.25rem 1.25rem 1.25rem;
+		border: 1px solid color.adjust($secondary-color, $alpha: -0.82);
+		border-radius: 0.75rem;
+		background: $bg-color;
+		box-shadow: 0 1rem 3rem color.adjust($secondary-color, $alpha: -0.9);
+		transform: translateY(-0.5rem);
+		opacity: 0;
+		transition: transform 180ms ease, opacity 180ms ease;
+		.is-open & { transform: translateY(0); opacity: 1; }
+		.nav-link { display: flex; width: 100%; padding: 0.9rem 0.7rem; font-size: 1.08rem; }
+	}
+	.mobile-nav-label { margin: 0 0 0.55rem 0.7rem; color: $primary-color; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+}
+
+@media (prefers-reduced-motion: reduce) { .nav-link, .theme-changer, .navbar-toggler, .mobile-nav, .mobile-nav-backdrop { transition: none; } }

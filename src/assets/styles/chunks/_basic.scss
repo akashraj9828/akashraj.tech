@@ -4,21 +4,52 @@ $scrollbar-color: $primary-color;
 	box-sizing: border-box;
 }
 
+html {
+	min-width: 320px;
+	background: $bg-color;
+}
+
 body {
 	counter-reset: section;
 	margin: 0;
 	font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	transition: 0.5s;
-	line-height: 1.5;
+	transition: background-color 180ms ease, color 180ms ease;
+	line-height: 1.6;
 	background: $bg-color;
 	color: $secondary-color;
 	min-height: 100vh;
+	overflow-x: hidden;
+	text-rendering: optimizeLegibility;
 }
 
 .main-content {
-	min-height: 80vh;
+	min-height: calc(100vh - 10rem);
+}
+
+img {
+	max-width: 100%;
+}
+
+a {
+	color: inherit;
+}
+
+button,
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+	outline: 3px solid $primary-color !important;
+	outline-offset: 3px;
+	border-radius: 0.25rem;
+}
+
+::selection {
+	background: $primary-color;
+	color: white;
 }
 
 // custom scrollbar

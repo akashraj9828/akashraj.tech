@@ -30,10 +30,10 @@ $calm-dark-blue: #383e56;
 html {
 	$min_width: 600px;
 	$max_width: 1200px;
-	$min_font: 12px;
+	$min_font: 16px;
 	$max_font: 16px;
 	scroll-behavior: smooth;
-	@include fluid-type(600px, 1200px, 12px, 18px);
+	@include fluid-type(600px, 1200px, 16px, 18px);
 }
 
 // for mozilla

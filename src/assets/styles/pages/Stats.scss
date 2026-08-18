@@ -1,44 +1,18 @@
 #stats {
-	margin: 0 3rem;
-	padding: 1rem 0 3rem;
-
-	.stats-title {
-		text-align: center;
-		font-size: 3rem;
-		font-weight: 300;
-		color: $primary-color;
-		margin: .45em 0 .5em;
-		border-left: .35rem solid $primary-color;
-		border-right: .35rem solid $primary-color;
-		background-color: color.adjust($secondary-color, $alpha: -0.9);
-	}
+	width: min(100% - 3rem, 72rem);
+	margin: 0 auto;
+	padding: clamp(2.5rem, 6vw, 5rem) 0 4rem;
 
 	.stats-intro {
 		position: relative;
 		display: flex;
 		align-items: center;
 		gap: 1.25rem;
-		margin: 0 auto 1.75rem;
-		max-width: 68rem;
-		padding: 1.25rem 1.5rem;
-		border: 1px solid color.adjust($primary-color, $alpha: -0.72);
-		border-radius: 1rem;
-		background: linear-gradient(110deg, color.adjust($primary-color, $alpha: -0.88), transparent 52%);
-		overflow: hidden;
-
-		&::after {
-			content: "</>";
-			position: absolute;
-			right: 8.5rem;
-			font-size: 5rem;
-			font-weight: 100;
-			color: color.adjust($primary-color, $alpha: -0.92);
-			transform: rotate(-8deg);
-			pointer-events: none;
-		}
-
-		h1 { font-size: 1.8rem; font-weight: 300; margin: .15rem 0 .1rem; }
-		p { margin-bottom: 0; font-size: .85rem; opacity: .72; }
+		margin: 0 0 2.75rem;
+		padding-bottom: 2.25rem;
+		border-bottom: 1px solid color.adjust($secondary-color, $alpha: -.82);
+		h1 { color: $secondary-color; font-size: clamp(2.35rem, 6vw, 4.5rem); font-weight: 400; letter-spacing: -.055em; line-height: .98; margin: .28rem 0 .8rem; }
+		p { margin: 0; font-size: 1rem; line-height: 1.6; opacity: .72; }
 	}
 	.intro-mark {
 		display: grid;
@@ -46,24 +20,23 @@
 		flex: 0 0 auto;
 		width: 3.5rem;
 		height: 3.5rem;
-		border-radius: 50%;
-		background: $primary-color;
-		color: white;
-		font-size: 1.6rem;
-		box-shadow: 0 0 18px color.adjust($primary-color, $alpha: -0.55);
+		border-radius: .8rem;
+		border: 1px solid color.adjust($primary-color, $alpha: -.55);
+		background: color.adjust($primary-color, $alpha: -.88);
+		color: $primary-color;
+		font-size: 1.45rem;
 	}
 	.intro-copy { position: relative; z-index: 1; flex: 1; }
 	.intro-kicker {
 		display: flex;
 		align-items: center;
 		gap: .4rem;
-		font-size: .67rem;
+		font-size: .72rem;
 		letter-spacing: .08em;
-		opacity: .72;
-
-		i { width: .45rem; height: .45rem; border-radius: 50%; background: $primary-color; box-shadow: 0 0 7px $primary-color; }
-		strong { color: $secondary-color; font-size: .85rem; font-weight: 500; letter-spacing: .02em; }
-		b { margin-left: .25rem; font-weight: 500; color: $primary-color; }
+		color: $primary-color;
+		font-weight: 700;
+		opacity: 1;
+		text-transform: uppercase;
 	}
 
 	.github-button {
@@ -71,7 +44,7 @@
 		align-items: center;
 		gap: .5rem;
 		padding: .42em .72em;
-		border-radius: .5em;
+		border-radius: .55rem;
 		background: $primary-color;
 		color: white;
 		white-space: nowrap;
@@ -79,18 +52,16 @@
 		transition: .2s;
 		position: relative;
 		z-index: 1;
-		font-size: .85rem;
+		font-size: .82rem;
 
 		&:hover { color: white; text-decoration: none; box-shadow: 0 0 18px color.adjust($primary-color, $alpha: -0.45); }
 	}
 
-	.stats-message { padding: 2rem; color: $primary-color; text-align: center; font-size: 1.25rem; font-weight: 300; }
+	.stats-message { padding: 2.5rem 1rem; color: $secondary-color; text-align: center; font-size: 1rem; opacity: .75; }
 	.stats-grid {
 		display: grid;
 		grid-template-columns: repeat(4, minmax(0, 1fr));
-		gap: .9rem;
-		max-width: 68rem;
-		margin: 0 auto;
+		gap: 1rem;
 	}
 	.stat-card {
 		position: relative;
@@ -101,39 +72,28 @@
 		column-gap: .8rem;
 		padding: 1rem;
 		border: 1px solid color.adjust($secondary-color, $alpha: -0.88);
-		border-radius: .75rem;
-		background: linear-gradient(135deg, color.adjust($primary-color, $alpha: -0.93), transparent 70%);
-		overflow: hidden;
+		border-radius: .8rem;
+		background: color.adjust($secondary-color, $alpha: -.965);
 		transition: .2s;
 
-		&::after {
-			content: "";
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			width: 100%;
-			height: 2px;
-			background: linear-gradient(90deg, $primary-color, transparent 75%);
-			opacity: .65;
-		}
-
-		&:hover { border-color: color.adjust($primary-color, $alpha: -0.45); transform: translateY(-2px); box-shadow: 0 8px 22px color.adjust($primary-color, $alpha: -0.88); }
+		&:hover { border-color: color.adjust($primary-color, $alpha: -.35); transform: translateY(-2px); }
 	}
 	.stat-card > svg {
 		grid-area: icon;
 		width: 2.6rem;
 		height: 2.6rem;
 		padding: .75rem;
-		border-radius: .65rem;
-		background: color.adjust($primary-color, $alpha: -0.84);
+		border-radius: .55rem;
+		background: color.adjust($primary-color, $alpha: -.88);
 		color: $primary-color;
 	}
-	.stat-card strong { grid-area: value; align-self: end; color: $primary-color; font-size: 1.7rem; font-weight: 300; line-height: 1; }
-	.stat-card span { grid-area: label; align-self: start; margin-top: .2rem; font-size: .72rem; font-weight: 300; opacity: .7; }
+	.stat-card strong { grid-area: value; align-self: end; color: $secondary-color; font-size: 1.7rem; font-weight: 500; line-height: 1; }
+	.stat-card span { grid-area: label; align-self: start; margin-top: .25rem; font-size: .74rem; opacity: .68; }
 	.contribution-panel {
-		margin-top: 3rem;
-		padding: 1.5rem 2rem;
-		box-shadow: 0 0 20px 2px color.adjust($primary-color, $alpha: -0.82);
+		margin-top: 2.75rem;
+		padding: clamp(1rem, 3vw, 1.75rem);
+		border: 1px solid color.adjust($secondary-color, $alpha: -.84);
+		border-radius: .8rem;
 	}
 	.contribution-heading {
 		display: flex;
@@ -142,7 +102,7 @@
 		gap: 1rem;
 		margin-bottom: 1.25rem;
 
-		h2 { color: $primary-color; font-size: 2rem; font-weight: 300; margin: 0; }
+		h2 { color: $secondary-color; font-size: 1.25rem; font-weight: 500; margin: 0; }
 		span { font-size: .85rem; opacity: .65; }
 	}
 	.contribution-scroll { overflow-x: auto; padding: .5rem 0; }
@@ -162,9 +122,9 @@
 	.contribution-legend { display: flex; align-items: center; justify-content: flex-end; gap: .3rem; margin-top: .75rem; font-size: .7rem; opacity: .75; }
 	.contribution-legend .contribution-day { flex: 0 0 auto; }
 	.contribution-loading { margin: 0; font-weight: 300; opacity: .65; }
-	.stats-details { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-top: 3rem; }
-	.stats-panel { padding: 1.5rem 2rem; box-shadow: 0 0 20px 2px color.adjust($primary-color, $alpha: -0.82); }
-	.stats-panel h2 { color: $primary-color; font-size: 2rem; font-weight: 300; margin-bottom: .75rem; }
+	.stats-details { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; margin-top: 1rem; }
+	.stats-panel { padding: clamp(1rem, 3vw, 1.75rem); border: 1px solid color.adjust($secondary-color, $alpha: -.84); border-radius: .8rem; }
+	.stats-panel h2 { color: $secondary-color; font-size: 1.25rem; font-weight: 500; margin-bottom: 1rem; }
 	.repo-list, .language-list { display: grid; }
 	.repo-row, .language-row { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem 0; border-top: 1px solid color.adjust($secondary-color, $alpha: -0.85); }
 	.repo-row:first-child, .language-row:first-child { border-top: 0; }
@@ -173,17 +133,16 @@
 	.repo-row small { display: block; margin-top: .2rem; color: inherit; opacity: .65; }
 	.repo-stars { display: flex; align-items: center; gap: .3rem; color: $primary-color; white-space: nowrap; }
 	.language-row span:last-child { opacity: .65; }
+	.panel-empty { margin: 0; opacity: .65; }
 	.stats-source { margin-top: 1rem; font-size: .75rem; opacity: .6; text-align: right; }
 
 	@media (max-width: 767px) {
-		margin: 0 1.5rem;
-		.stats-title { font-size: 2.5rem; }
+		width: min(100% - 2rem, 72rem);
 		.stats-intro { align-items: center; flex-wrap: wrap; gap: .85rem; padding: 1rem; }
 		.stats-intro::after { display: none; }
 		.intro-mark { width: 3rem; height: 3rem; font-size: 1.35rem; }
 		.intro-copy { flex-basis: calc(100% - 4rem); }
-		.intro-kicker b { display: none; }
-		.github-button { margin-left: 3.85rem; padding: .38em .65em; font-size: .75rem; }
+		.github-button { margin-left: 3.85rem; padding: .5em .75em; font-size: .78rem; }
 		.stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
 		.stat-card { column-gap: .6rem; padding: .8rem; }
 		.stat-card > svg { width: 2.25rem; height: 2.25rem; padding: .65rem; }
@@ -204,4 +163,6 @@
 		.stats-details { grid-template-columns: 1fr; }
 		.stats-panel { padding: 1.25rem; }
 	}
+
+	a:focus-visible { outline: 2px solid $primary-color; outline-offset: 3px; }
 }

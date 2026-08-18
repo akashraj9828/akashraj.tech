@@ -64,13 +64,12 @@ const Stats = () => {
 
 	return (
 		<main id='stats'>
-			<header className='stats-title'>GitHub Stats</header>
 			<section className='stats-intro'>
-				<div className='intro-mark'><FaGithub /></div>
+				<div className='intro-mark' aria-hidden='true'><FaGithub /></div>
 				<div className='intro-copy'>
-					<span className='intro-kicker'><i /> <strong>@{basic.github}</strong> <b>PUBLIC PROFILE</b></span>
-					<h1>Code in the open.</h1>
-					<p>Projects, experiments, and open-source work—all in one live snapshot.</p>
+					<p className='intro-kicker'>GitHub profile · @{basic.github}</p>
+					<h1>A living record of the work.</h1>
+					<p>Projects, experiments, and open-source contributions, updated from GitHub.</p>
 				</div>
 				<a className='github-button' href={`https://github.com/${basic.github}`} target='_blank' rel='noopener noreferrer'>Explore GitHub <FiArrowUpRight /></a>
 			</section>
@@ -104,11 +103,11 @@ const Stats = () => {
 				<div className='stats-details'>
 					<section className='stats-panel'>
 						<h2>Most Starred</h2>
-						<div className='repo-list'>{repositoryStats.topRepos.map((repo) => <a href={repo.html_url} target='_blank' rel='noopener noreferrer' key={repo.id} className='repo-row'><span><strong>{repo.name}</strong><small>{repo.description || "Public GitHub repository"}</small></span><span className='repo-stars'><FaStar /> {repo.stargazers_count}</span></a>)}</div>
+					<div className='repo-list'>{repositoryStats.topRepos.length ? repositoryStats.topRepos.map((repo) => <a href={repo.html_url} target='_blank' rel='noopener noreferrer' key={repo.id} className='repo-row'><span><strong>{repo.name}</strong><small>{repo.description || "Public GitHub repository"}</small></span><span className='repo-stars'><FaStar aria-hidden='true' /> {repo.stargazers_count}</span></a>) : <p className='panel-empty'>No public repositories found.</p>}</div>
 					</section>
 					<section className='stats-panel'>
 						<h2>Languages</h2>
-						<div className='language-list'>{repositoryStats.languages.map(([language, count]) => <div className='language-row' key={language}><span>{language}</span><span>{count} {count === 1 ? "repo" : "repos"}</span></div>)}</div>
+					<div className='language-list'>{repositoryStats.languages.length ? repositoryStats.languages.map(([language, count]) => <div className='language-row' key={language}><span>{language}</span><span>{count} {count === 1 ? "repo" : "repos"}</span></div>) : <p className='panel-empty'>No language data available.</p>}</div>
 					</section>
 				</div>
 				<p className='stats-source'>Live public data from the official GitHub API. Forked repositories are excluded from repository totals.</p>

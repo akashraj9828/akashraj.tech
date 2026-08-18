@@ -9,3 +9,33 @@
 	width: 30px;
 	height: 30px;
 }
+
+.button-cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 2.9rem;
+	padding: 0.7rem 1.15rem;
+	border: 1px solid $primary-color;
+	border-radius: 0.55rem;
+	background: $primary-color;
+	color: white !important;
+	font: inherit;
+	font-weight: 600;
+	line-height: 1;
+	text-decoration: none !important;
+	cursor: pointer;
+	transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+
+	&:hover {
+		background: color.adjust($primary-color, $lightness: -7%);
+		color: white !important;
+		box-shadow: 0 0.6rem 1.3rem color.adjust($primary-color, $alpha: -0.78);
+		transform: translateY(-1px);
+	}
+
+	&.button-secondary {
+		background: transparent;
+		color: $secondary-color !important;
+	}
+}

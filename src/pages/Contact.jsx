@@ -1,9 +1,7 @@
 /* REACT */
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 /* REDUX */
 import { connect } from "react-redux";
-/* COMPONENTS */
-import TypeFormEmbed from "components/TypeFormEmbed";
 /* HOOKS */
 import { useTitle } from "react-use";
 /* DATA */
@@ -11,83 +9,51 @@ import { contact } from "data";
 
 const Contact = () => {
 	useTitle(contact.title);
-	useEffect(() => {
-		if (import.meta.env.DEV) {
-			// some stuff    to do in dev
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
 
 	return (
 		<Fragment>
-			<div className='contact-page mx-0 mx-sm-4 mx-md-5'>
-				<section className='container center' id='contact'>
-					<header className='contact mt-5 center'>Hello there...</header>
+			<main className='contact-page'>
+				<section className='contact-hero' aria-labelledby='contact-title'>
+					<div className='contact-copy'>
+						<p className='contact-eyebrow'>Let&apos;s work together</p>
+						<h1 id='contact-title'>Hello there.</h1>
+						<p className='contact-lede'>Have a project, opportunity, or good recommendation to share? I&apos;d love to hear from you.</p>
+						<a className='contact-email' href={`mailto:${contact.email}`}>
+							<span>Email me</span>
+							<strong>{contact.email}</strong>
+						</a>
+					</div>
 
-					<div className='text-left mw-700 m-auto contact-div center'>
-						<p className='lh-less'>
-							<span>Looks like you'd like to get in touch with me.</span>
-							<br />
-							<span>We're all busy person and I respect your time and hope the same from you. I'll reply as soon as possible.</span>
-							<br />
-							<br />
-							<span className='h3'>Contact me if....</span>
-							<br />
-							<br />
-						</p>
-
-						<ul className='contact-reasons'>
-							{contact.contact_reasons.map((e, i) => (
-								<li key={i}>{e}</li>
-							))}
+					<aside className='contact-card' aria-labelledby='contact-reasons-title'>
+						<h2 id='contact-reasons-title'>A good reason to say hello</h2>
+						<ul>
+							{contact.contact_reasons.map((reason, index) => <li key={index}>{reason}</li>)}
 						</ul>
 						{contact.contact_form && (
-							<Fragment>
-								<br />
-								{/* <Suspense fallback={<div>Loading...</div>}> */}
-								<TypeFormEmbed mode='drawer_right' style={{ width: "100%", height: "350px", position: "relative" }} url={contact.contact_form}></TypeFormEmbed>
-								{/* </Suspense> */}
-								<br />
-							</Fragment>
+							<a className='contact-form-link' href={contact.contact_form} target='_blank' rel='noopener noreferrer'>
+								Prefer a form? Open the contact form <span aria-hidden='true'>↗</span>
+							</a>
 						)}
-						<br />
-						<p className='lh-less'>
-							<span>
-								I’m so thankful that you stopped by and I’d love to hear from you. Feel free to e-mail me at
-								<a className='font-weight-bold' href={`mailto:${contact.email}`}>
-									<span>
-										<strong> {contact.email} </strong>
-									</span>
-								</a>
-								{contact.contact_form && "or contact me through the form."}
-							</span>
-							<br />
-							<br />
-							<span>Or find me on social media platforms.</span>
-						</p>
-					</div>
+					</aside>
 				</section>
 
-				<section className='' id='socials'>
-					{contact.socials.map((e, i) => (
-						<Fragment key={i}>{Social(e)}</Fragment>
-					))}
+				<section className='contact-socials' aria-labelledby='social-title'>
+					<div>
+						<p className='contact-eyebrow'>Elsewhere</p>
+						<h2 id='social-title'>Find me around the web.</h2>
+					</div>
+					<nav aria-label='Social profiles'>
+						{contact.socials.map(({ name, link, img_src }) => (
+							<a key={name} href={link} target={link.startsWith("http") ? '_blank' : undefined} rel={link.startsWith("http") ? 'noopener noreferrer' : undefined} aria-label={`${contact.name} on ${name}`}>
+								<img src={img_src} alt='' />
+								<span>{name}</span>
+							</a>
+						))}
+					</nav>
 				</section>
-			</div>
+			</main>
 		</Fragment>
 	);
 };
 
-const mapStateToProps = (state) => {
-	return {};
-};
-
-export default connect(mapStateToProps, null)(Contact);
-
-const Social = ({ name, link, img_src }) => (
-	<figure>
-		<a href={link} target='_blank' rel='noopener noreferrer'>
-			<img src={img_src} alt={`${contact.name} on ${name}`} />
-		</a>
-	</figure>
-);
+export default connect(() => ({}), null)(Contact);
