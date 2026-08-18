@@ -12,7 +12,7 @@ import { contact } from "data";
 const Contact = () => {
 	useTitle(contact.title);
 	useEffect(() => {
-		if (process.env.NODE_ENV === "development") {
+		if (import.meta.env.DEV) {
 			// some stuff    to do in dev
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps

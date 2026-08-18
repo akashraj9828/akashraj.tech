@@ -2,7 +2,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: transparentize($color: black, $amount: 0.3);
+	background-color: color.adjust(black, $alpha: -0.3);
 	min-width: 100vw;
 	min-height: 100vh;
 	z-index: 10;
@@ -16,7 +16,6 @@
 	position: absolute;
 	// top: 0;
 	left: 0;
-	// background-color: transparentize($color: black, $amount: 0.3);
 	background-color: white;
 	min-width: 100vw;
 	min-height: 100vh;

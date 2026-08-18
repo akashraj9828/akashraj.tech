@@ -30,8 +30,8 @@ const Header = ({ theme, dispatch }) => {
 
 					<div className='mobile-nav ml-4 w-100'>
 						<img src={MyImage} className='img img-fluid img-thumb img-round mb-2' alt={home.name} />
-						<span class="name">{home.name}</span>
-						<span class="alias" >@{home.internet_alias}</span>
+						<span className="name">{home.name}</span>
+						<span className="alias" >@{home.internet_alias}</span>
 						{header.navItems.map((e, i) => {
 							if (e.direct) {
 								return (
@@ -41,7 +41,7 @@ const Header = ({ theme, dispatch }) => {
 								);
 							} else {
 								return (
-									<NavLink to={e.to} key={i} className='nav-link' activeClassName='active' exact={true} onClick={() => setMobileNavBarOpen(false)}>
+									<NavLink to={e.to} key={i} end className={({ isActive }) => `nav-link${isActive ? " active" : ""}`} onClick={() => setMobileNavBarOpen(false)}>
 										<span className="mr-3"> {e.icon} </span>	{e.label}
 									</NavLink>
 								);
@@ -64,7 +64,7 @@ const Header = ({ theme, dispatch }) => {
 						} else {
 							return (
 								<li className='nav-item' key={i}>
-									<NavLink to={e.to} className='nav-link' activeClassName='active' exact={true}>
+									<NavLink to={e.to} end className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}>
 									<span className="icon mr-3"> {e.icon} </span>{e.label}
 									</NavLink>
 								</li>

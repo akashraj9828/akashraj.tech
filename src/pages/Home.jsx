@@ -21,7 +21,7 @@ const Home = () => {
 	useTitle(home.title);
 	const part2 = useRef(null);
 	useEffect(() => {
-		if (process.env.NODE_ENV === "development") {
+		if (import.meta.env.DEV) {
 			// some stuff    to do in dev
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
