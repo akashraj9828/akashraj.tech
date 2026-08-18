@@ -20,8 +20,8 @@ export const basic = {
 	internet_alias: "akashraj9828",
 	website: "akashraj.tech",
 	fullWebsite: "https://akashraj.tech",
-	currentCompany: "Accumatic",
-	currentCompanyLink: "https://www.accumatic.com/",
+	currentCompany: "Veramatic (formerly Accumatic)",
+	currentCompanyLink: "https://veramatic.io",
 	dob: new Date(1998, 11, 2), // for age calculation // month is 0 indexed so JAN=0
 };
 
