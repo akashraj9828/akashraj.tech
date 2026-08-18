@@ -2,11 +2,11 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath, URL } from "node:url";
 
-export default defineConfig({
-	// Keep this app's generated files isolated from the other projects sharing
-	// the domain document root. Root SPA routes are rewritten to this build by
-	// the document-root .htaccess rules.
-	base: "/portfolio/",
+export default defineConfig(({ command }) => ({
+	// Keep production assets isolated from the other projects sharing the
+	// domain document root. The development server remains root-based so its
+	// SPA fallback handles local routes such as /contact.
+	base: command === "build" ? "/portfolio/" : "/",
 	plugins: [react({ include: /\.[jt]sx?$/ })],
 	resolve: {
 		alias: {
@@ -37,4 +37,4 @@ export default defineConfig({
 		globals: true,
 		setupFiles: "./src/testSetup.js",
 	},
-});
+}));
