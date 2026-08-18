@@ -8,12 +8,25 @@ const githubApi = "https://api.github.com";
 
 const formatNumber = (number) => new Intl.NumberFormat("en", { notation: "compact", maximumFractionDigits: 1 }).format(number);
 
+const LoadingStats = () => (
+	<section className='stats-loading' aria-label='Loading public GitHub stats' aria-live='polite'>
+		<span className='sr-only'>Loading public GitHub stats…</span>
+		<div className='stats-grid' aria-hidden='true'>{Array.from({ length: 4 }, (_, index) => <div className='stat-card stat-card--loading' key={index}><i /></div>)}</div>
+		<div className='contribution-panel contribution-panel--loading' aria-hidden='true'><i className='loading-line loading-line--title' /><i className='loading-calendar' /><i className='loading-line loading-line--short' /></div>
+		<div className='stats-details' aria-hidden='true'>
+			<div className='stats-panel stats-panel--loading'><i className='loading-line loading-line--title' />{Array.from({ length: 4 }, (_, index) => <i className='loading-line' key={index} />)}</div>
+			<div className='stats-panel stats-panel--loading'><i className='loading-line loading-line--title' />{Array.from({ length: 4 }, (_, index) => <i className='loading-line' key={index} />)}</div>
+		</div>
+	</section>
+);
+
 const Stats = () => {
 	useTitle(`${basic.name} - GitHub Stats`);
 	const [profile, setProfile] = useState(null);
 	const [repos, setRepos] = useState([]);
 	const [error, setError] = useState("");
 	const [contributionCalendar, setContributionCalendar] = useState(null);
+	const [projectView, setProjectView] = useState("starred");
 
 	useEffect(() => {
 		const controller = new AbortController();
@@ -59,8 +72,10 @@ const Stats = () => {
 			forks: repos.reduce((total, repo) => total + repo.forks_count, 0),
 			languages: Object.entries(languages).sort((a, b) => b[1] - a[1]).slice(0, 6),
 			topRepos: [...repos].sort((a, b) => b.stargazers_count - a.stargazers_count || b.forks_count - a.forks_count).slice(0, 6),
+			recentRepos: [...repos].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 6),
 		};
 	}, [repos]);
+	const projectRepos = projectView === "starred" ? repositoryStats.topRepos : repositoryStats.recentRepos;
 
 	return (
 		<main id='stats'>
@@ -75,9 +90,9 @@ const Stats = () => {
 			</section>
 
 			{error && <div className='stats-message'>{error} <a href={`https://github.com/${basic.github}`}>Visit the GitHub profile instead.</a></div>}
-			{!profile && !error && <div className='stats-message'>Loading public GitHub stats…</div>}
+			{!profile && !error && <LoadingStats />}
 
-			{profile && <>
+			{profile && <div className='stats-content'>
 				<section className='stats-grid' aria-label='GitHub totals'>
 					<div className='stat-card'><FaGithub /><strong>{formatNumber(profile.public_repos)}</strong><span>Public repositories</span></div>
 					<div className='stat-card'><FaStar /><strong>{formatNumber(repositoryStats.stars)}</strong><span>Stars earned</span></div>
@@ -102,8 +117,14 @@ const Stats = () => {
 
 				<div className='stats-details'>
 					<section className='stats-panel'>
-						<h2>Most Starred</h2>
-					<div className='repo-list'>{repositoryStats.topRepos.length ? repositoryStats.topRepos.map((repo) => <a href={repo.html_url} target='_blank' rel='noopener noreferrer' key={repo.id} className='repo-row'><span><strong>{repo.name}</strong><small>{repo.description || "Public GitHub repository"}</small></span><span className='repo-stars'><FaStar aria-hidden='true' /> {repo.stargazers_count}</span></a>) : <p className='panel-empty'>No public repositories found.</p>}</div>
+						<div className='panel-heading'>
+							<div><h2>Projects</h2><p>Public repositories from GitHub.</p></div>
+							<div className='project-tabs' role='tablist' aria-label='Project list'>
+								<button type='button' role='tab' aria-selected={projectView === "starred"} className={projectView === "starred" ? "is-active" : ""} onClick={() => setProjectView("starred")}>Most starred</button>
+								<button type='button' role='tab' aria-selected={projectView === "recent"} className={projectView === "recent" ? "is-active" : ""} onClick={() => setProjectView("recent")}>Recently updated</button>
+							</div>
+						</div>
+						<div className='repo-list' role='tabpanel'>{projectRepos.length ? projectRepos.map((repo) => <a href={repo.html_url} target='_blank' rel='noopener noreferrer' key={repo.id} className='repo-row'><span><strong>{repo.name}</strong><small>{repo.description || "Public GitHub repository"}</small></span><span className='repo-stars'><FaStar aria-hidden='true' /> {repo.stargazers_count}</span></a>) : <p className='panel-empty'>No public repositories found.</p>}</div>
 					</section>
 					<section className='stats-panel'>
 						<h2>Languages</h2>
@@ -111,7 +132,7 @@ const Stats = () => {
 					</section>
 				</div>
 				<p className='stats-source'>Live public data from the official GitHub API. Forked repositories are excluded from repository totals.</p>
-			</>}
+			</div>}
 		</main>
 	);
 };
