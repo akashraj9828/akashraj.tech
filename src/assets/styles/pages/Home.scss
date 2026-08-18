@@ -27,6 +27,12 @@
 		box-shadow: 0 0 0 7px color.adjust($primary-color, $alpha: -0.9);
 		margin: 0 auto 1.75rem;
 	}
+	.home-hero__content.is-visible .home-portrait { animation: home-portrait-arrive 520ms var(--motion-ease) both; }
+	.home-hero__content.is-visible > :not(.home-portrait) { animation: home-copy-arrive var(--motion-slow) var(--motion-ease) both; }
+	.home-hero__content.is-visible > :nth-child(2) { animation-delay: 70ms; }
+	.home-hero__content.is-visible > :nth-child(3) { animation-delay: 110ms; }
+	.home-hero__content.is-visible > :nth-child(4) { animation-delay: 150ms; }
+	.home-hero__content.is-visible > :nth-child(5) { animation-delay: 190ms; }
 	.home-eyebrow {
 		margin: 0 0 .65rem;
 		color: $primary-color;
@@ -46,6 +52,7 @@
 		min-height: 2.9rem; padding: .7rem 1.05rem; border: 1px solid transparent; border-radius: .45rem;
 		font-size: .96rem; font-weight: 600; text-decoration: none; transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
 		&:hover { text-decoration: none; transform: translateY(-2px); }
+		&:active { transform: translateY(0) scale(.98); }
 		&:focus-visible { outline: 3px solid color.adjust($primary-color, $alpha: -0.4); outline-offset: 3px; }
 	}
 	.home-button--primary { color: white; background: $primary-color; &:hover { color: white; background: color.adjust($primary-color, $lightness: -7%); } }
@@ -56,9 +63,12 @@
 	.home-bio > span { display: block; }
 	.home-bio a { color: $primary-color; font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: .18em; }
 	.home-actions--secondary { justify-content: flex-start; }
-	.home-text-link { color: $secondary-color; font-weight: 600; text-decoration: underline; text-decoration-color: $primary-color; text-underline-offset: .28em; &:hover { color: $primary-color; } &:focus-visible { outline: 3px solid color.adjust($primary-color, $alpha: -0.4); outline-offset: 4px; } }
-	.home-rocket { position: fixed; z-index: 3; right: 1rem; bottom: 1rem; display: grid; place-items: center; width: 3rem; height: 3rem; padding: .55rem; border: 1px solid color.adjust($secondary-color, $alpha: -0.78); border-radius: 50%; background: $bg-color; cursor: pointer; box-shadow: 0 5px 18px color.adjust($secondary-color, $alpha: -0.88); transition: transform .2s ease; &:hover { transform: translateY(-3px); } &:focus-visible { outline: 3px solid $primary-color; outline-offset: 3px; } img { width: 100%; } }
+	.home-text-link { color: $secondary-color; font-weight: 600; text-decoration: underline; text-decoration-color: $primary-color; text-underline-offset: .28em; transition: color var(--motion-base) ease; span { display: inline-block; transition: transform var(--motion-base) var(--motion-ease); } &:hover { color: $primary-color; } &:hover span, &:focus-visible span { transform: translateX(.18rem); } &:focus-visible { outline: 3px solid color.adjust($primary-color, $alpha: -0.4); outline-offset: 4px; } }
+	.home-rocket { position: fixed; z-index: 3; right: 1rem; bottom: 1rem; display: grid; place-items: center; width: 3rem; height: 3rem; padding: .55rem; border: 1px solid color.adjust($secondary-color, $alpha: -0.78); border-radius: 50%; background: $bg-color; cursor: pointer; box-shadow: 0 5px 18px color.adjust($secondary-color, $alpha: -0.88); transition: transform .2s ease; animation: home-rocket-nudge .8s var(--motion-ease) 1.6s 1 both; &:hover { transform: translateY(-3px) rotate(4deg); } &:active { transform: translateY(0) scale(.94); } &:focus-visible { outline: 3px solid $primary-color; outline-offset: 3px; } img { width: 100%; } }
 	.home-rocket--flying { pointer-events: none; animation: home-rocket-fly 2s linear forwards; }
+	@keyframes home-copy-arrive { from { opacity: 0; transform: translateY(.35rem); } to { opacity: 1; transform: translateY(0); } }
+	@keyframes home-portrait-arrive { 0% { opacity: 0; transform: scale(.94); box-shadow: 0 0 0 0 color.adjust($primary-color, $alpha: -0.72); } 70% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 10px color.adjust($primary-color, $alpha: -0.92); } 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 7px color.adjust($primary-color, $alpha: -0.9); } }
+	@keyframes home-rocket-nudge { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(-4px) rotate(3deg); } 70% { transform: translateY(-1px) rotate(-1deg); } }
 	@keyframes home-rocket-fly {
 		0% { bottom: 1rem; opacity: 1; scale: 1; }
 		15% { bottom: 5vh; scale: 1.2; }
@@ -74,5 +84,5 @@
 		.home-actions--secondary { align-items: flex-start; }
 		.home-text-link { width: auto; padding: .5rem 0; }
 	}
-	@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+	@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-delay: 0ms !important; } }
 }

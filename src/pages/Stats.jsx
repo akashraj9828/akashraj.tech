@@ -3,6 +3,9 @@ import { FaCodeBranch, FaGithub, FaStar, FaUsers } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
 import { useTitle } from "react-use";
 import { basic } from "data";
+import { useSound } from "../logic/audio/SoundProvider";
+import { useAnimatedNumber } from "../logic/motion/useAnimatedNumber";
+import { useReveal } from "../logic/motion/useReveal";
 
 const githubApi = "https://api.github.com";
 
@@ -27,6 +30,10 @@ const Stats = () => {
 	const [error, setError] = useState("");
 	const [contributionCalendar, setContributionCalendar] = useState(null);
 	const [projectView, setProjectView] = useState("starred");
+	const { play } = useSound();
+	const introReveal = useReveal();
+	const activityReveal = useReveal({ threshold: 0.08 });
+	const detailsReveal = useReveal({ threshold: 0.06 });
 
 	useEffect(() => {
 		const controller = new AbortController();
@@ -76,10 +83,19 @@ const Stats = () => {
 		};
 	}, [repos]);
 	const projectRepos = projectView === "starred" ? repositoryStats.topRepos : repositoryStats.recentRepos;
+	const animatedRepos = useAnimatedNumber(profile?.public_repos || 0);
+	const animatedStars = useAnimatedNumber(repositoryStats.stars);
+	const animatedForks = useAnimatedNumber(repositoryStats.forks);
+	const animatedFollowers = useAnimatedNumber(profile?.followers || 0);
+	const changeProjectView = (view) => {
+		if (view === projectView) return;
+		play("toggle");
+		setProjectView(view);
+	};
 
 	return (
 		<main id='stats'>
-			<section className='stats-intro'>
+			<section ref={introReveal.ref} style={introReveal.style} className={`stats-intro ${introReveal.className}`}>
 				<div className='intro-mark' aria-hidden='true'><FaGithub /></div>
 				<div className='intro-copy'>
 					<p className='intro-kicker'>GitHub profile · @{basic.github}</p>
@@ -94,13 +110,13 @@ const Stats = () => {
 
 			{profile && <div className='stats-content'>
 				<section className='stats-grid' aria-label='GitHub totals'>
-					<div className='stat-card'><FaGithub /><strong>{formatNumber(profile.public_repos)}</strong><span>Public repositories</span></div>
-					<div className='stat-card'><FaStar /><strong>{formatNumber(repositoryStats.stars)}</strong><span>Stars earned</span></div>
-					<div className='stat-card'><FaCodeBranch /><strong>{formatNumber(repositoryStats.forks)}</strong><span>Repository forks</span></div>
-					<div className='stat-card'><FaUsers /><strong>{formatNumber(profile.followers)}</strong><span>Followers</span></div>
+					<div className='stat-card'><FaGithub /><strong>{formatNumber(animatedRepos)}</strong><span>Public repositories</span></div>
+					<div className='stat-card'><FaStar /><strong>{formatNumber(animatedStars)}</strong><span>Stars earned</span></div>
+					<div className='stat-card'><FaCodeBranch /><strong>{formatNumber(animatedForks)}</strong><span>Repository forks</span></div>
+					<div className='stat-card'><FaUsers /><strong>{formatNumber(animatedFollowers)}</strong><span>Followers</span></div>
 				</section>
 
-				<section className='contribution-panel'>
+				<section ref={activityReveal.ref} style={activityReveal.style} className={`contribution-panel ${activityReveal.className}`}>
 					<div className='contribution-heading'>
 						<h2>Contribution Activity</h2>
 						{contributionCalendar && <span>{formatNumber(contributionCalendar.total)} contributions in the last year</span>}
@@ -115,16 +131,16 @@ const Stats = () => {
 					</> : <p className='contribution-loading'>Loading contribution activity…</p>}
 				</section>
 
-				<div className='stats-details'>
+				<div ref={detailsReveal.ref} style={detailsReveal.style} className={`stats-details ${detailsReveal.className}`}>
 					<section className='stats-panel'>
 						<div className='panel-heading'>
 							<div><h2>Projects</h2><p>Public repositories from GitHub.</p></div>
 							<div className='project-tabs' role='tablist' aria-label='Project list'>
-								<button type='button' role='tab' aria-selected={projectView === "starred"} className={projectView === "starred" ? "is-active" : ""} onClick={() => setProjectView("starred")}>Most starred</button>
-								<button type='button' role='tab' aria-selected={projectView === "recent"} className={projectView === "recent" ? "is-active" : ""} onClick={() => setProjectView("recent")}>Recently updated</button>
+								<button type='button' role='tab' aria-selected={projectView === "starred"} className={projectView === "starred" ? "is-active" : ""} onClick={() => changeProjectView("starred")}>Most starred</button>
+								<button type='button' role='tab' aria-selected={projectView === "recent"} className={projectView === "recent" ? "is-active" : ""} onClick={() => changeProjectView("recent")}>Recently updated</button>
 							</div>
 						</div>
-						<div className='repo-list' role='tabpanel'>{projectRepos.length ? projectRepos.map((repo) => <a href={repo.html_url} target='_blank' rel='noopener noreferrer' key={repo.id} className='repo-row'><span><strong>{repo.name}</strong><small>{repo.description || "Public GitHub repository"}</small></span><span className='repo-stars'><FaStar aria-hidden='true' /> {repo.stargazers_count}</span></a>) : <p className='panel-empty'>No public repositories found.</p>}</div>
+						<div className='repo-list repo-list--switching' role='tabpanel' key={projectView}>{projectRepos.length ? projectRepos.map((repo) => <a href={repo.html_url} target='_blank' rel='noopener noreferrer' key={repo.id} className='repo-row'><span><strong>{repo.name}</strong><small>{repo.description || "Public GitHub repository"}</small></span><span className='repo-stars'><FaStar aria-hidden='true' /> {repo.stargazers_count}</span></a>) : <p className='panel-empty'>No public repositories found.</p>}</div>
 					</section>
 					<section className='stats-panel'>
 						<h2>Languages</h2>

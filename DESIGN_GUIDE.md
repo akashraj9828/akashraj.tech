@@ -134,14 +134,29 @@ Light and dark mode are equal modes, not separate designs.
 
 Motion should communicate state or add one small moment of delight.
 
+- Use the shared motion timings: fast feedback around 140ms, standard controls around 180ms, and entrances around 260ms.
 - Standard hover, focus, and menu transitions: 150–200ms.
 - Prefer opacity, border color, and small transforms over large movement.
+- Entrance motion travels no more than 4–8px and plays only once as content becomes visible.
+- Stagger repeated content by no more than 35ms per item and cap the pattern within a visible row.
+- Dense reading surfaces, especially the résumé, remain still apart from their header and controls.
 - Never move content in a way that changes reading order or causes layout shift.
 - Respect `prefers-reduced-motion` for all nonessential animation.
 
 ### The rocket
 
 The rocket is the one playful exception. It is positioned at the bottom-right of the Home page. Clicking it scrolls to the introduction and launches it vertically offscreen. Once launched, it stays gone for that page visit.
+
+### Sound
+
+Sound is optional interaction feedback, never ambience.
+
+- Interface sounds default to enabled but remain silent until a visitor deliberately clicks or keyboard-activates a supported control.
+- Provide a persistent, accessible sound control beside the theme control.
+- Use short, quiet cues only for navigation, theme changes, menu/tab state changes, sound opt-in, and the rocket launch.
+- Never play sound on page load, hover, focus, scrolling, passive data loading, or every external link.
+- A disabled, suspended, or unavailable audio system must never block the underlying interaction.
+- Persist the visitor's sound preference across routes and reloads.
 
 ## 7. Page blueprints
 

@@ -11,6 +11,7 @@ import Work from "./pages/Work";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 import Stats from "./pages/Stats";
+import { SoundProvider } from "./logic/audio/SoundProvider";
 
 const AnimatedRoutes = () => {
 	const location = useLocation();
@@ -46,12 +47,14 @@ const ScrollToTop = () => {
 export const App = () => {
 	return (
 		<div className={`App`}>
-			<Router>
-				<ScrollToTop />
-				<Header />
-				<div id='main' className='main-content'><AnimatedRoutes /></div>
-				<Footer />
-			</Router>
+			<SoundProvider>
+				<Router>
+					<ScrollToTop />
+					<Header />
+					<div id='main' className='main-content'><AnimatedRoutes /></div>
+					<Footer />
+				</Router>
+			</SoundProvider>
 		</div>
 	);
 };

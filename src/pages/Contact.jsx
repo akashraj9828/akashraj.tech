@@ -6,25 +6,31 @@ import { connect } from "react-redux";
 import { useTitle } from "react-use";
 /* DATA */
 import { contact } from "data";
+import { useSound } from "../logic/audio/SoundProvider";
+import { useReveal } from "../logic/motion/useReveal";
 
 const Contact = () => {
 	useTitle(contact.title);
+	const { play } = useSound();
+	const copyReveal = useReveal();
+	const cardReveal = useReveal({ delay: 70 });
+	const socialsReveal = useReveal({ threshold: 0.08 });
 
 	return (
 		<Fragment>
 			<main className='contact-page'>
 				<section className='contact-hero' aria-labelledby='contact-title'>
-					<div className='contact-copy'>
+					<div ref={copyReveal.ref} style={copyReveal.style} className={`contact-copy ${copyReveal.className}`}>
 						<p className='contact-eyebrow'>Let&apos;s work together</p>
 						<h1 id='contact-title'>Hello there.</h1>
 						<p className='contact-lede'>Have a project, opportunity, or good recommendation to share? I&apos;d love to hear from you.</p>
-						<a className='contact-email' href={`mailto:${contact.email}`}>
+						<a className='contact-email' href={`mailto:${contact.email}`} onClick={() => play("navigate")}>
 							<span>Email me</span>
 							<strong>{contact.email}</strong>
 						</a>
 					</div>
 
-					<aside className='contact-card' aria-labelledby='contact-reasons-title'>
+					<aside ref={cardReveal.ref} style={cardReveal.style} className={`contact-card ${cardReveal.className}`} aria-labelledby='contact-reasons-title'>
 						<h2 id='contact-reasons-title'>A good reason to say hello</h2>
 						<ul>
 							{contact.contact_reasons.map((reason, index) => <li key={index}>{reason}</li>)}
@@ -37,7 +43,7 @@ const Contact = () => {
 					</aside>
 				</section>
 
-				<section className='contact-socials' aria-labelledby='social-title'>
+				<section ref={socialsReveal.ref} style={socialsReveal.style} className={`contact-socials ${socialsReveal.className}`} aria-labelledby='social-title'>
 					<div>
 						<p className='contact-eyebrow'>Elsewhere</p>
 						<h2 id='social-title'>Find me around the web.</h2>

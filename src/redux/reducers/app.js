@@ -18,8 +18,8 @@ export default function app(state = default_state.app, action) {
 		case TOGGLE_THEME:
 			let new_theme = state.theme === "dark" ? "light" : "dark";
 			try {
-				document.body.parentElement.classList.remove(state.theme);
-				document.body.parentElement.classList.add(new_theme);
+				document.documentElement.classList.remove("dark", "light");
+				document.documentElement.classList.add(new_theme);
 				window.localStorage.setItem("page_theme", new_theme);
 				if (new_theme === "dark") {
 					document.querySelector('meta[name="theme-color"]').setAttribute("content", "#181a1b");
