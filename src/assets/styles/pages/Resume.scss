@@ -189,8 +189,8 @@
 		.resume-sheet { padding: 1.35rem; border-radius: .8rem; }
 		.resume-header { margin-bottom: 2rem; padding-bottom: 1.5rem; }
 		.resume-actions { align-items: stretch; flex-direction: column; padding: .85rem; }
-		.resume-action-buttons { display: grid !important; grid-template-columns: 1fr 1fr; }
-		.resume-action-buttons > * { width: 100%; }
+		.resume-action-buttons { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch !important; }
+		.resume-action-buttons > * { width: 100%; min-height: 3.9rem !important; }
 		.resume-contact { justify-content: flex-start; }
 		.resume-summary { font-size: .96rem; }
 		.resume-columns {
@@ -207,5 +207,8 @@
 			align-items: flex-start;
 			white-space: normal;
 		}
+		.resume-entry-heading > div:first-child,
+		.resume-entry p,
+		.resume-sidebar p { overflow-wrap: anywhere; }
 	}
 }

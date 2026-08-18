@@ -170,11 +170,11 @@
 
 	@media (max-width: 767px) {
 		width: min(100% - 2rem, 72rem);
-		.stats-intro { align-items: center; flex-wrap: wrap; gap: .85rem; padding: 1rem; }
+		.stats-intro { align-items: flex-start; flex-direction: column; gap: .85rem; padding: 1rem; }
 		.stats-intro::after { display: none; }
-		.intro-mark { width: 3rem; height: 3rem; font-size: 1.35rem; }
-		.intro-copy { flex-basis: calc(100% - 4rem); }
-		.github-button { margin-left: 3.85rem; padding: .5em .75em; font-size: .78rem; }
+		.intro-mark { display: none; }
+		.intro-copy { flex-basis: auto; width: 100%; }
+		.github-button { margin-left: 0; padding: .55em .8em; font-size: .78rem; }
 		.stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
 		.stat-card { column-gap: .6rem; padding: .8rem; }
 		.stat-card > svg { width: 2.25rem; height: 2.25rem; padding: .65rem; }
@@ -195,6 +195,9 @@
 		.stats-details { grid-template-columns: 1fr; }
 		.stats-panel { padding: 1.25rem; }
 		.panel-heading { flex-direction: column; }
+		.project-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+		.project-tabs button { min-height: 2.75rem; }
+		.repo-row > span:first-child { min-width: 0; overflow-wrap: anywhere; }
 	}
 
 	@keyframes stats-shimmer { to { background-position: -200% 0; } }
