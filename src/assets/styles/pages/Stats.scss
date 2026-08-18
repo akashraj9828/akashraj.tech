@@ -54,7 +54,10 @@
 		z-index: 1;
 		font-size: .82rem;
 
+		svg { transition: transform var(--motion-base) var(--motion-ease); }
 		&:hover { color: white; text-decoration: none; box-shadow: 0 0 18px color.adjust($primary-color, $alpha: -0.45); }
+		&:hover svg, &:focus-visible svg { transform: translate(.12rem, -.12rem); }
+		&:active { transform: scale(.98); }
 	}
 
 	.stats-message { padding: 2.5rem 1rem; color: $secondary-color; text-align: center; font-size: 1rem; opacity: .75; }
@@ -95,6 +98,7 @@
 		transition: .2s;
 
 		&:hover { border-color: color.adjust($primary-color, $alpha: -.35); transform: translateY(-2px); }
+		&:active { transform: translateY(0) scale(.99); }
 	}
 	.stat-card > svg {
 		grid-area: icon;
@@ -148,12 +152,16 @@
 	.project-tabs { display: flex; flex-wrap: wrap; gap: .3rem; }
 	.project-tabs button { padding: .4rem .55rem; border: 1px solid color.adjust($secondary-color, $alpha: -.84); border-radius: .45rem; background: transparent; color: $secondary-color; cursor: pointer; font-size: .72rem; opacity: .72; transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease; }
 	.project-tabs button:hover, .project-tabs button.is-active { border-color: color.adjust($primary-color, $alpha: -.48); background: color.adjust($primary-color, $alpha: -.9); color: $primary-color; opacity: 1; }
+	.project-tabs button:active { transform: scale(.96); }
 	.project-tabs button:focus-visible { outline: 2px solid $primary-color; outline-offset: 2px; }
 	.repo-list, .language-list { display: grid; }
+	.repo-list--switching { animation: repo-list-switch var(--motion-base) var(--motion-ease) both; }
 	.repo-row, .language-row { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem 0; border-top: 1px solid color.adjust($secondary-color, $alpha: -0.85); }
 	.repo-row:first-child, .language-row:first-child { border-top: 0; }
 	.repo-row { color: $secondary-color; text-decoration: none; }
 	.repo-row:hover { color: $primary-color; text-decoration: none; }
+	.repo-row > span:first-child { transition: transform var(--motion-base) var(--motion-ease); }
+	.repo-row:hover > span:first-child, .repo-row:focus-visible > span:first-child { transform: translateX(.18rem); }
 	.repo-row small { display: block; margin-top: .2rem; color: inherit; opacity: .65; }
 	.repo-stars { display: flex; align-items: center; gap: .3rem; color: $primary-color; white-space: nowrap; }
 	.language-row span:last-child { opacity: .65; }
@@ -191,7 +199,8 @@
 
 	@keyframes stats-shimmer { to { background-position: -200% 0; } }
 	@keyframes stats-reveal { from { opacity: 0; transform: translateY(.35rem); } to { opacity: 1; transform: translateY(0); } }
-	@media (prefers-reduced-motion: reduce) { .stats-content, .stat-card--loading i, .loading-line, .loading-calendar { animation: none; } }
+	@keyframes repo-list-switch { from { opacity: 0; transform: translateY(.25rem); } to { opacity: 1; transform: translateY(0); } }
+	@media (prefers-reduced-motion: reduce) { .stats-content, .stat-card--loading i, .loading-line, .loading-calendar, .repo-list--switching { animation: none; } .stat-card, .repo-row > span, .github-button svg { transition: none; } }
 
 	a:focus-visible { outline: 2px solid $primary-color; outline-offset: 3px; }
 }

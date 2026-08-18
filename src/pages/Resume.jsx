@@ -6,6 +6,8 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FiGlobe, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 import { resume } from "data";
 import resumeData from "data/resume.json";
+import { useSound } from "../logic/audio/SoundProvider";
+import { useReveal } from "../logic/motion/useReveal";
 
 const profileIcons = {
 	GitHub: FaGithub,
@@ -69,20 +71,23 @@ const Section = ({ title, children }) => (
 const Resume = () => {
 	useTitle(resume.title);
 	const { basics } = resumeData;
+	const { play } = useSound();
+	const actionsReveal = useReveal();
+	const headerReveal = useReveal({ delay: 45 });
 
 	return (
 		<div className='resume'>
-			<div className='resume-actions' aria-label='Resume actions'>
+			<div ref={actionsReveal.ref} style={actionsReveal.style} className={`resume-actions ${actionsReveal.className}`} aria-label='Resume actions'>
 				<p>Interested in working together?</p>
 				<div className='resume-action-buttons'>
-					<Link className='resume-contact-button' to='/contact'>Contact</Link>
-					<button type='button' onClick={() => window.print()} aria-label='Print resume or save it as a PDF'>
+					<Link className='resume-contact-button' to='/contact' onClick={() => play("navigate")}>Contact</Link>
+					<button type='button' onClick={() => { play("toggle"); window.print(); }} aria-label='Print resume or save it as a PDF'>
 						Print / save as PDF
 					</button>
 				</div>
 			</div>
 			<main className='resume-sheet'>
-				<header className='resume-header'>
+				<header ref={headerReveal.ref} style={headerReveal.style} className={`resume-header ${headerReveal.className}`}>
 					<h1>{basics.name}</h1>
 					<p className='resume-label'>{basics.label}</p>
 					<div className='resume-contact'>

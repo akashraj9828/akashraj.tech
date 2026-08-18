@@ -4,15 +4,23 @@
 	opacity: 0;
 }
 
+.fade-appear,
+.fade-enter { transform: translateY(.25rem); }
+
 .fade-appear-active,
 .fade-enter-active {
-	transition: opacity 0.3s linear;
+	transition: opacity var(--motion-slow) var(--motion-ease), transform var(--motion-slow) var(--motion-ease);
 	opacity: 1;
+	transform: translateY(0);
 }
 
 .fade-exit {
-	transition: opacity 0.2s linear;
+	transition: opacity var(--motion-fast) ease;
 	opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.fade-appear, .fade-enter, .fade-exit, .fade-appear-active, .fade-enter-active, .fade-exit-active { opacity: 1; transform: none; transition: none; }
 }
 
 .slow-shaking {

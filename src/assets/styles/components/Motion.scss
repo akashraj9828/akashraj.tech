@@ -1,0 +1,18 @@
+& {
+	--motion-fast: 140ms;
+	--motion-base: 180ms;
+	--motion-slow: 260ms;
+	--motion-ease: cubic-bezier(.2, .75, .25, 1);
+}
+
+.motion-reveal {
+	opacity: 0;
+	transform: translateY(.5rem);
+	transition: opacity var(--motion-slow) var(--motion-ease) var(--motion-delay, 0ms), transform var(--motion-slow) var(--motion-ease) var(--motion-delay, 0ms);
+}
+
+.motion-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+	.motion-reveal { opacity: 1; transform: none; transition: none; }
+}

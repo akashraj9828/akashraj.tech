@@ -8,6 +8,7 @@ import { FiGithub as GithubIcon, FiLink as LinkIcon } from "react-icons/fi";
 import { useTitle } from "react-use";
 /* DATA */
 import { work } from "data";
+import { useReveal } from "../logic/motion/useReveal";
 
 const Work = ({ match }) => {
 	useTitle(work.title);
@@ -28,7 +29,7 @@ const Work = ({ match }) => {
 				<p>Small tools, visual experiments, and ideas made to be explored.</p>
 			</header>
 			<section className='projects' aria-label='Project collection'>
-				{work.projects.map((project) => <Project key={project.name} {...project} />)}
+				{work.projects.map((project, index) => <Project key={project.name} index={index} {...project} />)}
 			</section>
 		</main>
 	);
@@ -41,10 +42,11 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, null)(Work);
 
 // Projects component
-const Project = ({ name, img_src, link_code, link_live }) => {
+const Project = ({ name, img_src, link_code, link_live, index }) => {
 	const destination = link_live || link_code;
+	const reveal = useReveal({ delay: (index % 3) * 35, threshold: 0.08 });
 	return (
-		<article className='project-card'>
+		<article ref={reveal.ref} style={reveal.style} className={`project-card ${reveal.className}`}>
 			<a className='project-image' href={destination} target='_blank' rel='noopener noreferrer' aria-label={`Open ${name}`}>
 				<img src={img_src} alt='' />
 			</a>
