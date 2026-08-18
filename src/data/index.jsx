@@ -1,8 +1,4 @@
 import React, { Fragment } from "react";
-/* RESUME */
-import ResumeLight from "assets/doc/resume_light.pdf";
-import ResumeDark from "assets/doc/resume_dark.pdf";
-
 const imageModules = import.meta.glob("../assets/img/**/*", { eager: true, query: "?url", import: "default" });
 const image = (path) => imageModules[`../assets/img/${path}`];
 
@@ -24,9 +20,9 @@ export const basic = {
 	internet_alias: "akashraj9828",
 	website: "akashraj.tech",
 	fullWebsite: "https://akashraj.tech",
-	currentCompany: "Snap2Insight",
-	currentCompanyLink: "https://snap2insight.com",
-	dob:new Date(1998,11,2), // for age calculation // month is 0 indexed so JAN=0
+	currentCompany: "Accumatic",
+	currentCompanyLink: "https://www.accumatic.com/",
+	dob: new Date(1998, 11, 2), // for age calculation // month is 0 indexed so JAN=0
 };
 
 /* DATA FOR HEADER / NAVBAR */
@@ -66,43 +62,43 @@ export const header = {
 export const home = {
 	...basic,
 	title: "Akash Raj",
-	heading: "Student, Explorer, Creator.",
+	heading: "Senior Full-Stack Engineer.",
 	full_intro: (
 		<Fragment>
 			<span>
-				It's me Akash
+				Hey, I'm Akash
 				<span role='img' aria-label='Peace'>
 					✌️
 				</span>{" "}
-				, a { (new Date() - basic.dob)/1000/60/60/24/365 >> 0 } year old Full Stack Developer.
+				, a full-stack engineer with 6+ years of experience building AI-enabled products, developer tools, and high-performance web and mobile applications.
 			</span>
 			<br />
 			<span>
-				Currently engineering{" "}
+				Currently building agentic developer tooling{" "}
 				<a className='d-inline font-weight-bold' href={basic.currentCompanyLink} target=''>
 					{" "}
 					@{basic.currentCompany}{" "}
 				</a>
-				with some awesome folks.
+				with an awesome team.
 			</span>
 			<br />
 			<span>
-				I like to make cool stuff.
+				I enjoy owning ambitious products end to end—from system design and infrastructure to polished user experiences.
 				<span role='img' aria-label='Coder'>
 					👨‍💻
 				</span>
 			</span>
 			<br />
 			<span>
-				Game development{" "}
+				Developer tools{" "}
 				<span role='img' aria-label='Joystick'>
 					🕹️
 				</span>{" "}
-				and AI{" "}
+				and applied AI{" "}
 				<span role='img' aria-label='Robot'>
 					🤖
 				</span>{" "}
-				are my latest interests.
+				are where I'm spending most of my curiosity these days.
 			</span>
 		</Fragment>
 	),
@@ -133,8 +129,6 @@ export const work = {
 /* DATA FOR HIRE ME/RESUME */
 export const resume = {
 	title: "Akash Raj - Hire Me",
-	resume_light: ResumeLight,
-	resume_dark: ResumeDark,
 };
 
 /* DATA FOR CONTACT ME */

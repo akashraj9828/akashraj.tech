@@ -1,0 +1,139 @@
+{
+	"basics": {
+		"name": "Akash Raj",
+		"label": "Senior Full-Stack Engineer",
+		"summary": "Senior Full-Stack Engineer with 6+ years of experience building AI-enabled products, developer tools, data platforms, and high-performance web and mobile applications. Experienced in TypeScript, Node.js, React, React Native, Docker, and AWS, with a track record of owning systems end to end.",
+		"location": "",
+		"email": "akashraj9828@gmail.com",
+		"phone": "+91 99682 83924",
+		"website": { "label": "akashraj.tech", "url": "https://akashraj.tech/?ref=resume" },
+		"profiles": [
+			{ "network": "GitHub", "username": "akashraj9828", "url": "https://github.com/akashraj9828" },
+			{ "network": "LinkedIn", "username": "akashraj9828", "url": "https://linkedin.com/in/akashraj9828" }
+		]
+	},
+	"experience": [
+		{
+			"company": "Accumatic",
+			"companyUrl": "https://www.accumatic.com/",
+			"position": "Senior Full-Stack Developer",
+			"location": "Bangalore · Remote",
+			"startDate": "Sep 2024",
+			"endDate": "Present",
+			"technologies": ["Docker", "Node.js", "React", "Web Workers", "Document Parsers", "State Machines"],
+			"highlights": [
+				"Built an agentic software-development platform that converts product requirements into production-ready code and auditable pull requests, reducing implementation and review time by 70%.",
+				"Developed comprehensive end-to-end test suites that catch defects early, improve release confidence, and reduce debugging and triage effort.",
+				"Built robust parsers for complex financial documents, enabling accurate data extraction and automation.",
+				"Developed reusable, high-performance UI components."
+			]
+		},
+		{
+			"company": "Snap2Insight",
+			"position": "Senior Software Engineer",
+			"location": "Bangalore",
+			"startDate": "Aug 2023",
+			"endDate": "Sep 2024",
+			"technologies": ["Node.js", "React Native", "ONNX Runtime", "Next.js", "Docker"],
+			"highlights": ["Led a team of two developers to deliver high-impact projects.", "Engineered a cross-platform React Native library for performant, scalable on-device AI model execution.", "Designed a React Native data-collection application that helped double the customer base.", "Partnered with machine-learning and analytics teams to build tools that improved productivity and delivery.", "Interviewed and evaluated engineering candidates, helping grow a high-quality talent pool."]
+		},
+		{
+			"company": "Snap2Insight",
+			"position": "Software Engineer",
+			"location": "Bangalore",
+			"startDate": "May 2020",
+			"endDate": "Aug 2023",
+			"technologies": ["Node.js", "React", "Next.js", "TypeScript", "SQL", "TensorFlow", "Docker"],
+			"highlights": [
+				"Delivered 10+ full-stack systems that improved data review, monitoring, operations, and communication workflows across multiple front-end platforms.",
+				"Independently owned and maintained a portfolio of full-stack projects for more than two years.",
+				"Modernized legacy codebases, improving performance and reducing maintenance overhead.",
+				"Developed and commercialized a JavaScript library for detecting cheating in online exams; it was later acquired by a leading proctoring company.",
+				"Built automation and proactive alerting systems for data aggregation, ingestion, and quality monitoring."
+			]
+		},
+		{
+			"company": "Trelos",
+			"position": "Full-Stack Intern",
+			"location": "Delhi",
+			"startDate": "Jul 2019",
+			"endDate": "Nov 2019",
+			"technologies": ["PHP", "SQL", "Node.js", "AWS"],
+			"highlights": ["Developed four core modules for an online learning platform and launched websites for partner institutions.", "Managed databases and servers supporting the platform.", "Built a custom data-collection and analytics application that saved an NGO thousands of hours each month."]
+		},
+		{
+			"company": "Defense Research and Development Organization",
+			"position": "Machine Learning Project Trainee",
+			"location": "Delhi",
+			"startDate": "Jun 2019",
+			"endDate": "Aug 2019",
+			"technologies": ["TensorFlow", "Keras", "R-CNN", "Autoencoders"],
+			"highlights": ["Studied and applied a range of machine-learning techniques under expert mentorship.", "Led the successful completion of the Deep Dance project."]
+		}
+	],
+	"education": [
+		{
+			"institution": "Guru Gobind Singh Indraprastha University",
+			"degree": "Bachelor of Technology",
+			"area": "Computer Science & Engineering",
+			"location": "Delhi, India",
+			"startDate": "Aug 2016",
+			"endDate": "Jul 2020"
+		}
+	],
+	"projects": [
+		{
+			"name": "Geographic Information System for the Government of India",
+			"description": "A GIS platform for working with large satellite imagery on low-end computers.",
+			"startDate": "May 2022",
+			"endDate": "May 2022",
+			"technologies": ["Konva", "Python", "Node.js", "Redis", "React", "MongoDB"],
+			"highlights": ["Developed a rendering engine optimized for huge satellite images.", "Created image-processing and tiling pipelines for TIFF imagery.", "Designed and developed annotation and report-generation modules."]
+		},
+		{
+			"name": "GitStats",
+			"url": "https://github.com/akashraj9828/gitstats?ref=resume",
+			"description": "An open-source GitHub contribution analyzer that surfaces insights about a developer's code and habits.",
+			"startDate": "Apr 2020",
+			"endDate": "Apr 2020",
+			"technologies": ["React", "Node.js", "Express", "Redis", "GraphQL"],
+			"highlights": ["Reached 3,000+ page views within two days of launch."]
+		},
+		{
+			"name": "SVG Animation Generator",
+			"url": "https://akashraj9828.github.io/svg-text-animation-generator/",
+			"description": "A tool for creating and exporting animated SVG text without runtime dependencies.",
+			"startDate": "May 2020",
+			"endDate": "May 2020",
+			"technologies": ["SVG", "CSS Keyframes"],
+			"highlights": ["Offers a choice of 991 fonts and produces standalone CSS animations."]
+		},
+		{
+			"name": "Information Universe",
+			"url": "https://github.com/akashraj9828/Information-Universe",
+			"description": "A web application that presents information in an easily digestible graph format.",
+			"startDate": "Sep 2019",
+			"endDate": "Sep 2019",
+			"technologies": ["Node.js", "Express", "Web Scraping", "Graphs"],
+			"highlights": ["Built a custom script that collects information from Wikipedia in real time."]
+		},
+		{
+			"name": "Image2Audio",
+			"url": "https://github.com/akashraj9828/image2sound?ref=resume",
+			"description": "A highly optimized Java program that encodes images as audio, allowing the image to be viewed in the audio spectrogram.",
+			"startDate": "Dec 2018",
+			"endDate": "Dec 2018",
+			"technologies": ["Java", "Signal Processing", "Binary File Processing", "File Encodings"],
+			"highlights": ["Explores applications in steganography, security, and communication."]
+		}
+	],
+	"skills": [
+		{ "name": "Languages", "keywords": ["TypeScript", "JavaScript", "Python", "Java", "C", "C++", "PHP"] },
+		{ "name": "Libraries & Frameworks", "keywords": ["Node.js", "Express", "React Native", "React", "Next.js", "Angular", "Tailwind CSS", "Styled Components", "Konva", "p5.js", "GraphQL"] },
+		{ "name": "Databases", "keywords": ["MySQL", "PostgreSQL", "MongoDB", "Redis"] },
+		{ "name": "Tools", "keywords": ["Git", "Docker", "Figma", "Postman", "ONNX Runtime", "TensorFlow", "Playwright", "OAuth"] },
+		{ "name": "Cloud", "keywords": ["AWS S3", "AWS EC2", "AWS Lambda", "Azure"] }
+	],
+	"publications": ["Deep Dance — showcasing the capabilities of RNNs and CNNs on a video dataset"],
+	"openSource": ["p5.js", "SideScreen"]
+}
