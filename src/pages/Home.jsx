@@ -37,7 +37,7 @@ const Home = () => {
 						<img src={MyImage} className='home-portrait' alt={`Portrait of ${home.name}`} />
 						<p className='home-eyebrow'>Hello, I&apos;m {home.firstName}.</p>
 						<h1 id='home-title'>{home.heading}</h1>
-						<p className='home-summary'>I build thoughtful products, from dependable systems to polished interfaces.</p>
+						<p className='home-summary'>I enjoy figuring out how things work and building useful things along the way.</p>
 						<div className='home-actions' aria-label='Explore my work'>
 							<a className='home-button home-button--primary' href='#introduction' onClick={scrollToIntroduction}>
 								About me <span aria-hidden='true'>↓</span>
@@ -50,7 +50,7 @@ const Home = () => {
 				<section className='home-introduction' id='introduction' ref={introduction} tabIndex='-1' aria-labelledby='introduction-title'>
 					<div className='home-introduction__inner'>
 						<p className='home-eyebrow'>A little more</p>
-						<h2 id='introduction-title'>Hi, I&apos;m Akash.</h2>
+						<h2 id='introduction-title'>Hi!</h2>
 						<div className='home-bio'>{home.full_intro}</div>
 						<div className='home-actions home-actions--secondary'>
 							<Link className='home-button home-button--primary' to='/contact'>Start a conversation</Link>

@@ -61,43 +61,34 @@ export const header = {
 export const home = {
 	...basic,
 	title: "Akash Raj",
-	heading: "Senior Full-Stack Engineer.",
+	heading: "Engineer, explorer, maker.",
 	full_intro: (
 		<Fragment>
 			<span>
-				Hey, I'm Akash
+				It's me, Akash
 				<span role='img' aria-label='Peace'>
 					✌️
 				</span>{" "}
-				, a full-stack engineer with 6+ years of experience building AI-enabled products, developer tools, and high-performance web and mobile applications.
+				I'm a full-stack engineer currently working with some great people at Veramatic.
 			</span>
 			<br />
 			<span>
-				Currently building agentic developer tooling{" "}
-				<a className='d-inline font-weight-bold' href={basic.currentCompanyLink} target=''>
-					{" "}
-					@{basic.currentCompany}{" "}
-				</a>
-				with an awesome team.
+				My work there includes AI agent harnesses, financial document parsing, ephemeral environments, end-to-end testing, and whatever else helps make the product easier to build and use.
 			</span>
 			<br />
 			<span>
-				I enjoy owning ambitious products end to end—from system design and infrastructure to polished user experiences.
+				I like making useful things—sometimes products, sometimes small experiments, and sometimes ideas that are simply fun to explore.
 				<span role='img' aria-label='Coder'>
 					👨‍💻
 				</span>
 			</span>
 			<br />
 			<span>
-				Developer tools{" "}
-				<span role='img' aria-label='Joystick'>
-					🕹️
-				</span>{" "}
-				and applied AI{" "}
+				Away from the keyboard, I enjoy video games, a good game of badminton, and generally finding something new to get curious about. AI{" "}
 				<span role='img' aria-label='Robot'>
 					🤖
 				</span>{" "}
-				are where I'm spending most of my curiosity these days.
+				is one of the areas I’ve been exploring lately.
 			</span>
 		</Fragment>
 	),
