@@ -18,11 +18,12 @@ test("applies a complete theme to the document", () => {
 	expect(document.documentElement.classList.contains("light")).toBe(true);
 	expect(document.documentElement.classList.contains("dark")).toBe(false);
 	expect(document.documentElement.style.getPropertyValue("--theme-canvas")).toBe("#ffffff");
+	expect(document.documentElement.style.getPropertyValue("--theme-focus")).toBe("#ef596f");
 	expect(document.documentElement.style.getPropertyValue("--theme-radius-card")).toBe("0.75rem");
 });
 
 test("random themes are selected from curated presets", () => {
-	const theme = randomTheme({ name: "Coral Night" });
-	expect(theme.name).not.toBe("Coral Night");
+	const theme = randomTheme({ name: "Mono Blueprint" });
+	expect(theme.name).not.toBe("Mono Blueprint");
 	expect(theme.colors.accent).toMatch(/^#[\da-f]{6}$/i);
 });

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FiRotateCcw, FiShuffle, FiSliders, FiX } from "react-icons/fi";
 import { applyTheme, resetTheme } from "../redux/actions/app";
-import { defaultThemes, randomTheme, sanitizeTheme } from "../logic/theme/theme";
+import { defaultThemes, randomTheme, sanitizeTheme, themePresets } from "../logic/theme/theme";
 
 const colorFields = [
 	["canvas", "Canvas"],
@@ -14,6 +14,7 @@ const colorFields = [
 
 const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 	const [draft, setDraft] = useState(theme || defaultThemes.dark);
+	const [selectedPreset, setSelectedPreset] = useState("");
 	const dialogRef = useRef(null);
 	const appliedThemeRef = useRef(theme || defaultThemes.dark);
 	const latestThemeRef = useRef(theme || defaultThemes.dark);
@@ -24,6 +25,7 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 			const applied = sanitizeTheme(latestThemeRef.current);
 			appliedThemeRef.current = applied;
 			setDraft(applied);
+			setSelectedPreset(applied.name || "");
 			window.setTimeout(() => dialogRef.current?.querySelector("button, input")?.focus({ preventScroll: true }), 0);
 		}
 	}, [open]);
@@ -56,6 +58,11 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 	const handleRandom = () => {
 		const next = randomTheme(draft);
 		preview(next);
+		setSelectedPreset(next.name || "");
+	};
+	const handlePreset = () => {
+		const next = themePresets.find((preset) => preset.name === selectedPreset);
+		if (next) preview(next);
 	};
 	const handleReset = () => {
 		dispatch(resetTheme());
@@ -88,6 +95,25 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 							<FiRotateCcw aria-hidden='true' /> Reset
 						</button>
 					</div>
+					<fieldset>
+						<legend>Named themes</legend>
+						<div className='theme-lab-presets'>
+							<label htmlFor='theme-preset-select'>Choose a curated palette</label>
+							<div>
+								<select id='theme-preset-select' value={selectedPreset} onChange={(event) => setSelectedPreset(event.target.value)}>
+									<option value=''>Select a theme</option>
+									{themePresets.map((preset) => (
+										<option key={preset.name} value={preset.name}>
+											{preset.name}
+										</option>
+									))}
+								</select>
+								<button className='button-cta button-secondary' type='button' onClick={handlePreset} disabled={!selectedPreset}>
+									Apply preset
+								</button>
+							</div>
+						</div>
+					</fieldset>
 					<fieldset>
 						<legend>Mode</legend>
 						<div className='theme-lab-mode' role='radiogroup' aria-label='Theme mode'>

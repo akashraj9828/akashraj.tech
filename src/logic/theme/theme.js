@@ -22,12 +22,16 @@ export const defaultThemes = {
 };
 
 export const themePresets = [
-	{ name: "Coral Night", ...defaultThemes.dark },
-	{ name: "Paper Coral", ...defaultThemes.light },
-	{ name: "Ocean Terminal", ...defaultThemes.dark, colors: { ...defaultThemes.dark.colors, accent: "#39c6c8", accentContrast: "#061c20", surface: "#172d35" }, shape: { radiusScale: 0.7 } },
-	{ name: "Lavender Signal", ...defaultThemes.light, colors: { ...defaultThemes.light.colors, accent: "#7657d8", accentContrast: "#ffffff", surface: "#f4f1ff" }, shape: { radiusScale: 1.25 }, depth: { shadowStrength: 0.7 } },
-	{ name: "Green Circuit", ...defaultThemes.dark, colors: { ...defaultThemes.dark.colors, accent: "#89ca78", accentContrast: "#0d2110", surface: "#1d2b21" }, layout: { density: 0.94 }, typography: { scale: 0.98 } },
-	{ name: "Warm Studio", ...defaultThemes.light, colors: { ...defaultThemes.light.colors, canvas: "#fff8f0", surface: "#fffdf9", text: "#33251f", mutedText: "#75645a", accent: "#c2723d", accentContrast: "#ffffff" }, shape: { radiusScale: 1.15 }, depth: { shadowStrength: 0.6 } },
+	{ name: "Mono Blueprint", ...defaultThemes.dark, colors: { canvas: "#111111", surface: "#1b1b1b", text: "#f5f5f5", mutedText: "#a3a3a3", accent: "#ffffff", accentContrast: "#111111" }, shape: { radiusScale: 0 }, depth: { shadowStrength: 0.35 } },
+	{ name: "Signal Noir", ...defaultThemes.dark, colors: { canvas: "#0b0d10", surface: "#161a20", text: "#f8fafc", mutedText: "#9aa6b2", accent: "#ffcc00", accentContrast: "#111111" }, shape: { radiusScale: 0 }, depth: { shadowStrength: 0.8 } },
+	{ name: "Cobalt Editorial", ...defaultThemes.light, colors: { canvas: "#f3f6fb", surface: "#ffffff", text: "#12233f", mutedText: "#62718b", accent: "#4f67e8", accentContrast: "#ffffff" }, shape: { radiusScale: 0.35 }, layout: { density: 0.96 }, depth: { shadowStrength: 0.55 } },
+	{ name: "Mint Modern", ...defaultThemes.light, colors: { canvas: "#effaf5", surface: "#ffffff", text: "#15352a", mutedText: "#58756a", accent: "#16a36a", accentContrast: "#ffffff" }, shape: { radiusScale: 0.8 }, depth: { shadowStrength: 0.45 } },
+	{ name: "Sunset Terminal", ...defaultThemes.dark, colors: { canvas: "#1a1017", surface: "#251724", text: "#fff3f5", mutedText: "#c4a6b0", accent: "#ff6b6b", accentContrast: "#2b1014" }, shape: { radiusScale: 0.45 }, typography: { scale: 1.02 } },
+	{ name: "Electric Violet", ...defaultThemes.dark, colors: { canvas: "#110d1d", surface: "#1c1530", text: "#f8f2ff", mutedText: "#b7a8c9", accent: "#b879ff", accentContrast: "#1c0d2f" }, shape: { radiusScale: 0.65 }, depth: { shadowStrength: 0.9 } },
+	{ name: "Ink & Paper", ...defaultThemes.light, colors: { canvas: "#f6f3ee", surface: "#fffefa", text: "#1f211f", mutedText: "#72736d", accent: "#1f211f", accentContrast: "#fffefa" }, shape: { radiusScale: 0.15 }, depth: { shadowStrength: 0.25 } },
+	{ name: "Tangerine Pop", ...defaultThemes.light, colors: { canvas: "#fff7ed", surface: "#fffdf9", text: "#302116", mutedText: "#856a58", accent: "#f97316", accentContrast: "#ffffff" }, shape: { radiusScale: 1.3 }, typography: { scale: 1.03 }, depth: { shadowStrength: 0.65 } },
+	{ name: "Bubblegum Arcade", ...defaultThemes.dark, colors: { canvas: "#21162b", surface: "#30203d", text: "#fff7ff", mutedText: "#cbb5d2", accent: "#ff6ec7", accentContrast: "#29112b" }, shape: { radiusScale: 1.5 }, layout: { density: 1.04 }, depth: { shadowStrength: 0.95 }, motion: { scale: 1.15 } },
+	{ name: "Moss & Lime", ...defaultThemes.dark, colors: { canvas: "#0f1b17", surface: "#172821", text: "#f1fff7", mutedText: "#a9c4b3", accent: "#5ee39b", accentContrast: "#082014" }, shape: { radiusScale: 0.8 }, layout: { density: 0.94 }, depth: { shadowStrength: 0.6 } },
 ];
 
 const clone = (value) => JSON.parse(JSON.stringify(value));
@@ -79,6 +83,7 @@ export const applyThemeToDocument = (candidate) => {
 		"--theme-muted-text": cssColor(theme.colors.mutedText),
 		"--theme-accent": cssColor(theme.colors.accent),
 		"--theme-accent-contrast": cssColor(theme.colors.accentContrast),
+		"--theme-focus": cssColor(theme.colors.accent),
 		"--theme-radius-sm": `${0.25 * theme.shape.radiusScale}rem`,
 		"--theme-radius-xs": `${0.15 * theme.shape.radiusScale}rem`,
 		"--theme-radius-control": `${0.5 * theme.shape.radiusScale}rem`,
