@@ -43,6 +43,18 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 		return () => window.removeEventListener("keydown", onKeyDown);
 	}, [open, onClose, dispatch, triggerRef]);
 
+	useEffect(() => {
+		if (!open) return undefined;
+		const onPointerDown = (event) => {
+			if (dialogRef.current?.contains(event.target)) return;
+			dispatch(applyTheme(appliedThemeRef.current));
+			onClose();
+			triggerRef.current?.focus({ preventScroll: true });
+		};
+		document.addEventListener("pointerdown", onPointerDown);
+		return () => document.removeEventListener("pointerdown", onPointerDown);
+	}, [open, onClose, dispatch, triggerRef]);
+
 	if (!open) return null;
 
 	const preview = (next) => {
