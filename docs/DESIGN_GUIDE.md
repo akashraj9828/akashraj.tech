@@ -1,5 +1,7 @@
 # Akash Raj — Design Guide
 
+Companion guide: [Liveness & Audio Design Guide](./LIVENESS_AND_AUDIO_GUIDE.md)
+
 ## 1. The design idea
 
 This portfolio should feel like the work it represents: calm, precise, technical, and human. It is not a product dashboard and not a visual experiment gallery. It is a focused professional introduction where the content carries the personality.
