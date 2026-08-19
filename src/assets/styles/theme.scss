@@ -276,9 +276,39 @@ html.dark .repo-stars,
 html.light .repo-stars,
 html.dark .resume-entry-heading a,
 html.light .resume-entry-heading a,
+html.dark .resume-contact a,
+html.light .resume-contact a,
 html.dark .mobile-nav-label,
 html.light .mobile-nav-label {
 	color: var(--theme-accent) !important;
+}
+
+html.dark .work-heading h1,
+html.light .work-heading h1,
+html.dark .stats-intro h1,
+html.light .stats-intro h1,
+html.dark .contribution-heading h2,
+html.light .contribution-heading h2,
+html.dark .panel-heading h2,
+html.light .panel-heading h2,
+html.dark .stats-panel > h2,
+html.light .stats-panel > h2,
+html.dark .resume-header h1,
+html.light .resume-header h1,
+html.dark .resume-section h2,
+html.light .resume-section h2 {
+	color: var(--theme-text) !important;
+}
+
+html.dark .contact-socials nav a,
+html.light .contact-socials nav a {
+	color: var(--theme-text) !important;
+	border-color: var(--theme-border) !important;
+}
+html.dark .contact-socials nav a:hover,
+html.light .contact-socials nav a:hover {
+	color: var(--theme-accent) !important;
+	border-color: var(--theme-accent) !important;
 }
 
 html.dark .home-button--primary,
@@ -355,6 +385,27 @@ html.light .resume .resume-action-buttons > *:hover {
 	color: var(--theme-accent) !important;
 	background: var(--theme-accent-soft) !important;
 	border-color: var(--theme-accent) !important;
+}
+
+html.dark .project-tabs button,
+html.light .project-tabs button,
+html.dark .repo-row,
+html.light .repo-row,
+html.dark .stat-card strong,
+html.light .stat-card strong {
+	color: var(--theme-text) !important;
+}
+html.dark .repo-row,
+html.light .repo-row {
+	border-color: var(--theme-border) !important;
+}
+html.dark .resume-date,
+html.light .resume-date,
+html.dark .resume-entry-meta,
+html.light .resume-entry-meta,
+html.dark .resume-technologies,
+html.light .resume-technologies {
+	color: var(--theme-muted-text) !important;
 }
 
 html.dark .work .project-content h2 a,
