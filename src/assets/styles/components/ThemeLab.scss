@@ -63,6 +63,10 @@
 	align-items: center;
 	gap: 0.65rem;
 }
+.theme-lab-share-status {
+	color: var(--theme-accent);
+	font-size: 0.78rem;
+}
 .theme-lab-footer {
 	justify-content: flex-end;
 	border-top: var(--theme-border-width) solid var(--theme-border);

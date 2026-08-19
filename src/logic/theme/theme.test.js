@@ -1,5 +1,5 @@
 import { beforeEach, expect, test } from "vitest";
-import { applyThemeToDocument, defaultThemes, randomTheme, sanitizeTheme } from "./theme";
+import { applyThemeToDocument, createThemeShareUrl, defaultThemes, randomTheme, readThemeFromUrl, sanitizeTheme } from "./theme";
 
 beforeEach(() => {
 	document.documentElement.className = "";
@@ -30,4 +30,14 @@ test("random themes are selected from curated presets", () => {
 	const theme = randomTheme({ name: "Mono Blueprint" });
 	expect(theme.name).not.toBe("Mono Blueprint");
 	expect(theme.colors.accent).toMatch(/^#[\da-f]{6}$/i);
+});
+
+test("round-trips a theme through a share URL", () => {
+	const source = { ...defaultThemes.light, name: "Shared Mint", colors: { ...defaultThemes.light.colors, accent: "#16a36a" }, shape: { radiusScale: 0.8 } };
+	const url = createThemeShareUrl(source, new URL("https://example.com/contact"));
+	const shared = readThemeFromUrl(new URL(url));
+	expect(url).toContain("theme=");
+	expect(shared.name).toBe("Shared Mint");
+	expect(shared.colors.accent).toBe("#16a36a");
+	expect(shared.shape.radiusScale).toBe(0.8);
 });

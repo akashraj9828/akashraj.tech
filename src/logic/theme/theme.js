@@ -1,4 +1,5 @@
 export const THEME_STORAGE_KEY = "theme_experiment";
+export const THEME_URL_PARAM = "theme";
 
 export const defaultThemes = {
 	dark: {
@@ -22,7 +23,7 @@ export const defaultThemes = {
 };
 
 export const themePresets = [
-	{ name: "Mono Blueprint", ...defaultThemes.dark, colors: { canvas: "#111111", surface: "#1b1b1b", text: "#f5f5f5", mutedText: "#a3a3a3", accent: "#ffffff", accentContrast: "#111111" }, shape: { radiusScale: 0 }, depth: { shadowStrength: 0.35 } },
+	{ name: "Mono Blueprint", ...defaultThemes.light, colors: { canvas: "#111111", surface: "#1b1b1b", text: "#f5f5f5", mutedText: "#a3a3a3", accent: "#ffffff", accentContrast: "#111111" }, shape: { radiusScale: 0 }, depth: { shadowStrength: 0.35 } },
 	{ name: "Signal Noir", ...defaultThemes.dark, colors: { canvas: "#0b0d10", surface: "#161a20", text: "#f8fafc", mutedText: "#9aa6b2", accent: "#ffcc00", accentContrast: "#111111" }, shape: { radiusScale: 0 }, depth: { shadowStrength: 0.8 } },
 	{ name: "Cobalt Editorial", ...defaultThemes.light, colors: { canvas: "#f3f6fb", surface: "#ffffff", text: "#12233f", mutedText: "#62718b", accent: "#4f67e8", accentContrast: "#ffffff" }, shape: { radiusScale: 0.35 }, layout: { density: 0.96 }, depth: { shadowStrength: 0.55 } },
 	{ name: "Mint Modern", ...defaultThemes.light, colors: { canvas: "#effaf5", surface: "#ffffff", text: "#15352a", mutedText: "#58756a", accent: "#16a36a", accentContrast: "#ffffff" }, shape: { radiusScale: 0.8 }, depth: { shadowStrength: 0.45 } },
@@ -35,6 +36,37 @@ export const themePresets = [
 ];
 
 const clone = (value) => JSON.parse(JSON.stringify(value));
+
+const toBase64Url = (value) => {
+	const bytes = new TextEncoder().encode(value);
+	let binary = "";
+	bytes.forEach((byte) => {
+		binary += String.fromCharCode(byte);
+	});
+	return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+};
+
+const fromBase64Url = (value) => {
+	const binary = atob(value.replace(/-/g, "+").replace(/_/g, "/") + "=".repeat((4 - (value.length % 4)) % 4));
+	const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+	return new TextDecoder().decode(bytes);
+};
+
+export const createThemeShareUrl = (candidate, location = window.location) => {
+	const url = new URL(location.href);
+	url.searchParams.set(THEME_URL_PARAM, toBase64Url(JSON.stringify(sanitizeTheme(candidate))));
+	return url.toString();
+};
+
+export const readThemeFromUrl = (location = window.location) => {
+	try {
+		const encoded = new URL(location.href).searchParams.get(THEME_URL_PARAM);
+		if (!encoded) return null;
+		return sanitizeTheme(JSON.parse(fromBase64Url(encoded)));
+	} catch {
+		return null;
+	}
+};
 
 export const normalizeTheme = (candidate) => {
 	const fallback = defaultThemes[candidate?.mode === "light" ? "light" : "dark"];

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FiRotateCcw, FiShuffle, FiX } from "react-icons/fi";
+import { FiLink, FiRotateCcw, FiShuffle, FiX } from "react-icons/fi";
 import { applyTheme, resetTheme } from "../redux/actions/app";
-import { defaultThemes, randomTheme, sanitizeTheme, themePresets } from "../logic/theme/theme";
+import { createThemeShareUrl, defaultThemes, randomTheme, sanitizeTheme, themePresets } from "../logic/theme/theme";
 
 const colorFields = [
 	["canvas", "Canvas"],
@@ -15,6 +15,7 @@ const colorFields = [
 const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 	const [draft, setDraft] = useState(theme || defaultThemes.dark);
 	const [selectedPreset, setSelectedPreset] = useState("");
+	const [shareStatus, setShareStatus] = useState("");
 	const dialogRef = useRef(null);
 	const latestThemeRef = useRef(theme || defaultThemes.dark);
 	latestThemeRef.current = theme || defaultThemes.dark;
@@ -24,6 +25,7 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 			const applied = sanitizeTheme(latestThemeRef.current);
 			setDraft(applied);
 			setSelectedPreset(applied.name || "");
+			setShareStatus("");
 			window.setTimeout(() => dialogRef.current?.querySelector("button, input")?.focus({ preventScroll: true }), 0);
 		}
 	}, [open]);
@@ -64,6 +66,16 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 		preview(next);
 		setSelectedPreset(next.name || "");
 	};
+	const handleShare = async () => {
+		try {
+			const copy = navigator.clipboard?.writeText(createThemeShareUrl(draft));
+			if (!copy) throw new Error("Clipboard unavailable");
+			await Promise.race([copy, new Promise((_, reject) => window.setTimeout(() => reject(new Error("Clipboard timed out")), 1500))]);
+			setShareStatus("Share link copied");
+		} catch {
+			setShareStatus("Copy unavailable — copy the page URL");
+		}
+	};
 	const handlePresetChange = (event) => {
 		setSelectedPreset(event.target.value);
 		const next = themePresets.find((preset) => preset.name === event.target.value);
@@ -98,6 +110,14 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 						<button className='button-cta button-secondary' type='button' onClick={handleReset}>
 							<FiRotateCcw aria-hidden='true' /> Reset
 						</button>
+						<button className='button-cta button-secondary' type='button' onClick={handleShare}>
+							<FiLink aria-hidden='true' /> Share theme
+						</button>
+						{shareStatus && (
+							<span className='theme-lab-share-status' role='status'>
+								{shareStatus}
+							</span>
+						)}
 					</div>
 					<fieldset>
 						<legend>Named themes</legend>
