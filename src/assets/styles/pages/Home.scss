@@ -43,7 +43,6 @@
 		aspect-ratio: 1;
 		object-fit: cover;
 		border-radius: 50%;
-		filter: saturate(0.84) contrast(0.96) brightness(0.92);
 		border: 2px solid color.adjust($primary-color, $alpha: -0.68);
 		box-shadow:
 			0 10px 26px color.adjust($bg-color, $alpha: -0.18),
