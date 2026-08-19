@@ -37,7 +37,7 @@
 	.project-card {
 		min-width: 0;
 		border: 1px solid color.adjust($secondary-color, $alpha: -0.84);
-		border-radius: 0.9rem;
+		border-radius: var(--theme-radius-card);
 		overflow: hidden;
 		background: color.adjust($secondary-color, $alpha: -0.96);
 		transition:
@@ -100,7 +100,7 @@
 		align-items: center;
 		gap: 0.3rem;
 		padding: 0.4rem;
-		border-radius: 0.45rem;
+		border-radius: var(--theme-radius-control);
 		color: $secondary-color;
 		font-size: 0.75rem;
 		text-decoration: none;

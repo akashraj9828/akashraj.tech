@@ -32,7 +32,7 @@
 		flex: 0 0 auto;
 		width: 3.5rem;
 		height: 3.5rem;
-		border-radius: 0.8rem;
+		border-radius: var(--theme-radius-card);
 		border: 1px solid color.adjust($primary-color, $alpha: -0.55);
 		background: color.adjust($primary-color, $alpha: -0.88);
 		color: $primary-color;
@@ -60,7 +60,7 @@
 		align-items: center;
 		gap: 0.5rem;
 		padding: 0.42em 0.72em;
-		border-radius: 0.55rem;
+		border-radius: var(--theme-radius-control);
 		background: $primary-color;
 		color: white;
 		white-space: nowrap;
@@ -111,7 +111,7 @@
 	.loading-line,
 	.loading-calendar {
 		display: block;
-		border-radius: 0.3rem;
+		border-radius: var(--theme-radius-xs);
 		background: color.adjust($secondary-color, $alpha: -0.93);
 		background-image: linear-gradient(90deg, transparent, color.adjust($secondary-color, $alpha: -0.88), transparent);
 		background-size: 200% 100%;
@@ -159,7 +159,7 @@
 		column-gap: 0.8rem;
 		padding: 1rem;
 		border: 1px solid color.adjust($secondary-color, $alpha: -0.88);
-		border-radius: 0.8rem;
+		border-radius: var(--theme-radius-card);
 		background: color.adjust($secondary-color, $alpha: -0.965);
 		transition:
 			transform var(--motion-base) var(--motion-ease),
@@ -179,7 +179,7 @@
 		width: 2.6rem;
 		height: 2.6rem;
 		padding: 0.75rem;
-		border-radius: 0.55rem;
+		border-radius: var(--theme-radius-control);
 		background: color.adjust($primary-color, $alpha: -0.88);
 		color: $primary-color;
 		transition: transform var(--motion-base) var(--motion-ease);
@@ -207,7 +207,7 @@
 		margin-top: 2.75rem;
 		padding: clamp(1rem, 3vw, 1.75rem);
 		border: 1px solid color.adjust($secondary-color, $alpha: -0.84);
-		border-radius: 0.8rem;
+		border-radius: var(--theme-radius-card);
 	}
 	.contribution-heading {
 		display: flex;
@@ -243,7 +243,7 @@
 		display: block;
 		width: 0.72rem;
 		height: 0.72rem;
-		border-radius: 2px;
+		border-radius: var(--theme-radius-xs);
 		background: color.adjust($secondary-color, $alpha: -0.9);
 	}
 	.contribution-day.intensity-1 {
@@ -285,7 +285,7 @@
 	.stats-panel {
 		padding: clamp(1rem, 3vw, 1.75rem);
 		border: 1px solid color.adjust($secondary-color, $alpha: -0.84);
-		border-radius: 0.8rem;
+		border-radius: var(--theme-radius-card);
 	}
 	.stats-panel h2 {
 		color: $secondary-color;
@@ -313,7 +313,7 @@
 	.project-tabs button {
 		padding: 0.4rem 0.55rem;
 		border: 1px solid color.adjust($secondary-color, $alpha: -0.84);
-		border-radius: 0.45rem;
+		border-radius: var(--theme-radius-control);
 		background: transparent;
 		color: $secondary-color;
 		cursor: pointer;
@@ -465,7 +465,7 @@
 			width: 100%;
 			height: auto;
 			aspect-ratio: 1;
-			border-radius: 1px;
+			border-radius: var(--theme-radius-xs);
 		}
 		.stats-details {
 			grid-template-columns: 1fr;

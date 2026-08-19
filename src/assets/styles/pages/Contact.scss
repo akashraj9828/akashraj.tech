@@ -43,7 +43,7 @@
 		gap: 0.2rem;
 		max-width: 100%;
 		padding: 1rem 1.1rem;
-		border-left: 3px solid $primary-color;
+		border-left: 3px solid var(--theme-accent);
 		color: $secondary-color;
 		background: color.adjust($primary-color, $alpha: -0.92);
 		text-decoration: none;
@@ -57,7 +57,7 @@
 			top: 0;
 			width: 3px;
 			height: 100%;
-			background: $primary-color;
+			background: var(--theme-accent);
 			transform: scaleY(0.25);
 			transform-origin: bottom;
 			transition: transform var(--motion-slow) var(--motion-ease);
@@ -85,14 +85,14 @@
 			transform: translateX(1px) scale(0.99);
 		}
 		&:focus-visible {
-			outline: 3px solid $primary-color;
+			outline: 3px solid var(--theme-focus);
 			outline-offset: 4px;
 		}
 	}
 	.contact-card {
 		padding: clamp(1.35rem, 3vw, 2rem);
 		border: 1px solid color.adjust($secondary-color, $alpha: -0.84);
-		border-radius: 0.7rem;
+		border-radius: var(--theme-radius-card);
 		background: color.adjust($primary-color, $alpha: -0.95);
 	}
 	.contact-card ul {

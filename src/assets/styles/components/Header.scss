@@ -25,7 +25,7 @@
 	display: inline-flex;
 	align-items: center;
 	flex: 0 0 auto;
-	border-radius: 0.25rem;
+	border-radius: var(--theme-radius-sm);
 	transition: transform var(--motion-base) var(--motion-ease);
 	&:hover {
 		transform: translateY(-1px);
@@ -55,7 +55,7 @@
 	align-items: center;
 	gap: 0.4rem;
 	padding: 0.55rem 0.7rem;
-	border-radius: 0.35rem;
+	border-radius: var(--theme-radius-control);
 	font-size: 0.92rem;
 	font-weight: 400;
 	line-height: 1.2;
@@ -189,7 +189,7 @@
 		left: 0.65rem;
 		padding: 5.25rem 1.25rem 1.25rem;
 		border: 1px solid color.adjust($secondary-color, $alpha: -0.82);
-		border-radius: 0.75rem;
+		border-radius: var(--theme-radius-lg);
 		background: $bg-color;
 		box-shadow: 0 1rem 3rem color.adjust($secondary-color, $alpha: -0.9);
 		transform: translateY(-0.5rem);

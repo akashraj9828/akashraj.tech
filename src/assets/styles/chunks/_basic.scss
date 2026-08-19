@@ -1,12 +1,12 @@
 // $scrollbar-color: #4b8dde;
-$scrollbar-color: $primary-color;
+$scrollbar-color: var(--theme-accent);
 * {
 	box-sizing: border-box;
 }
 
 html {
 	min-width: 320px;
-	background: $bg-color;
+	background: var(--theme-canvas);
 }
 
 body {
@@ -30,8 +30,8 @@ body {
 		background-color 180ms ease,
 		color 180ms ease;
 	line-height: 1.6;
-	background: $bg-color;
-	color: $secondary-color;
+	background: var(--theme-canvas);
+	color: var(--theme-text);
 	min-height: 100vh;
 	overflow-x: hidden;
 	text-rendering: optimizeLegibility;
@@ -55,14 +55,14 @@ a {
 }
 
 :focus-visible {
-	outline: 3px solid $primary-color !important;
+	outline: var(--theme-outline-width) solid var(--theme-focus) !important;
 	outline-offset: 3px;
-	border-radius: 0.25rem;
+	border-radius: var(--theme-radius-sm);
 }
 
 ::selection {
-	background: $primary-color;
-	color: white;
+	background: var(--theme-accent);
+	color: var(--theme-accent-contrast);
 }
 
 // custom scrollbar
@@ -78,7 +78,7 @@ a {
 ::-webkit-scrollbar-thumb {
 	background-color: $scrollbar-color;
 	outline: 1px solid $scrollbar-color;
-	border-radius: 0.5em;
+	border-radius: var(--theme-radius-sm);
 }
 
 // for firefox

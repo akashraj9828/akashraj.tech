@@ -111,7 +111,7 @@
 		min-height: 2.9rem;
 		padding: 0.7rem 1.05rem;
 		border: 1px solid transparent;
-		border-radius: 0.45rem;
+		border-radius: var(--theme-radius-control);
 		font-size: 0.96rem;
 		font-weight: 600;
 		text-decoration: none;
