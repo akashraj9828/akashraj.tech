@@ -1,22 +1,15 @@
 import { createStore } from "redux";
 import reducer from "./reducers";
 import { default_state } from "./default_state";
+import { applyThemeToDocument, persistTheme, readStoredTheme, readThemeFromUrl } from "../logic/theme/theme";
 let inital_state = { ...default_state, app: { ...default_state.app }, user: { ...default_state.user } };
 try {
-	let old_theme = window.localStorage.getItem("page_theme");
-	if (old_theme === "dark" || old_theme === "light") {
-		document.documentElement.classList.remove("dark", "light");
-		document.documentElement.classList.add(old_theme);
-		inital_state.app.theme = old_theme;
-		if (old_theme === "dark") {
-			document.querySelector('meta[name="theme-color"]').setAttribute("content", "#181a1b");
-		} else {
-			document.querySelector('meta[name="theme-color"]').setAttribute("content", "white");
-		}
-	} else {
-		document.documentElement.classList.remove("dark", "light");
-		document.documentElement.classList.add(inital_state.app.theme);
-	}
+	const sharedTheme = readThemeFromUrl();
+	const storedTheme = sharedTheme || readStoredTheme();
+	applyThemeToDocument(storedTheme);
+	if (sharedTheme) persistTheme(sharedTheme);
+	inital_state.app.theme = storedTheme.mode;
+	inital_state.app.themeConfig = storedTheme;
 	let old_data = window.localStorage.getItem("userInfo");
 	if (old_data) {
 		let userInfo = JSON.parse(old_data);

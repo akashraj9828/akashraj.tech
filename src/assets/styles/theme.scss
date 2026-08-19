@@ -1,93 +1,534 @@
-@use "sass:color";
 @use "sass:math";
-
+@use "sass:color";
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap");
 @import "./mixin.scss";
 
-/* My orignal pallete */
+/*
+ * Theme contract: Sass owns the defaults and CSS custom properties make the
+ * same semantic tokens editable at runtime by the Theme Lab.
+ */
 $white: white;
-$white-blue: #dbf1fb;
-$orignal-pink: #ff7a7a;
-$pink2: #ef596f;
-$kinda-orange: #c2723d;
-$editor-green: #89ca78;
-/* My orignal pallete end */
-
-$editor-dark: #181a1b;
 $black: black;
-$slategrey: slategrey;
-$grey: grey;
-$brownish: #5d2727;
-$slate: #5c6370;
+$editor-dark: #181a1b;
+$pink2: #ef596f;
+$bg-color: $editor-dark;
+$primary-color: $pink2;
+$secondary-color: $white;
 
-// Extra colors
-$dark-blue: #232653;
-$purple: #ac88bf;
-$max-yellow: #fcff4b;
-$yale-blue: #044389;
-$carrabean-green: #06d6a0;
-$calm-dark-blue: #383e56;
 html {
-	$min_width: 600px;
-	$max_width: 1200px;
-	$min_font: 16px;
-	$max_font: 16px;
+	min-width: 320px;
 	scroll-behavior: smooth;
 	@include fluid-type(600px, 1200px, 16px, 18px);
 }
 
-// for mozilla
-* {
-	scrollbar-width: thin;
-	scrollbar-color: $pink2 transparent;
+html,
+body {
+	background: var(--theme-canvas, #181a1b);
 }
-.dark {
-	$bg-color: $editor-dark;
-	$primary-color: $pink2;
-	$secondary-color: $white;
 
+html.dark,
+html.light {
+	--theme-canvas: #181a1b;
+	--theme-surface: #202324;
+	--theme-text: #ffffff;
+	--theme-muted-text: rgba(255, 255, 255, 0.68);
+	--theme-accent: #ef596f;
+	--theme-accent-contrast: #ffffff;
+	--theme-border: rgba(255, 255, 255, 0.16);
+	--theme-focus: #ff9aaa;
+	--theme-success: #89ca78;
+	--theme-warning: #fcff4b;
+	--theme-danger: #ef596f;
+	--theme-overlay: rgba(0, 0, 0, 0.7);
+	--theme-radius-sm: 0.25rem;
+	--theme-radius-xs: 0.15rem;
+	--theme-radius-control: 0.5rem;
+	--theme-radius-card: 0.75rem;
+	--theme-radius-lg: 1rem;
+	--theme-radius-round: 999px;
+	--theme-density: 1;
+	--theme-type-scale: 1;
+	--theme-shadow-strength: 1;
+	--theme-motion-scale: 1;
+	--theme-content-width: 72rem;
+	--theme-page-gutter: clamp(1rem, 4vw, 2rem);
+	--theme-outline-width: 3px;
+	--theme-outline-offset: 3px;
+	--theme-border-width: 1px;
+	--theme-z-header: 100;
+	--theme-z-overlay: 200;
+	--theme-z-dialog: 201;
+	--theme-motion-fast: calc(140ms * var(--theme-motion-scale));
+	--theme-motion-base: calc(180ms * var(--theme-motion-scale));
+	--theme-motion-slow: calc(260ms * var(--theme-motion-scale));
+	--theme-motion-ease: cubic-bezier(0.2, 0.75, 0.25, 1);
+	--motion-fast: var(--theme-motion-fast);
+	--motion-base: var(--theme-motion-base);
+	--motion-slow: var(--theme-motion-slow);
+	--motion-ease: var(--theme-motion-ease);
+	font-size: calc(16px * var(--theme-type-scale));
+	--theme-accent-soft: color-mix(in srgb, var(--theme-accent) 9%, transparent);
+	--theme-accent-border: color-mix(in srgb, var(--theme-accent) 65%, transparent);
+	--theme-surface-soft: color-mix(in srgb, var(--theme-text) 4%, transparent);
+	--theme-surface-muted: color-mix(in srgb, var(--theme-text) 10%, transparent);
+	--theme-shadow: color-mix(in srgb, var(--theme-text) 10%, transparent);
+	--theme-accent-shadow: color-mix(in srgb, var(--theme-accent) 28%, transparent);
+	--theme-accent-08: color-mix(in srgb, var(--theme-accent) 8%, transparent);
+	--theme-accent-15: color-mix(in srgb, var(--theme-accent) 15%, transparent);
+	--theme-accent-25: color-mix(in srgb, var(--theme-accent) 25%, transparent);
+	--theme-accent-35: color-mix(in srgb, var(--theme-accent) 35%, transparent);
+	--theme-accent-50: color-mix(in srgb, var(--theme-accent) 50%, transparent);
+	--theme-accent-75: color-mix(in srgb, var(--theme-accent) 75%, transparent);
+	--theme-text-04: color-mix(in srgb, var(--theme-text) 4%, transparent);
+	--theme-text-06: color-mix(in srgb, var(--theme-text) 6%, transparent);
+	--theme-text-10: color-mix(in srgb, var(--theme-text) 10%, transparent);
+	--theme-text-16: color-mix(in srgb, var(--theme-text) 16%, transparent);
+	--theme-text-28: color-mix(in srgb, var(--theme-text) 28%, transparent);
+}
+
+html.light {
+	--theme-canvas: #ffffff;
+	--theme-surface: #fafafa;
+	--theme-text: #000000;
+	--theme-muted-text: rgba(0, 0, 0, 0.62);
+	--theme-border: rgba(0, 0, 0, 0.16);
+	--theme-focus: #c92f4c;
+	--theme-overlay: rgba(0, 0, 0, 0.55);
+}
+
+.dark {
 	@import "./base.scss";
 	@import "./components.scss";
 	@import "./pages.scss";
 }
 
 .light {
-	$bg-color: $white;
-	$primary-color: $pink2;
-	$secondary-color: $black;
-
 	@import "./base.scss";
 	@import "./components.scss";
 	@import "./pages.scss";
 }
 
-// Good combo
-// pallet 1
-$bg-color: #181a1b;
-$primary-color: #ff7a7a;
-$secondary-color: white;
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--theme-accent, #ef596f) transparent;
+}
 
-// pallet 2
-$bg-color: #dbf1fb;
-$primary-color: #c2723d;
-$secondary-color: #5d2727;
+html.dark *,
+html.light * {
+	scrollbar-color: var(--theme-accent) transparent;
+}
+html.dark ::-webkit-scrollbar-thumb,
+html.light ::-webkit-scrollbar-thumb {
+	background-color: var(--theme-accent) !important;
+	outline-color: var(--theme-accent) !important;
+}
+html.dark a,
+html.light a {
+	text-decoration-color: var(--theme-accent) !important;
+}
 
-// pallet 2
-$bg-color: #5c6370;
-$primary-color: #ef596f;
-$secondary-color: #89ca78;
+/* Density is a spacing scale, not a decorative value. These shared layout
+ * surfaces make the control visible across every route while preserving the
+ * content hierarchy and responsive breakpoints. */
+html.dark #main,
+html.light #main {
+	padding-inline: calc(2rem * var(--theme-density));
+}
+html.dark .home-hero,
+html.light .home-hero,
+html.dark .home-introduction,
+html.light .home-introduction {
+	padding-top: calc(clamp(4.5rem, 10vh, 8rem) * var(--theme-density));
+	padding-bottom: calc(clamp(4.5rem, 10vh, 8rem) * var(--theme-density));
+}
+html.dark .work,
+html.light .work,
+html.dark #stats,
+html.light #stats,
+html.dark .contact-page,
+html.light .contact-page,
+html.dark .resume,
+html.light .resume {
+	padding-top: calc(clamp(2.5rem, 6vw, 5rem) * var(--theme-density));
+}
+html.dark .work .projects,
+html.light .work .projects,
+html.dark .stats-grid,
+html.light .stats-grid,
+html.dark .stats-details,
+html.light .stats-details {
+	gap: calc(1rem * var(--theme-density));
+}
+html.dark .project-content,
+html.light .project-content,
+html.dark .stat-card,
+html.light .stat-card,
+html.dark .stats-panel,
+html.light .stats-panel,
+html.dark .resume-actions,
+html.light .resume-actions,
+html.dark .contact-card,
+html.light .contact-card {
+	padding: calc(1rem * var(--theme-density)) !important;
+}
+html.dark .work .project-content,
+html.light .work .project-content {
+	padding: calc(1rem * var(--theme-density)) !important;
+}
+html.dark .theme-lab-body,
+html.light .theme-lab-body {
+	gap: calc(1rem * var(--theme-density));
+	padding: calc(1.4rem * var(--theme-density));
+}
+@media (max-width: 600px) {
+	html.dark #main,
+	html.light #main {
+		padding-inline: calc(1rem * var(--theme-density));
+	}
+}
+@media (max-width: 540px) {
+	html.dark .work .project-content,
+	html.light .work .project-content {
+		padding: calc(0.9rem * var(--theme-density)) !important;
+	}
+}
 
-// pallet 2
-$bg-color: #181a1b;
-$primary-color: #ef596f;
-$secondary-color: #89ca78;
+/* Runtime overrides for the most common semantic surfaces. */
+html.dark body,
+html.light body {
+	background: var(--theme-canvas);
+	color: var(--theme-text);
+}
+html.dark .site-header,
+html.light .site-header,
+html.dark .mobile-nav,
+html.light .mobile-nav {
+	background: var(--theme-canvas);
+	color: var(--theme-text);
+	border-color: var(--theme-border);
+}
+html.dark .button-cta,
+html.light .button-cta {
+	background: var(--theme-accent);
+	border-color: var(--theme-accent);
+	color: var(--theme-accent-contrast) !important;
+}
+html.dark .button-cta.button-secondary,
+html.light .button-cta.button-secondary {
+	background: transparent;
+	color: var(--theme-text) !important;
+}
+html.dark .project-card,
+html.light .project-card,
+html.dark .resume-card,
+html.light .resume-card,
+html.dark .stats-card,
+html.light .stats-card {
+	background: var(--theme-surface) !important;
+	border-color: var(--theme-border) !important;
+	border-radius: var(--theme-radius-card);
+}
+html.dark .work .project-card,
+html.light .work .project-card,
+html.dark .resume .resume-actions,
+html.light .resume .resume-actions,
+html.dark .resume .resume-sheet,
+html.light .resume .resume-sheet,
+html.dark .stat-card,
+html.light .stat-card,
+html.dark .stats-panel,
+html.light .stats-panel,
+html.dark .contribution-panel,
+html.light .contribution-panel,
+html.dark .contact-card,
+html.light .contact-card {
+	background: var(--theme-surface) !important;
+	border-color: var(--theme-border) !important;
+}
+html.dark a:hover,
+html.light a:hover {
+	color: var(--theme-accent);
+}
+html.dark :focus-visible,
+html.light :focus-visible {
+	outline-color: var(--theme-focus) !important;
+}
 
-// // pallet 2 //total dark
-$bg-color: black;
-$primary-color: slategrey;
-$secondary-color: white;
+/* Accent roles that used to be Sass-only are intentionally centralized here
+ * so runtime color experiments reach every page and state. */
+html.dark .home-eyebrow,
+html.light .home-eyebrow,
+html.dark .work-eyebrow,
+html.light .work-eyebrow,
+html.dark .resume-label,
+html.light .resume-label,
+html.dark .contact-eyebrow,
+html.light .contact-eyebrow,
+html.dark .contact-form-link,
+html.light .contact-form-link,
+html.dark .contact-socials a:hover,
+html.light .contact-socials a:hover,
+html.dark .stats-intro .intro-kicker,
+html.light .stats-intro .intro-kicker,
+html.dark .repo-row:hover,
+html.light .repo-row:hover,
+html.dark .repo-stars,
+html.light .repo-stars,
+html.dark .resume-entry-heading a,
+html.light .resume-entry-heading a,
+html.dark .resume-contact a,
+html.light .resume-contact a,
+html.dark .mobile-nav-label,
+html.light .mobile-nav-label {
+	color: var(--theme-accent) !important;
+}
 
-// // pallet 2 //total dark
-$bg-color: white;
-$primary-color: grey;
-$secondary-color: black;
+html.dark .work-heading h1,
+html.light .work-heading h1,
+html.dark .stats-intro h1,
+html.light .stats-intro h1,
+html.dark .contribution-heading h2,
+html.light .contribution-heading h2,
+html.dark .panel-heading h2,
+html.light .panel-heading h2,
+html.dark .stats-panel > h2,
+html.light .stats-panel > h2,
+html.dark .resume-header h1,
+html.light .resume-header h1,
+html.dark .resume-section h2,
+html.light .resume-section h2 {
+	color: var(--theme-text) !important;
+}
+
+html.dark .contact-socials nav a,
+html.light .contact-socials nav a {
+	color: var(--theme-text) !important;
+	border-color: var(--theme-border) !important;
+}
+html.dark .contact-socials nav a:hover,
+html.light .contact-socials nav a:hover {
+	color: var(--theme-accent) !important;
+	border-color: var(--theme-accent) !important;
+}
+
+html.dark .home-button--primary,
+html.light .home-button--primary,
+html.dark .resume-contact-button,
+html.light .resume-contact-button,
+html.dark .github-button,
+html.light .github-button,
+html.dark .contact-email,
+html.light .contact-email {
+	background: var(--theme-accent) !important;
+	border-color: var(--theme-accent) !important;
+	color: var(--theme-accent-contrast) !important;
+}
+html.dark .contact-email::after,
+html.light .contact-email::after {
+	background: var(--theme-accent) !important;
+}
+
+html.dark .home-button--quiet,
+html.light .home-button--quiet,
+html.dark .project-tabs button.is-active,
+html.light .project-tabs button.is-active,
+html.dark .project-tabs button:hover,
+html.light .project-tabs button:hover {
+	color: var(--theme-accent) !important;
+	border-color: var(--theme-accent) !important;
+	background: var(--theme-accent-soft) !important;
+}
+
+html.dark .home-bio a,
+html.light .home-bio a,
+html.dark .home-text-link,
+html.light .home-text-link,
+html.dark .resume-contact a,
+html.light .resume-contact a,
+html.dark .site-footer a:hover,
+html.light .site-footer a:hover {
+	color: var(--theme-accent) !important;
+}
+
+html.dark .site-header .theme-changer,
+html.light .site-header .theme-changer,
+html.dark .site-header .sound-changer,
+html.light .site-header .sound-changer,
+html.dark .site-header .navbar-toggler,
+html.light .site-header .navbar-toggler,
+html.dark .site-header .nav-link,
+html.light .site-header .nav-link {
+	color: var(--theme-text) !important;
+}
+html.dark .site-header .nav-link:hover,
+html.light .site-header .nav-link:hover,
+html.dark .site-header .nav-link.active,
+html.light .site-header .nav-link.active,
+html.dark .site-header .theme-changer:hover,
+html.light .site-header .theme-changer:hover,
+html.dark .site-header .sound-changer:hover,
+html.light .site-header .sound-changer:hover,
+html.dark .site-header .navbar-toggler:hover,
+html.light .site-header .navbar-toggler:hover {
+	color: var(--theme-accent) !important;
+	background: var(--theme-accent-soft) !important;
+}
+
+html.dark .work .project-links a:hover,
+html.light .work .project-links a:hover,
+html.dark .repo-row:hover,
+html.light .repo-row:hover,
+html.dark .project-tabs button:hover,
+html.light .project-tabs button:hover,
+html.dark .resume .resume-action-buttons > *:hover,
+html.light .resume .resume-action-buttons > *:hover {
+	color: var(--theme-accent) !important;
+	background: var(--theme-accent-soft) !important;
+	border-color: var(--theme-accent) !important;
+}
+
+html.dark .project-tabs button,
+html.light .project-tabs button,
+html.dark .repo-row,
+html.light .repo-row,
+html.dark .stat-card strong,
+html.light .stat-card strong {
+	color: var(--theme-text) !important;
+}
+html.dark .repo-row,
+html.light .repo-row {
+	border-color: var(--theme-border) !important;
+}
+html.dark .resume-date,
+html.light .resume-date,
+html.dark .resume-entry-meta,
+html.light .resume-entry-meta,
+html.dark .resume-technologies,
+html.light .resume-technologies {
+	color: var(--theme-muted-text) !important;
+}
+
+html.dark .work .project-content h2 a,
+html.light .work .project-content h2 a,
+html.dark .work .project-links a,
+html.light .work .project-links a,
+html.dark .resume .resume-action-buttons > *,
+html.light .resume .resume-action-buttons > *,
+html.dark .resume .resume-sheet,
+html.light .resume .resume-sheet,
+html.dark .stats .stats-source,
+html.light .stats .stats-source {
+	color: var(--theme-text);
+}
+html.dark .work .project-card:hover,
+html.light .work .project-card:hover,
+html.dark .work .project-card:focus-within,
+html.light .work .project-card:focus-within {
+	border-color: var(--theme-accent-border) !important;
+}
+html.dark .work .project-image,
+html.light .work .project-image {
+	background: var(--theme-accent-soft) !important;
+}
+html.dark .stat-card--loading i,
+html.light .stat-card--loading i {
+	border-radius: var(--theme-radius-xs) !important;
+}
+
+html.dark .home-portrait,
+html.light .home-portrait,
+html.dark .home-rocket:hover,
+html.light .home-rocket:hover {
+	border-color: var(--theme-accent) !important;
+}
+html.dark .home-portrait,
+html.light .home-portrait,
+html.dark .contact-card li::before,
+html.light .contact-card li::before,
+html.dark .contribution-day.intensity-4,
+html.light .contribution-day.intensity-4 {
+	border-color: var(--theme-accent) !important;
+}
+html.dark .contact-card li::before,
+html.light .contact-card li::before,
+html.dark .contribution-day.intensity-4,
+html.light .contribution-day.intensity-4 {
+	background-color: var(--theme-accent) !important;
+}
+
+html.dark .intro-mark,
+html.light .intro-mark,
+html.dark .stat-card > svg,
+html.light .stat-card > svg {
+	color: var(--theme-accent) !important;
+	background: var(--theme-accent-soft) !important;
+	border-color: var(--theme-accent-border) !important;
+}
+
+html.dark .contribution-day.intensity-1,
+html.light .contribution-day.intensity-1 {
+	background: var(--theme-accent-25) !important;
+}
+html.dark .contribution-day.intensity-2,
+html.light .contribution-day.intensity-2 {
+	background: var(--theme-accent-50) !important;
+}
+html.dark .contribution-day.intensity-3,
+html.light .contribution-day.intensity-3 {
+	background: var(--theme-accent-75) !important;
+}
+
+/* Radius roles: circles remain intentionally round; every component radius
+ * participates in the roundness experiment. */
+html.dark .project-card,
+html.light .project-card,
+html.dark .resume-actions,
+html.light .resume-actions,
+html.dark .resume-sheet,
+html.light .resume-sheet,
+html.dark .stat-card,
+html.light .stat-card,
+html.dark .stats-panel,
+html.light .stats-panel,
+html.dark .contribution-panel,
+html.light .contribution-panel,
+html.dark .contact-card,
+html.light .contact-card {
+	border-radius: var(--theme-radius-card) !important;
+}
+html.dark .nav-link,
+html.light .nav-link,
+html.dark .home-button,
+html.light .home-button,
+html.dark .contact-email,
+html.light .contact-email,
+html.dark .resume-action-buttons > *,
+html.light .resume-action-buttons > *,
+html.dark .resume-contact-button,
+html.light .resume-contact-button,
+html.dark .github-button,
+html.light .github-button,
+html.dark .project-links a,
+html.light .project-links a,
+html.dark .project-tabs button,
+html.light .project-tabs button {
+	border-radius: var(--theme-radius-control) !important;
+}
+html.dark .loading-line,
+html.light .loading-line,
+html.dark .loading-calendar,
+html.light .loading-calendar,
+html.dark .contribution-day,
+html.light .contribution-day {
+	border-radius: var(--theme-radius-xs) !important;
+}
+html.dark .navbar-brand,
+html.light .navbar-brand,
+html.dark .site-footer a,
+html.light .site-footer a {
+	border-radius: var(--theme-radius-sm) !important;
+}
+html.dark .mobile-nav,
+html.light .mobile-nav {
+	border-radius: var(--theme-radius-lg) !important;
+}

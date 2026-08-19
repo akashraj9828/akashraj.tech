@@ -16,10 +16,10 @@
 	justify-content: center;
 	min-height: 2.9rem;
 	padding: 0.7rem 1.15rem;
-	border: 1px solid $primary-color;
-	border-radius: 0.55rem;
-	background: $primary-color;
-	color: white !important;
+	border: var(--theme-border-width) solid var(--theme-accent);
+	border-radius: var(--theme-radius-control);
+	background: var(--theme-accent);
+	color: var(--theme-accent-contrast) !important;
 	font: inherit;
 	font-weight: 600;
 	line-height: 1;
@@ -31,9 +31,9 @@
 		background-color var(--motion-base) ease;
 
 	&:hover {
-		background: color.adjust($primary-color, $lightness: -7%);
-		color: white !important;
-		box-shadow: 0 0.6rem 1.3rem color.adjust($primary-color, $alpha: -0.78);
+		background: var(--theme-accent);
+		color: var(--theme-accent-contrast) !important;
+		box-shadow: 0 0.6rem 1.3rem var(--theme-accent-shadow);
 		transform: translateY(-1px);
 	}
 
@@ -42,7 +42,7 @@
 	}
 
 	&:focus-visible {
-		outline: 3px solid color.adjust($primary-color, $alpha: -0.4);
+		outline: var(--theme-outline-width) solid var(--theme-focus);
 		outline-offset: 3px;
 	}
 
@@ -52,6 +52,6 @@
 
 	&.button-secondary {
 		background: transparent;
-		color: $secondary-color !important;
+		color: var(--theme-text) !important;
 	}
 }

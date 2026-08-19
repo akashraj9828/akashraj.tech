@@ -8,6 +8,7 @@ export const default_state = {
 	},
 	app: {
 		theme: "dark",
+		themeConfig: null,
 		error: null,
 		help: false,
 		validationError: null,

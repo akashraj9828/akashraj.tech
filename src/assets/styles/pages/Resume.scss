@@ -11,7 +11,7 @@
 		margin: 0 0 1.25rem;
 		padding: 0.85rem 1rem;
 		border: 1px solid color.adjust($secondary-color, $alpha: -0.84);
-		border-radius: 0.8rem;
+		border-radius: var(--theme-radius-card);
 		background: color.adjust($secondary-color, $alpha: -0.975);
 
 		p {
@@ -28,7 +28,7 @@
 		button {
 			min-height: 2.55rem;
 			border: 1px solid color.adjust($secondary-color, $alpha: -0.7);
-			border-radius: 0.55rem;
+			border-radius: var(--theme-radius-control);
 			padding: 0.55rem 0.8rem;
 			background: transparent;
 			color: $secondary-color;
@@ -62,7 +62,7 @@
 			min-height: 2.55rem;
 			padding: 0.55rem 1rem;
 			border: 1px solid $primary-color;
-			border-radius: 0.55rem;
+			border-radius: var(--theme-radius-control);
 			background: $primary-color;
 			color: white;
 			font-size: 0.82rem;
@@ -93,7 +93,7 @@
 		background: color.adjust($secondary-color, $alpha: -0.97);
 		color: $secondary-color;
 		border: 1px solid color.adjust($secondary-color, $alpha: -0.84);
-		border-radius: 1rem;
+		border-radius: var(--theme-radius-lg);
 	}
 
 	.resume-header {
@@ -223,7 +223,7 @@
 		padding-top: 1.75rem;
 		.resume-sheet {
 			padding: 1.35rem;
-			border-radius: 0.8rem;
+			border-radius: var(--theme-radius-card);
 		}
 		.resume-header {
 			margin-bottom: 2rem;

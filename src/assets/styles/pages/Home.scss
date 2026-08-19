@@ -43,10 +43,10 @@
 		aspect-ratio: 1;
 		object-fit: cover;
 		border-radius: 50%;
-		border: 2px solid color.adjust($primary-color, $alpha: -0.68);
+		border: 2px solid var(--theme-accent-border);
 		box-shadow:
-			0 10px 26px color.adjust($bg-color, $alpha: -0.18),
-			0 0 0 6px color.adjust($bg-color, $alpha: -0.82);
+			0 10px 26px var(--theme-shadow),
+			0 0 0 6px var(--theme-accent-08);
 		margin: 0 auto 1.75rem;
 	}
 	.home-hero__content.is-visible .home-portrait {
@@ -111,7 +111,7 @@
 		min-height: 2.9rem;
 		padding: 0.7rem 1.05rem;
 		border: 1px solid transparent;
-		border-radius: 0.45rem;
+		border-radius: var(--theme-radius-control);
 		font-size: 0.96rem;
 		font-weight: 600;
 		text-decoration: none;
@@ -253,17 +253,17 @@
 		0% {
 			opacity: 0;
 			transform: scale(0.94);
-			box-shadow: 0 0 0 0 color.adjust($primary-color, $alpha: -0.72);
+			box-shadow: 0 0 0 0 var(--theme-accent-08);
 		}
 		70% {
 			opacity: 1;
 			transform: scale(1);
-			box-shadow: 0 0 0 10px color.adjust($primary-color, $alpha: -0.92);
+			box-shadow: 0 0 0 10px var(--theme-accent-15);
 		}
 		100% {
 			opacity: 1;
 			transform: scale(1);
-			box-shadow: 0 0 0 7px color.adjust($primary-color, $alpha: -0.9);
+			box-shadow: 0 0 0 7px var(--theme-accent-08);
 		}
 	}
 	@keyframes home-rocket-nudge {

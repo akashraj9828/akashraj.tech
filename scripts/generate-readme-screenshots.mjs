@@ -1,12 +1,15 @@
 import { spawn } from "node:child_process";
-import { copyFile, mkdir, rm } from "node:fs/promises";
+import { copyFile, mkdir, rm, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { chromium } from "@playwright/test";
+import { themePresetCodes } from "../src/logic/theme/theme.js";
 
 const rootDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputDirectory = path.join(rootDirectory, "out");
+const themeOutputDirectory = path.join(outputDirectory, "theme");
 const stagingDirectory = "/tmp/playwright-screenshot/akashraj-tech-readme";
+const themeStagingDirectory = "/tmp/playwright-screenshot/akashraj-tech-themes";
 const host = "127.0.0.1";
 const port = 43203;
 const baseURL = `http://${host}:${port}`;
@@ -66,6 +69,8 @@ const captures = [
 	{ name: "Phone_nav_light.png", path: "/", theme: "light", viewport: "phone", openNavigation: true },
 ];
 
+const themeCaptureTemplates = captures.filter((capture) => capture.theme === "dark").map(({ name, ...capture }) => ({ ...capture, name: name.replace("_dark.png", ".png") }));
+
 const waitForServer = async (server) => {
 	const deadline = Date.now() + 30_000;
 	while (Date.now() < deadline) {
@@ -109,9 +114,33 @@ const waitForStablePage = async (page, readySelector = "#main main") => {
 	});
 };
 
+const previewLabel = (capture) => {
+	const viewport = capture.viewport === "phone" ? "phone" : "desktop";
+	const page = capture.name.replace(".png", "").replace("_", " ");
+	return `${page} · ${viewport}`;
+};
+
+const createThemePreview = (themeName, themeCode) => {
+	const capturesByPage = themeCaptureTemplates.reduce((groups, capture) => {
+		const page = capture.name.startsWith("Phone_nav") ? "Navigation" : capture.name.split("_")[0];
+		groups[page] ||= [];
+		groups[page].push(capture);
+		return groups;
+	}, {});
+	const sections = Object.entries(capturesByPage).map(([page, pageCaptures]) => {
+		const images = pageCaptures.map((capture) => `<kbd><img src="./${capture.name}" alt="${previewLabel(capture)}" height="300" /></kbd>`).join("\n  ");
+		return `### ${page}\n\n<p float="left">\n  ${images}\n</p>`;
+	});
+	return `# ${themeName}\n\nShare code: \`${themeCode}\`\n\n${sections.join("\n\n")}`;
+};
+
 await rm(stagingDirectory, { force: true, recursive: true });
+await rm(themeStagingDirectory, { force: true, recursive: true });
+await rm(themeOutputDirectory, { force: true, recursive: true });
 await mkdir(stagingDirectory, { recursive: true });
+await mkdir(themeStagingDirectory, { recursive: true });
 await mkdir(outputDirectory, { recursive: true });
+await mkdir(themeOutputDirectory, { recursive: true });
 
 const vite = spawn(process.platform === "win32" ? "yarn.cmd" : "yarn", ["vite", "--host", host, "--port", String(port), "--strictPort"], { cwd: rootDirectory, stdio: "inherit" });
 
@@ -164,6 +193,60 @@ try {
 		await copyFile(stagedPath, path.join(outputDirectory, capture.name));
 		await context.close();
 		console.log(`Updated out/${capture.name}`);
+	}
+
+	for (const [themeName, themeCode] of themePresetCodes) {
+		const themeDirectory = path.join(themeOutputDirectory, themeCode);
+		const themeStaging = path.join(themeStagingDirectory, themeCode);
+		await mkdir(themeDirectory, { recursive: true });
+		await mkdir(themeStaging, { recursive: true });
+
+		for (const capture of themeCaptureTemplates) {
+			const context = await browser.newContext({
+				colorScheme: "dark",
+				deviceScaleFactor: 1,
+				locale: "en-US",
+				reducedMotion: "reduce",
+				serviceWorkers: "block",
+				timezoneId: "Asia/Kolkata",
+				viewport: viewports[capture.viewport],
+			});
+			await context.addInitScript(() => {
+				window.localStorage.clear();
+				window.localStorage.setItem("interface_sounds_enabled", "false");
+			});
+
+			const page = await context.newPage();
+			await page.route("**/*", async (route) => {
+				const requestURL = new URL(route.request().url());
+				if (requestURL.hostname === host) {
+					await route.continue();
+				} else if (requestURL.origin === "https://api.github.com" && requestURL.pathname.endsWith("/repos")) {
+					await route.fulfill({ json: githubRepositories });
+				} else if (requestURL.origin === "https://api.github.com") {
+					await route.fulfill({ json: githubProfile });
+				} else if (requestURL.origin === "https://gh-calendar.rschristian.dev") {
+					await route.fulfill({ json: contributionCalendar });
+				} else {
+					await route.abort();
+				}
+			});
+			await page.goto(`${baseURL}${capture.path}?theme=${themeCode}`, { waitUntil: "domcontentloaded" });
+			await waitForStablePage(page, capture.readySelector);
+
+			if (capture.openNavigation) {
+				await page.getByRole("button", { name: "Open navigation menu" }).click();
+				await page.locator("#mobile-navigation.is-open").waitFor({ state: "visible" });
+			}
+
+			const stagedPath = path.join(themeStaging, capture.name);
+			await page.screenshot({ animations: "disabled", path: stagedPath, type: "png" });
+			await copyFile(stagedPath, path.join(themeDirectory, capture.name));
+			await context.close();
+		}
+
+		await writeFile(path.join(themeDirectory, "readme.md"), `${createThemePreview(themeName, themeCode)}\n`, "utf8");
+		console.log(`Updated out/theme/${themeCode}/ (${themeCaptureTemplates.length} images + readme.md)`);
 	}
 } finally {
 	await browser?.close();
