@@ -9,7 +9,7 @@ const fetchMachineService = () => {
 	};
 
 	const post = (url, body, contentType) => {
-		return reqIntercept(url, "POST", body, (contentType = "application/json"));
+		return reqIntercept(url, "POST", body, contentType || "application/json");
 	};
 
 	return { get, post };

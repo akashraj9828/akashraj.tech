@@ -24,4 +24,3 @@ export const useAnimatedNumber = (value, duration = 450) => {
 
 	return displayValue;
 };
-

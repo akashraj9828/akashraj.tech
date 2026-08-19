@@ -33,7 +33,9 @@ const Contact = () => {
 					<aside ref={cardReveal.ref} style={cardReveal.style} className={`contact-card ${cardReveal.className}`} aria-labelledby='contact-reasons-title'>
 						<h2 id='contact-reasons-title'>A good reason to say hello</h2>
 						<ul>
-							{contact.contact_reasons.map((reason, index) => <li key={index}>{reason}</li>)}
+							{contact.contact_reasons.map((reason, index) => (
+								<li key={index}>{reason}</li>
+							))}
 						</ul>
 						{contact.contact_form && (
 							<a className='contact-form-link' href={contact.contact_form} target='_blank' rel='noopener noreferrer'>
@@ -50,7 +52,7 @@ const Contact = () => {
 					</div>
 					<nav aria-label='Social profiles'>
 						{contact.socials.map(({ name, link, img_src }) => (
-							<a key={name} href={link} target={link.startsWith("http") ? '_blank' : undefined} rel={link.startsWith("http") ? 'noopener noreferrer' : undefined} aria-label={`${contact.name} on ${name}`}>
+							<a key={name} href={link} target={link.startsWith("http") ? "_blank" : undefined} rel={link.startsWith("http") ? "noopener noreferrer" : undefined} aria-label={`${contact.name} on ${name}`}>
 								<img src={img_src} alt='' />
 								<span>{name}</span>
 							</a>

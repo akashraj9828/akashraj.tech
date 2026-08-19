@@ -76,9 +76,7 @@ export const home = {
 				.
 			</span>
 			<br />
-			<span>
-				My work there includes AI agent harnesses, financial document parsing, ephemeral environments, end-to-end testing, and whatever else helps make the product easier to build and use.
-			</span>
+			<span>My work there includes AI agent harnesses, financial document parsing, ephemeral environments, end-to-end testing, and whatever else helps make the product easier to build and use.</span>
 			<br />
 			<span>
 				I like making useful things—sometimes products, sometimes small experiments, and sometimes ideas that are simply fun to explore.

@@ -7,8 +7,38 @@
 	font-size: 0.85rem;
 }
 
-.footer-inner { display: flex; align-items: center; justify-content: center; gap: 0.8rem; }
-.site-footer a { display: inline-flex; align-items: center; gap: 0.38rem; color: inherit; text-decoration: none; border-radius: 0.2rem; &:hover { color: $primary-color; } svg { font-size: 1rem; } }
-.site-footer .divider { width: 1px; height: 1rem; background: color.adjust($secondary-color, $alpha: -0.72); }
+.footer-inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.8rem;
+}
+.site-footer a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.38rem;
+	color: inherit;
+	text-decoration: none;
+	border-radius: 0.2rem;
+	&:hover {
+		color: $primary-color;
+	}
+	svg {
+		font-size: 1rem;
+	}
+}
+.site-footer .divider {
+	width: 1px;
+	height: 1rem;
+	background: color.adjust($secondary-color, $alpha: -0.72);
+}
 
-@media (max-width: 420px) { .footer-inner { flex-wrap: wrap; gap: 0.6rem; } .site-footer .divider { display: none; } }
+@media (max-width: 420px) {
+	.footer-inner {
+		flex-wrap: wrap;
+		gap: 0.6rem;
+	}
+	.site-footer .divider {
+		display: none;
+	}
+}

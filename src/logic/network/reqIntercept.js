@@ -1,5 +1,5 @@
 /* REQUEST MIDDLEMAN */
-export const reqIntercept = async (url, method = "POST", body = null, contentType = "application/json") => {
+export const reqIntercept = async (url, method = "POST", _body = null, _contentType = "application/json") => {
 	try {
 		// extra data for post
 		let extras = {

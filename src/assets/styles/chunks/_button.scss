@@ -25,7 +25,10 @@
 	line-height: 1;
 	text-decoration: none !important;
 	cursor: pointer;
-	transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+	transition:
+		transform 150ms ease,
+		box-shadow 150ms ease,
+		background-color 150ms ease;
 
 	&:hover {
 		background: color.adjust($primary-color, $lightness: -7%);

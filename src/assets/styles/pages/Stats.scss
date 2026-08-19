@@ -10,9 +10,21 @@
 		gap: 1.25rem;
 		margin: 0 0 2.75rem;
 		padding-bottom: 2.25rem;
-		border-bottom: 1px solid color.adjust($secondary-color, $alpha: -.82);
-		h1 { color: $secondary-color; font-size: clamp(2.35rem, 6vw, 4.5rem); font-weight: 400; letter-spacing: -.055em; line-height: .98; margin: .28rem 0 .8rem; }
-		p { margin: 0; font-size: 1rem; line-height: 1.6; opacity: .72; }
+		border-bottom: 1px solid color.adjust($secondary-color, $alpha: -0.82);
+		h1 {
+			color: $secondary-color;
+			font-size: clamp(2.35rem, 6vw, 4.5rem);
+			font-weight: 400;
+			letter-spacing: -0.055em;
+			line-height: 0.98;
+			margin: 0.28rem 0 0.8rem;
+		}
+		p {
+			margin: 0;
+			font-size: 1rem;
+			line-height: 1.6;
+			opacity: 0.72;
+		}
 	}
 	.intro-mark {
 		display: grid;
@@ -20,19 +32,23 @@
 		flex: 0 0 auto;
 		width: 3.5rem;
 		height: 3.5rem;
-		border-radius: .8rem;
-		border: 1px solid color.adjust($primary-color, $alpha: -.55);
-		background: color.adjust($primary-color, $alpha: -.88);
+		border-radius: 0.8rem;
+		border: 1px solid color.adjust($primary-color, $alpha: -0.55);
+		background: color.adjust($primary-color, $alpha: -0.88);
 		color: $primary-color;
 		font-size: 1.45rem;
 	}
-	.intro-copy { position: relative; z-index: 1; flex: 1; }
+	.intro-copy {
+		position: relative;
+		z-index: 1;
+		flex: 1;
+	}
 	.intro-kicker {
 		display: flex;
 		align-items: center;
-		gap: .4rem;
-		font-size: .72rem;
-		letter-spacing: .08em;
+		gap: 0.4rem;
+		font-size: 0.72rem;
+		letter-spacing: 0.08em;
 		color: $primary-color;
 		font-weight: 700;
 		opacity: 1;
@@ -42,43 +58,90 @@
 	.github-button {
 		display: flex;
 		align-items: center;
-		gap: .5rem;
-		padding: .42em .72em;
-		border-radius: .55rem;
+		gap: 0.5rem;
+		padding: 0.42em 0.72em;
+		border-radius: 0.55rem;
 		background: $primary-color;
 		color: white;
 		white-space: nowrap;
 		text-decoration: none;
-		transition: .2s;
+		transition: 0.2s;
 		position: relative;
 		z-index: 1;
-		font-size: .82rem;
+		font-size: 0.82rem;
 
-		svg { transition: transform var(--motion-base) var(--motion-ease); }
-		&:hover { color: white; text-decoration: none; box-shadow: 0 0 18px color.adjust($primary-color, $alpha: -0.45); }
-		&:hover svg, &:focus-visible svg { transform: translate(.12rem, -.12rem); }
-		&:active { transform: scale(.98); }
+		svg {
+			transition: transform var(--motion-base) var(--motion-ease);
+		}
+		&:hover {
+			color: white;
+			text-decoration: none;
+			box-shadow: 0 0 18px color.adjust($primary-color, $alpha: -0.45);
+		}
+		&:hover svg,
+		&:focus-visible svg {
+			transform: translate(0.12rem, -0.12rem);
+		}
+		&:active {
+			transform: scale(0.98);
+		}
 	}
 
-	.stats-message { padding: 2.5rem 1rem; color: $secondary-color; text-align: center; font-size: 1rem; opacity: .75; }
-	.stats-content { animation: stats-reveal 180ms ease-out both; }
-	.stats-loading { pointer-events: none; }
-	.stat-card--loading { display: block; min-height: 5.7rem; }
-	.stat-card--loading i, .loading-line, .loading-calendar {
+	.stats-message {
+		padding: 2.5rem 1rem;
+		color: $secondary-color;
+		text-align: center;
+		font-size: 1rem;
+		opacity: 0.75;
+	}
+	.stats-content {
+		animation: stats-reveal 180ms ease-out both;
+	}
+	.stats-loading {
+		pointer-events: none;
+	}
+	.stat-card--loading {
 		display: block;
-		border-radius: .3rem;
-		background: color.adjust($secondary-color, $alpha: -.93);
-		background-image: linear-gradient(90deg, transparent, color.adjust($secondary-color, $alpha: -.88), transparent);
+		min-height: 5.7rem;
+	}
+	.stat-card--loading i,
+	.loading-line,
+	.loading-calendar {
+		display: block;
+		border-radius: 0.3rem;
+		background: color.adjust($secondary-color, $alpha: -0.93);
+		background-image: linear-gradient(90deg, transparent, color.adjust($secondary-color, $alpha: -0.88), transparent);
 		background-size: 200% 100%;
 		animation: stats-shimmer 1.25s ease-in-out infinite;
 	}
-	.stat-card--loading i { width: 100%; height: 100%; min-height: 3.65rem; }
-	.contribution-panel--loading { display: grid; gap: 1rem; }
-	.stats-panel--loading { display: grid; gap: .9rem; }
-	.loading-line { height: .8rem; width: 82%; }
-	.loading-line--title { width: 35%; height: 1.15rem; }
-	.loading-line--short { width: 18%; }
-	.loading-calendar { height: 7.15rem; width: 100%; }
+	.stat-card--loading i {
+		width: 100%;
+		height: 100%;
+		min-height: 3.65rem;
+	}
+	.contribution-panel--loading {
+		display: grid;
+		gap: 1rem;
+	}
+	.stats-panel--loading {
+		display: grid;
+		gap: 0.9rem;
+	}
+	.loading-line {
+		height: 0.8rem;
+		width: 82%;
+	}
+	.loading-line--title {
+		width: 35%;
+		height: 1.15rem;
+	}
+	.loading-line--short {
+		width: 18%;
+	}
+	.loading-calendar {
+		height: 7.15rem;
+		width: 100%;
+	}
 	.stats-grid {
 		display: grid;
 		grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -90,32 +153,50 @@
 		grid-template-columns: auto 1fr;
 		grid-template-areas: "icon value" "icon label";
 		align-items: center;
-		column-gap: .8rem;
+		column-gap: 0.8rem;
 		padding: 1rem;
 		border: 1px solid color.adjust($secondary-color, $alpha: -0.88);
-		border-radius: .8rem;
-		background: color.adjust($secondary-color, $alpha: -.965);
-		transition: .2s;
+		border-radius: 0.8rem;
+		background: color.adjust($secondary-color, $alpha: -0.965);
+		transition: 0.2s;
 
-		&:hover { border-color: color.adjust($primary-color, $alpha: -.35); transform: translateY(-2px); }
-		&:active { transform: translateY(0) scale(.99); }
+		&:hover {
+			border-color: color.adjust($primary-color, $alpha: -0.35);
+			transform: translateY(-2px);
+		}
+		&:active {
+			transform: translateY(0) scale(0.99);
+		}
 	}
 	.stat-card > svg {
 		grid-area: icon;
 		width: 2.6rem;
 		height: 2.6rem;
-		padding: .75rem;
-		border-radius: .55rem;
-		background: color.adjust($primary-color, $alpha: -.88);
+		padding: 0.75rem;
+		border-radius: 0.55rem;
+		background: color.adjust($primary-color, $alpha: -0.88);
 		color: $primary-color;
 	}
-	.stat-card strong { grid-area: value; align-self: end; color: $secondary-color; font-size: 1.7rem; font-weight: 500; line-height: 1; }
-	.stat-card span { grid-area: label; align-self: start; margin-top: .25rem; font-size: .74rem; opacity: .68; }
+	.stat-card strong {
+		grid-area: value;
+		align-self: end;
+		color: $secondary-color;
+		font-size: 1.7rem;
+		font-weight: 500;
+		line-height: 1;
+	}
+	.stat-card span {
+		grid-area: label;
+		align-self: start;
+		margin-top: 0.25rem;
+		font-size: 0.74rem;
+		opacity: 0.68;
+	}
 	.contribution-panel {
 		margin-top: 2.75rem;
 		padding: clamp(1rem, 3vw, 1.75rem);
-		border: 1px solid color.adjust($secondary-color, $alpha: -.84);
-		border-radius: .8rem;
+		border: 1px solid color.adjust($secondary-color, $alpha: -0.84);
+		border-radius: 0.8rem;
 	}
 	.contribution-heading {
 		display: flex;
@@ -124,65 +205,242 @@
 		gap: 1rem;
 		margin-bottom: 1.25rem;
 
-		h2 { color: $secondary-color; font-size: 1.25rem; font-weight: 500; margin: 0; }
-		span { font-size: .85rem; opacity: .65; }
+		h2 {
+			color: $secondary-color;
+			font-size: 1.25rem;
+			font-weight: 500;
+			margin: 0;
+		}
+		span {
+			font-size: 0.85rem;
+			opacity: 0.65;
+		}
 	}
-	.contribution-scroll { overflow-x: auto; padding: .5rem 0; }
+	.contribution-scroll {
+		overflow-x: auto;
+		padding: 0.5rem 0;
+	}
 	.contribution-calendar {
 		display: grid;
-		grid-template-rows: repeat(7, .72rem);
+		grid-template-rows: repeat(7, 0.72rem);
 		grid-auto-flow: column;
-		grid-auto-columns: .72rem;
-		gap: .28rem;
+		grid-auto-columns: 0.72rem;
+		gap: 0.28rem;
 		min-width: max-content;
 	}
-	.contribution-day { display: block; width: .72rem; height: .72rem; border-radius: 2px; background: color.adjust($secondary-color, $alpha: -0.9); }
-	.contribution-day.intensity-1 { background: color.adjust($primary-color, $alpha: -0.75); }
-	.contribution-day.intensity-2 { background: color.adjust($primary-color, $alpha: -0.5); }
-	.contribution-day.intensity-3 { background: color.adjust($primary-color, $alpha: -0.25); }
-	.contribution-day.intensity-4 { background: $primary-color; box-shadow: 0 0 5px color.adjust($primary-color, $alpha: -0.4); }
-	.contribution-legend { display: flex; align-items: center; justify-content: flex-end; gap: .3rem; margin-top: .75rem; font-size: .7rem; opacity: .75; }
-	.contribution-legend .contribution-day { flex: 0 0 auto; }
-	.contribution-loading { margin: 0; font-weight: 300; opacity: .65; }
-	.stats-details { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; margin-top: 1rem; }
-	.stats-panel { padding: clamp(1rem, 3vw, 1.75rem); border: 1px solid color.adjust($secondary-color, $alpha: -.84); border-radius: .8rem; }
-	.stats-panel h2 { color: $secondary-color; font-size: 1.25rem; font-weight: 500; margin: 0; }
-	.panel-heading { display: flex; align-items: start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
-	.panel-heading p { margin: .25rem 0 0; font-size: .78rem; opacity: .65; }
-	.project-tabs { display: flex; flex-wrap: wrap; gap: .3rem; }
-	.project-tabs button { padding: .4rem .55rem; border: 1px solid color.adjust($secondary-color, $alpha: -.84); border-radius: .45rem; background: transparent; color: $secondary-color; cursor: pointer; font-size: .72rem; opacity: .72; transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease; }
-	.project-tabs button:hover, .project-tabs button.is-active { border-color: color.adjust($primary-color, $alpha: -.48); background: color.adjust($primary-color, $alpha: -.9); color: $primary-color; opacity: 1; }
-	.project-tabs button:active { transform: scale(.96); }
-	.project-tabs button:focus-visible { outline: 2px solid $primary-color; outline-offset: 2px; }
-	.repo-list, .language-list { display: grid; }
-	.repo-list--switching { animation: repo-list-switch var(--motion-base) var(--motion-ease) both; }
-	.repo-row, .language-row { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem 0; border-top: 1px solid color.adjust($secondary-color, $alpha: -0.85); }
-	.repo-row:first-child, .language-row:first-child { border-top: 0; }
-	.repo-row { color: $secondary-color; text-decoration: none; }
-	.repo-row:hover { color: $primary-color; text-decoration: none; }
-	.repo-row > span:first-child { transition: transform var(--motion-base) var(--motion-ease); }
-	.repo-row:hover > span:first-child, .repo-row:focus-visible > span:first-child { transform: translateX(.18rem); }
-	.repo-row small { display: block; margin-top: .2rem; color: inherit; opacity: .65; }
-	.repo-stars { display: flex; align-items: center; gap: .3rem; color: $primary-color; white-space: nowrap; }
-	.language-row span:last-child { opacity: .65; }
-	.panel-empty { margin: 0; opacity: .65; }
-	.stats-source { margin-top: 1rem; font-size: .75rem; opacity: .6; text-align: right; }
+	.contribution-day {
+		display: block;
+		width: 0.72rem;
+		height: 0.72rem;
+		border-radius: 2px;
+		background: color.adjust($secondary-color, $alpha: -0.9);
+	}
+	.contribution-day.intensity-1 {
+		background: color.adjust($primary-color, $alpha: -0.75);
+	}
+	.contribution-day.intensity-2 {
+		background: color.adjust($primary-color, $alpha: -0.5);
+	}
+	.contribution-day.intensity-3 {
+		background: color.adjust($primary-color, $alpha: -0.25);
+	}
+	.contribution-day.intensity-4 {
+		background: $primary-color;
+		box-shadow: 0 0 5px color.adjust($primary-color, $alpha: -0.4);
+	}
+	.contribution-legend {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 0.3rem;
+		margin-top: 0.75rem;
+		font-size: 0.7rem;
+		opacity: 0.75;
+	}
+	.contribution-legend .contribution-day {
+		flex: 0 0 auto;
+	}
+	.contribution-loading {
+		margin: 0;
+		font-weight: 300;
+		opacity: 0.65;
+	}
+	.stats-details {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 1rem;
+		margin-top: 1rem;
+	}
+	.stats-panel {
+		padding: clamp(1rem, 3vw, 1.75rem);
+		border: 1px solid color.adjust($secondary-color, $alpha: -0.84);
+		border-radius: 0.8rem;
+	}
+	.stats-panel h2 {
+		color: $secondary-color;
+		font-size: 1.25rem;
+		font-weight: 500;
+		margin: 0;
+	}
+	.panel-heading {
+		display: flex;
+		align-items: start;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+	.panel-heading p {
+		margin: 0.25rem 0 0;
+		font-size: 0.78rem;
+		opacity: 0.65;
+	}
+	.project-tabs {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.3rem;
+	}
+	.project-tabs button {
+		padding: 0.4rem 0.55rem;
+		border: 1px solid color.adjust($secondary-color, $alpha: -0.84);
+		border-radius: 0.45rem;
+		background: transparent;
+		color: $secondary-color;
+		cursor: pointer;
+		font-size: 0.72rem;
+		opacity: 0.72;
+		transition:
+			color 160ms ease,
+			border-color 160ms ease,
+			background-color 160ms ease;
+	}
+	.project-tabs button:hover,
+	.project-tabs button.is-active {
+		border-color: color.adjust($primary-color, $alpha: -0.48);
+		background: color.adjust($primary-color, $alpha: -0.9);
+		color: $primary-color;
+		opacity: 1;
+	}
+	.project-tabs button:active {
+		transform: scale(0.96);
+	}
+	.project-tabs button:focus-visible {
+		outline: 2px solid $primary-color;
+		outline-offset: 2px;
+	}
+	.repo-list,
+	.language-list {
+		display: grid;
+	}
+	.repo-list--switching {
+		animation: repo-list-switch var(--motion-base) var(--motion-ease) both;
+	}
+	.repo-row,
+	.language-row {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.8rem 0;
+		border-top: 1px solid color.adjust($secondary-color, $alpha: -0.85);
+	}
+	.repo-row:first-child,
+	.language-row:first-child {
+		border-top: 0;
+	}
+	.repo-row {
+		color: $secondary-color;
+		text-decoration: none;
+	}
+	.repo-row:hover {
+		color: $primary-color;
+		text-decoration: none;
+	}
+	.repo-row > span:first-child {
+		transition: transform var(--motion-base) var(--motion-ease);
+	}
+	.repo-row:hover > span:first-child,
+	.repo-row:focus-visible > span:first-child {
+		transform: translateX(0.18rem);
+	}
+	.repo-row small {
+		display: block;
+		margin-top: 0.2rem;
+		color: inherit;
+		opacity: 0.65;
+	}
+	.repo-stars {
+		display: flex;
+		align-items: center;
+		gap: 0.3rem;
+		color: $primary-color;
+		white-space: nowrap;
+	}
+	.language-row span:last-child {
+		opacity: 0.65;
+	}
+	.panel-empty {
+		margin: 0;
+		opacity: 0.65;
+	}
+	.stats-source {
+		margin-top: 1rem;
+		font-size: 0.75rem;
+		opacity: 0.6;
+		text-align: right;
+	}
 
 	@media (max-width: 767px) {
 		width: min(100% - 2rem, 72rem);
-		.stats-intro { align-items: flex-start; flex-direction: column; gap: .85rem; padding: 1rem; }
-		.stats-intro::after { display: none; }
-		.intro-mark { display: none; }
-		.intro-copy { flex-basis: auto; width: 100%; }
-		.github-button { margin-left: 0; padding: .55em .8em; font-size: .78rem; }
-		.stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
-		.stat-card { column-gap: .6rem; padding: .8rem; }
-		.stat-card > svg { width: 2.25rem; height: 2.25rem; padding: .65rem; }
-		.stat-card strong { font-size: 1.45rem; }
-		.stat-card span { font-size: .72rem; }
-		.contribution-panel { padding: 1.25rem; }
-		.contribution-heading { align-items: flex-start; flex-direction: column; gap: .25rem; }
-		.contribution-scroll { overflow: visible; }
+		.stats-intro {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 0.85rem;
+			padding: 1rem;
+		}
+		.stats-intro::after {
+			display: none;
+		}
+		.intro-mark {
+			display: none;
+		}
+		.intro-copy {
+			flex-basis: auto;
+			width: 100%;
+		}
+		.github-button {
+			margin-left: 0;
+			padding: 0.55em 0.8em;
+			font-size: 0.78rem;
+		}
+		.stats-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 0.65rem;
+		}
+		.stat-card {
+			column-gap: 0.6rem;
+			padding: 0.8rem;
+		}
+		.stat-card > svg {
+			width: 2.25rem;
+			height: 2.25rem;
+			padding: 0.65rem;
+		}
+		.stat-card strong {
+			font-size: 1.45rem;
+		}
+		.stat-card span {
+			font-size: 0.72rem;
+		}
+		.contribution-panel {
+			padding: 1.25rem;
+		}
+		.contribution-heading {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+		.contribution-scroll {
+			overflow: visible;
+		}
 		.contribution-calendar {
 			grid-template-columns: repeat(53, minmax(0, 1fr));
 			grid-template-rows: repeat(7, auto);
@@ -191,19 +449,77 @@
 			min-width: 0;
 			width: 100%;
 		}
-		.contribution-calendar .contribution-day { width: 100%; height: auto; aspect-ratio: 1; border-radius: 1px; }
-		.stats-details { grid-template-columns: 1fr; }
-		.stats-panel { padding: 1.25rem; }
-		.panel-heading { flex-direction: column; }
-		.project-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
-		.project-tabs button { min-height: 2.75rem; }
-		.repo-row > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+		.contribution-calendar .contribution-day {
+			width: 100%;
+			height: auto;
+			aspect-ratio: 1;
+			border-radius: 1px;
+		}
+		.stats-details {
+			grid-template-columns: 1fr;
+		}
+		.stats-panel {
+			padding: 1.25rem;
+		}
+		.panel-heading {
+			flex-direction: column;
+		}
+		.project-tabs {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			width: 100%;
+		}
+		.project-tabs button {
+			min-height: 2.75rem;
+		}
+		.repo-row > span:first-child {
+			min-width: 0;
+			overflow-wrap: anywhere;
+		}
 	}
 
-	@keyframes stats-shimmer { to { background-position: -200% 0; } }
-	@keyframes stats-reveal { from { opacity: 0; transform: translateY(.35rem); } to { opacity: 1; transform: translateY(0); } }
-	@keyframes repo-list-switch { from { opacity: 0; transform: translateY(.25rem); } to { opacity: 1; transform: translateY(0); } }
-	@media (prefers-reduced-motion: reduce) { .stats-content, .stat-card--loading i, .loading-line, .loading-calendar, .repo-list--switching { animation: none; } .stat-card, .repo-row > span, .github-button svg { transition: none; } }
+	@keyframes stats-shimmer {
+		to {
+			background-position: -200% 0;
+		}
+	}
+	@keyframes stats-reveal {
+		from {
+			opacity: 0;
+			transform: translateY(0.35rem);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	@keyframes repo-list-switch {
+		from {
+			opacity: 0;
+			transform: translateY(0.25rem);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.stats-content,
+		.stat-card--loading i,
+		.loading-line,
+		.loading-calendar,
+		.repo-list--switching {
+			animation: none;
+		}
+		.stat-card,
+		.repo-row > span,
+		.github-button svg {
+			transition: none;
+		}
+	}
 
-	a:focus-visible { outline: 2px solid $primary-color; outline-offset: 3px; }
+	a:focus-visible {
+		outline: 2px solid $primary-color;
+		outline-offset: 3px;
+	}
 }

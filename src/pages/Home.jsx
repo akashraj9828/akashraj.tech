@@ -54,7 +54,9 @@ const Home = () => {
 							<a className='home-button home-button--primary' href='#introduction' onClick={scrollToIntroduction}>
 								About me <span aria-hidden='true'>↓</span>
 							</a>
-							<Link className='home-button home-button--quiet' to='/lab' onClick={() => play("navigate")}>View projects</Link>
+							<Link className='home-button home-button--quiet' to='/lab' onClick={() => play("navigate")}>
+								View projects
+							</Link>
 						</div>
 					</div>
 				</section>
@@ -65,8 +67,12 @@ const Home = () => {
 						<h2 id='introduction-title'>Hi!</h2>
 						<div className='home-bio'>{home.full_intro}</div>
 						<div className='home-actions home-actions--secondary'>
-							<Link className='home-button home-button--primary' to='/contact' onClick={() => play("navigate")}>Start a conversation</Link>
-							<Link className='home-text-link' to='/resume' onClick={() => play("navigate")}>See my resume <span aria-hidden='true'>→</span></Link>
+							<Link className='home-button home-button--primary' to='/contact' onClick={() => play("navigate")}>
+								Start a conversation
+							</Link>
+							<Link className='home-text-link' to='/resume' onClick={() => play("navigate")}>
+								See my resume <span aria-hidden='true'>→</span>
+							</Link>
 						</div>
 					</div>
 				</section>
