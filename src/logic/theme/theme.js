@@ -73,10 +73,18 @@ const cssColor = (value) => {
 
 const faviconAPath = "m 327.4415,-53.928 h -10.584 l -12.132,33.372 h 27.072 l -9.648,-26.532 -7.056,19.404 h 3.204 l 3.852,-10.548 5.328,14.652 h -18.432 l 9.936,-27.324 h 6.336 l 17.424,47.88 h -4.608 l -4.86,-13.428 h -30.06 L 297.2375,0 h 11.016 l 3.384,-9.324 h -3.204 l -2.304,6.3 h -4.572 l 3.78,-10.404 h 25.812 L 336.0095,0 h 11.052 z";
 const faviconATransform = "translate(0 314.3566) translate(70.05000000000001 34.613600000000005) scale(1.3) translate(-297.2375 53.928)";
+const faviconLuminance = (value) => {
+	const hex = cssColor(value).slice(1);
+	const channels = [0, 2, 4].map((index) => Number.parseInt(hex.slice(index, index + 2), 16) / 255);
+	return channels.reduce((total, channel, index) => total + (channel <= 0.03928 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4) * [0.2126, 0.7152, 0.0722][index], 0);
+};
 
 const updateFavicon = (theme) => {
 	const favicon = document.querySelector('link[rel="icon"]') || document.head.appendChild(Object.assign(document.createElement("link"), { rel: "icon" }));
-	const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="60 340 85 85"><rect x="60" y="340" width="85" height="85" rx="12" fill="${cssColor(theme.colors.canvas)}"/><path d="${faviconAPath}" transform="${faviconATransform}" fill="${cssColor(theme.colors.accent)}"/></svg>`;
+	const accent = cssColor(theme.colors.accent);
+	const needsBackground = faviconLuminance(accent) > 0.55;
+	const background = needsBackground ? `<rect x="60" y="340" width="85" height="85" rx="12" fill="${cssColor(theme.colors.canvas)}"/>` : "";
+	const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="60 340 85 85">${background}<path d="${faviconAPath}" transform="${faviconATransform}" fill="${accent}"/><path d="M70 422H135" stroke="${accent}" stroke-width="3" stroke-linecap="round"/></svg>`;
 	favicon.setAttribute("type", "image/svg+xml");
 	favicon.setAttribute("href", `data:image/svg+xml,${encodeURIComponent(svg)}`);
 };
