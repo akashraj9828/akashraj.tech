@@ -17,12 +17,12 @@ The goal is presence, not spectacle. A visitor should notice that the interface 
 
 ### Timing tokens
 
-| Token | Value | Use |
-| --- | ---: | --- |
-| Fast | `140ms` | Immediate feedback and exits |
-| Base | `180ms` | Controls, icons, hover, and pressed states |
-| Slow | `260ms` | Entrances, reveals, and small content changes |
-| Ease | `cubic-bezier(.2, .75, .25, 1)` | Shared natural deceleration |
+| Token |                           Value | Use                                           |
+| ----- | ------------------------------: | --------------------------------------------- |
+| Fast  |                         `140ms` | Immediate feedback and exits                  |
+| Base  |                         `180ms` | Controls, icons, hover, and pressed states    |
+| Slow  |                         `260ms` | Entrances, reveals, and small content changes |
+| Ease  | `cubic-bezier(.2, .75, .25, 1)` | Shared natural deceleration                   |
 
 Use these values through `--motion-fast`, `--motion-base`, `--motion-slow`, and `--motion-ease`. A component may be slower only when its physical metaphor needs it, such as the portrait arrival or rocket flight.
 
@@ -74,14 +74,14 @@ Focus indicators remain the explicit coral outline defined by the main design sy
 
 ### Page-specific character
 
-| Area | Motion decision |
-| --- | --- |
-| Home | Portrait settles in once; hero copy follows in a restrained stagger. |
-| Lab | Cards reveal by row in 35ms steps; mobile removes the stagger. |
-| Stats | Intro, activity, and detail groups reveal separately; totals animate when data arrives. |
-| Résumé | Actions and header enter; the body remains stable for reading and printing. |
+| Area    | Motion decision                                                                                |
+| ------- | ---------------------------------------------------------------------------------------------- |
+| Home    | Portrait settles in once; hero copy follows in a restrained stagger.                           |
+| Lab     | Cards reveal by row in 35ms steps; mobile removes the stagger.                                 |
+| Stats   | Intro, activity, and detail groups reveal separately; totals animate when data arrives.        |
+| Résumé  | Actions and header enter; the body remains stable for reading and printing.                    |
 | Contact | Copy, reason card, and social section reveal as groups; list items use a short capped stagger. |
-| Header | Navigation, theme, sound, and menu controls share the same small hover/press language. |
+| Header  | Navigation, theme, sound, and menu controls share the same small hover/press language.         |
 
 ## 3. The rocket interaction
 
@@ -111,14 +111,14 @@ The mix should remain restrained:
 
 ### Cue vocabulary
 
-| Cue | Character | Intended use |
-| --- | --- | --- |
-| Navigate | One brief rising tone, about 55ms | Internal route changes and the primary email action |
-| Toggle | One soft rising triangle tone, about 65ms | Menu state, tabs, printing, and sound-off acknowledgement |
-| Theme light | Two short ascending tones, about 135ms total | Switching into light mode |
-| Theme dark | Two short descending tones, about 145ms total | Switching into dark mode |
-| Enable | A brighter two-tone rise, about 200ms total | Confirming that interface sound has just been enabled |
-| Launch | Filtered exhaust noise plus low rumble, exactly 2s | Rocket activation only |
+| Cue         | Character                                          | Intended use                                              |
+| ----------- | -------------------------------------------------- | --------------------------------------------------------- |
+| Navigate    | One brief rising tone, about 55ms                  | Internal route changes and the primary email action       |
+| Toggle      | One soft rising triangle tone, about 65ms          | Menu state, tabs, printing, and sound-off acknowledgement |
+| Theme light | Two short ascending tones, about 135ms total       | Switching into light mode                                 |
+| Theme dark  | Two short descending tones, about 145ms total      | Switching into dark mode                                  |
+| Enable      | A brighter two-tone rise, about 200ms total        | Confirming that interface sound has just been enabled     |
+| Launch      | Filtered exhaust noise plus low rumble, exactly 2s | Rocket activation only                                    |
 
 Reusing a cue gives similar actions a common character. Add a new cue only when an interaction has a distinct meaning that cannot be expressed by this vocabulary.
 
