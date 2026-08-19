@@ -84,7 +84,7 @@ const updateFavicon = (theme) => {
 	const accent = cssColor(theme.colors.accent);
 	const needsBackground = faviconLuminance(accent) > 0.55;
 	const background = needsBackground ? `<rect x="60" y="340" width="85" height="85" rx="12" fill="${cssColor(theme.colors.canvas)}"/>` : "";
-	const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="60 340 85 85">${background}<path d="${faviconAPath}" transform="${faviconATransform}" fill="${accent}"/><path d="M70 422H135" stroke="${accent}" stroke-width="3" stroke-linecap="round"/></svg>`;
+	const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="60 340 85 85">${background}<path d="${faviconAPath}" transform="${faviconATransform}" fill="${accent}"/></svg>`;
 	favicon.setAttribute("type", "image/svg+xml");
 	favicon.setAttribute("href", `data:image/svg+xml,${encodeURIComponent(svg)}`);
 };
