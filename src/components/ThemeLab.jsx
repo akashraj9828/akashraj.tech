@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FiRotateCcw, FiShuffle, FiSliders, FiX } from "react-icons/fi";
+import { FiRotateCcw, FiShuffle, FiX } from "react-icons/fi";
 import { applyTheme, resetTheme } from "../redux/actions/app";
 import { defaultThemes, randomTheme, sanitizeTheme, themePresets } from "../logic/theme/theme";
 
@@ -16,14 +16,12 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 	const [draft, setDraft] = useState(theme || defaultThemes.dark);
 	const [selectedPreset, setSelectedPreset] = useState("");
 	const dialogRef = useRef(null);
-	const appliedThemeRef = useRef(theme || defaultThemes.dark);
 	const latestThemeRef = useRef(theme || defaultThemes.dark);
 	latestThemeRef.current = theme || defaultThemes.dark;
 
 	useEffect(() => {
 		if (open) {
 			const applied = sanitizeTheme(latestThemeRef.current);
-			appliedThemeRef.current = applied;
 			setDraft(applied);
 			setSelectedPreset(applied.name || "");
 			window.setTimeout(() => dialogRef.current?.querySelector("button, input")?.focus({ preventScroll: true }), 0);
@@ -34,7 +32,6 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 		if (!open) return undefined;
 		const onKeyDown = (event) => {
 			if (event.key === "Escape") {
-				dispatch(applyTheme(appliedThemeRef.current));
 				onClose();
 				triggerRef.current?.focus({ preventScroll: true });
 			}
@@ -47,7 +44,6 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 		if (!open) return undefined;
 		const onPointerDown = (event) => {
 			if (dialogRef.current?.contains(event.target)) return;
-			dispatch(applyTheme(appliedThemeRef.current));
 			onClose();
 			triggerRef.current?.focus({ preventScroll: true });
 		};
@@ -63,10 +59,6 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 		dispatch(applyTheme(updated));
 	};
 	const update = (group, key, value) => preview({ ...draft, [group]: { ...draft[group], [key]: value } });
-	const handleApply = () => {
-		onClose();
-		triggerRef.current?.focus({ preventScroll: true });
-	};
 	const handleRandom = () => {
 		const next = randomTheme(draft);
 		preview(next);
@@ -82,7 +74,6 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 		onClose();
 	};
 	const handleCancel = () => {
-		dispatch(applyTheme(appliedThemeRef.current));
 		onClose();
 		triggerRef.current?.focus({ preventScroll: true });
 	};
@@ -171,14 +162,6 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 							<input type='range' min='0' max='1.25' step='0.05' value={draft.motion.scale} onChange={(event) => update("motion", "scale", event.target.value)} />
 						</label>
 					</fieldset>
-				</div>
-				<div className='theme-lab-footer'>
-					<button className='button-cta button-secondary' type='button' onClick={handleCancel}>
-						Cancel
-					</button>
-					<button className='button-cta' type='button' onClick={handleApply}>
-						<FiSliders aria-hidden='true' /> Keep theme
-					</button>
 				</div>
 			</section>
 		</div>
