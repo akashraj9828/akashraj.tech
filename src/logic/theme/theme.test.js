@@ -14,12 +14,16 @@ test("sanitizes experimental values into safe ranges", () => {
 });
 
 test("applies a complete theme to the document", () => {
+	const favicon = document.createElement("link");
+	favicon.setAttribute("rel", "icon");
+	document.head.appendChild(favicon);
 	applyThemeToDocument(defaultThemes.light);
 	expect(document.documentElement.classList.contains("light")).toBe(true);
 	expect(document.documentElement.classList.contains("dark")).toBe(false);
 	expect(document.documentElement.style.getPropertyValue("--theme-canvas")).toBe("#ffffff");
 	expect(document.documentElement.style.getPropertyValue("--theme-focus")).toBe("#ef596f");
 	expect(document.documentElement.style.getPropertyValue("--theme-radius-card")).toBe("0.75rem");
+	expect(document.querySelector('link[rel="icon"]').getAttribute("href")).toContain("%23ef596f");
 });
 
 test("random themes are selected from curated presets", () => {
