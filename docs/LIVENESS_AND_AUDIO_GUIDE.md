@@ -83,6 +83,32 @@ Focus indicators remain the explicit coral outline defined by the main design sy
 | Contact | Copy, reason card, and social section reveal as groups; list items use a short capped stagger. |
 | Header  | Navigation, theme, sound, and menu controls share the same small hover/press language.         |
 
+### Whole-site micro-interaction contract
+
+The site uses one restrained feedback language everywhere. A visitor should be able to predict how an interactive element responds without learning a new animation on each page.
+
+- **Hover:** interactive elements may lift by 1–3px, tint their border or background, or move a directional icon by `0.08rem`–`0.18rem`.
+- **Focus-visible:** preserve the coral outline from the main design guide; focus motion is supplemental and must never replace the outline.
+- **Pressed:** return toward the resting position and scale to roughly `0.94`–`0.99` for buttons, cards, tabs, and icon controls.
+- **Links:** directional arrows and external-link icons move slightly toward their destination; text color and underline changes remain legible without motion.
+- **Cards and panels:** interactive cards lift as a whole, while images may use the existing subtle `1.045` zoom. Static reading panels do not move.
+- **Loading:** shimmer is allowed only while content is genuinely loading, never as decoration after data arrives. Its static fallback remains understandable with reduced motion.
+- **Entrances:** route, section, and meaningful-group entrances use opacity plus at most `0.5rem` of travel. Do not animate every nested text node.
+- **Staggering:** repeated items may use 35ms steps, capped within the visible group; mobile layouts remove unnecessary stagger where it slows scanning.
+- **Timing:** use `--motion-fast`, `--motion-base`, `--motion-slow`, and `--motion-ease` rather than component-specific approximations.
+- **Layout stability:** animations use transforms, opacity, color, borders, and shadows where possible. They must not change document flow, reading order, target size, or scroll position.
+
+Coverage expectations:
+
+- Shared header controls, navigation links, brand link, footer links, and buttons acknowledge hover, focus, and press.
+- Home actions, portrait arrival, text-link arrows, and the rocket use the Home-specific patterns above.
+- Lab cards and project actions use lift, image zoom, and directional-link feedback.
+- Stats cards, tabs, repository rows, live totals, and loading placeholders acknowledge their state without adding sound to passive updates.
+- Résumé motion is limited to the action bar and document header; résumé entries and dense reading content remain still.
+- Contact’s email action, reason group, form link, and social controls use the same shared feedback language.
+
+Reduced motion is a functional mode for this contract: entrances and staggers complete immediately, hover/icon/list-switch/loading animations are removed, and all content and outcomes remain available without waiting for motion.
+
 ## 3. The rocket interaction
 
 The rocket is the portfolio’s single theatrical gesture, so its behavior is deliberately narrow.

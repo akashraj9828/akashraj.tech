@@ -26,6 +26,13 @@
 	align-items: center;
 	flex: 0 0 auto;
 	border-radius: 0.25rem;
+	transition: transform var(--motion-base) var(--motion-ease);
+	&:hover {
+		transform: translateY(-1px);
+	}
+	&:active {
+		transform: scale(0.98);
+	}
 	#logo {
 		display: block;
 		width: auto;
@@ -56,8 +63,9 @@
 	color: color.adjust($secondary-color, $alpha: -0.28) !important;
 	text-decoration: none;
 	transition:
-		color 160ms ease,
-		background-color 160ms ease,
+		color var(--motion-base) ease,
+		background-color var(--motion-base) ease,
+		box-shadow var(--motion-base) var(--motion-ease),
 		opacity var(--motion-base) var(--motion-ease),
 		transform var(--motion-base) var(--motion-ease);
 	&:hover,
@@ -76,6 +84,9 @@
 	}
 	&:active {
 		transform: scale(0.98);
+	}
+	&:focus-visible {
+		box-shadow: 0 0 0 2px color.adjust($primary-color, $alpha: -0.7);
 	}
 }
 
@@ -98,8 +109,9 @@
 	background: transparent;
 	cursor: pointer;
 	transition:
-		color 160ms ease,
-		background-color 160ms ease;
+		color var(--motion-base) ease,
+		background-color var(--motion-base) ease,
+		transform var(--motion-base) var(--motion-ease);
 	svg {
 		width: 1.12rem;
 		height: 1.12rem;
@@ -115,6 +127,9 @@
 	}
 	&:active svg {
 		transform: scale(0.88);
+	}
+	&:active {
+		transform: scale(0.96);
 	}
 }
 .navbar-toggler {
@@ -233,6 +248,7 @@
 
 @media (prefers-reduced-motion: reduce) {
 	.nav-link,
+	.navbar-brand,
 	.nav-icon,
 	.theme-changer,
 	.sound-changer,
