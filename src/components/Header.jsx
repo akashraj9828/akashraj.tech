@@ -8,7 +8,6 @@ import { toggleTheme } from "../redux/actions/app";
 import ThemeLab from "./ThemeLab";
 
 /* ICONS */
-import logo from "assets/img/logo.png";
 import { RiSunLine as LightModeIcon, RiMenuLine as HamburgerIcon, RiVolumeMuteLine as SoundOffIcon, RiVolumeUpLine as SoundOnIcon } from "react-icons/ri";
 import { FaRegMoon as DarkModeIcon } from "react-icons/fa";
 import { AiOutlineClose as CloseIcon } from "react-icons/ai";
@@ -88,7 +87,7 @@ const Header = ({ theme, themeConfig, dispatch }) => {
 			<header className='site-header'>
 				<nav className='navbar' aria-label='Primary navigation'>
 					<Link className='navbar-brand' to='/' aria-label='Akash Raj — home' onClick={() => play("navigate")}>
-						<img id='logo' src={logo} alt='' />
+						<span id='logo' aria-hidden='true' />
 					</Link>
 
 					<div className='desktop-navigation'>{renderItems("nav-link", navigate)}</div>

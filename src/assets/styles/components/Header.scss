@@ -35,10 +35,17 @@
 	}
 	#logo {
 		display: block;
-		width: auto;
+		width: min(9rem, 34vw);
 		height: 2rem;
-		max-width: min(9rem, 34vw);
-		object-fit: contain;
+		background: var(--theme-accent);
+		mask-image: url("../../img/logo.png");
+		mask-position: center;
+		mask-repeat: no-repeat;
+		mask-size: contain;
+		-webkit-mask-image: url("../../img/logo.png");
+		-webkit-mask-position: center;
+		-webkit-mask-repeat: no-repeat;
+		-webkit-mask-size: contain;
 	}
 }
 
