@@ -7,9 +7,25 @@
 	}
 
 	.home-hero {
+		position: relative;
+		overflow: hidden;
+		width: calc(100% + 4rem);
+		margin-left: -2rem;
 		min-height: min(48rem, calc(100vh - 4rem));
 		display: grid;
 		place-items: center;
+	}
+	.home-hero::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background:
+			linear-gradient(to bottom, color.adjust($bg-color, $alpha: -0.16) 0%, color.adjust($bg-color, $alpha: -0.3) 42%, $bg-color 78%, $bg-color 100%),
+			url("../../img/me-scenery.jpg") center 24% / cover no-repeat;
+		opacity: 0.68;
+		-webkit-mask-image: linear-gradient(to bottom, black 0%, black 49%, transparent 82%);
+		mask-image: linear-gradient(to bottom, black 0%, black 49%, transparent 82%);
+		pointer-events: none;
 	}
 
 	.home-hero__content,
@@ -18,6 +34,8 @@
 	}
 
 	.home-hero__content {
+		position: relative;
+		z-index: 1;
 		text-align: center;
 	}
 	.home-portrait {
@@ -25,8 +43,11 @@
 		aspect-ratio: 1;
 		object-fit: cover;
 		border-radius: 50%;
-		border: 3px solid color.adjust($primary-color, $alpha: -0.35);
-		box-shadow: 0 0 0 7px color.adjust($primary-color, $alpha: -0.9);
+		filter: saturate(0.84) contrast(0.96) brightness(0.92);
+		border: 2px solid color.adjust($primary-color, $alpha: -0.68);
+		box-shadow:
+			0 10px 26px color.adjust($bg-color, $alpha: -0.18),
+			0 0 0 6px color.adjust($bg-color, $alpha: -0.82);
 		margin: 0 auto 1.75rem;
 	}
 	.home-hero__content.is-visible .home-portrait {
@@ -286,6 +307,8 @@
 
 	@media (max-width: 600px) {
 		.home-hero {
+			width: calc(100% + 2rem);
+			margin-left: -1rem;
 			min-height: calc(100svh - 3.5rem);
 		}
 		.home-actions {
