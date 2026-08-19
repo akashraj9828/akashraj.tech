@@ -35,6 +35,19 @@ export const themePresets = [
 	{ name: "Moss & Lime", ...defaultThemes.dark, colors: { canvas: "#0f1b17", surface: "#172821", text: "#f1fff7", mutedText: "#a9c4b3", accent: "#5ee39b", accentContrast: "#082014" }, shape: { radiusScale: 0.8 }, layout: { density: 0.94 }, depth: { shadowStrength: 0.6 } },
 ];
 
+const themePresetCodes = new Map([
+	["Mono Blueprint", "mono"],
+	["Signal Noir", "noir"],
+	["Cobalt Editorial", "cobalt"],
+	["Mint Modern", "mint"],
+	["Sunset Terminal", "sunset"],
+	["Electric Violet", "violet"],
+	["Ink & Paper", "ink"],
+	["Tangerine Pop", "tangerine"],
+	["Bubblegum Arcade", "bubblegum"],
+	["Moss & Lime", "moss"],
+]);
+
 const clone = (value) => JSON.parse(JSON.stringify(value));
 
 const toBase64Url = (value) => {
@@ -54,7 +67,9 @@ const fromBase64Url = (value) => {
 
 export const createThemeShareUrl = (candidate, location = window.location) => {
 	const url = new URL(location.href);
-	url.searchParams.set(THEME_URL_PARAM, toBase64Url(JSON.stringify(sanitizeTheme(candidate))));
+	const theme = sanitizeTheme(candidate);
+	const preset = themePresets.find((item) => item.name === theme.name && JSON.stringify(sanitizeTheme(item)) === JSON.stringify(theme));
+	url.searchParams.set(THEME_URL_PARAM, themePresetCodes.get(preset?.name) || toBase64Url(JSON.stringify(theme)));
 	return url.toString();
 };
 
@@ -62,6 +77,9 @@ export const readThemeFromUrl = (location = window.location) => {
 	try {
 		const encoded = new URL(location.href).searchParams.get(THEME_URL_PARAM);
 		if (!encoded) return null;
+		const presetName = [...themePresetCodes.entries()].find(([, code]) => code === encoded)?.[0];
+		const preset = themePresets.find((item) => item.name === presetName);
+		if (preset) return clone(preset);
 		return sanitizeTheme(JSON.parse(fromBase64Url(encoded)));
 	} catch {
 		return null;

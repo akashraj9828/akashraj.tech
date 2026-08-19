@@ -41,3 +41,17 @@ test("round-trips a theme through a share URL", () => {
 	expect(shared.colors.accent).toBe("#16a36a");
 	expect(shared.shape.radiusScale).toBe(0.8);
 });
+
+test("uses a short code when sharing an unchanged named preset", () => {
+	const preset = {
+		...defaultThemes.dark,
+		name: "Signal Noir",
+		colors: { ...defaultThemes.dark.colors, canvas: "#0b0d10", surface: "#161a20", text: "#f8fafc", mutedText: "#9aa6b2", accent: "#ffcc00", accentContrast: "#111111" },
+		shape: { radiusScale: 0 },
+		depth: { shadowStrength: 0.8 },
+	};
+	const url = createThemeShareUrl(preset, new URL("https://example.com/"));
+
+	expect(new URL(url).searchParams.get("theme")).toBe("noir");
+	expect(readThemeFromUrl(new URL(url)).name).toBe("Signal Noir");
+});
