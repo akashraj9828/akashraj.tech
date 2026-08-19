@@ -18,8 +18,35 @@
 	transform: translateY(0);
 }
 
+.motion-interactive {
+	transition:
+		color var(--motion-base) ease,
+		background-color var(--motion-base) ease,
+		border-color var(--motion-base) ease,
+		box-shadow var(--motion-base) var(--motion-ease),
+		transform var(--motion-base) var(--motion-ease);
+	&:hover {
+		transform: translateY(-2px);
+	}
+	&:active {
+		transform: translateY(0) scale(0.98);
+	}
+}
+
+.motion-icon {
+	display: inline-block;
+	transition: transform var(--motion-base) var(--motion-ease);
+}
+
+.motion-interactive:hover .motion-icon,
+.motion-interactive:focus-visible .motion-icon {
+	transform: translate(0.1rem, -0.1rem);
+}
+
 @media (prefers-reduced-motion: reduce) {
-	.motion-reveal {
+	.motion-reveal,
+	.motion-interactive,
+	.motion-icon {
 		opacity: 1;
 		transform: none;
 		transition: none;

@@ -96,16 +96,20 @@
 		font-weight: 600;
 		text-decoration: none;
 		transition:
-			transform 0.2s ease,
-			background 0.2s ease,
-			border-color 0.2s ease,
-			color 0.2s ease;
+			transform var(--motion-base) var(--motion-ease),
+			background var(--motion-base) ease,
+			border-color var(--motion-base) ease,
+			color var(--motion-base) ease,
+			box-shadow var(--motion-base) var(--motion-ease);
 		&:hover {
 			text-decoration: none;
 			transform: translateY(-2px);
 		}
 		&:active {
 			transform: translateY(0) scale(0.98);
+		}
+		&:focus-visible {
+			box-shadow: 0 0 0 4px color.adjust($primary-color, $alpha: -0.75);
 		}
 		&:focus-visible {
 			outline: 3px solid color.adjust($primary-color, $alpha: -0.4);
@@ -190,10 +194,15 @@
 		background: $bg-color;
 		cursor: pointer;
 		box-shadow: 0 5px 18px color.adjust($secondary-color, $alpha: -0.88);
-		transition: transform 0.2s ease;
+		transition:
+			transform var(--motion-base) var(--motion-ease),
+			box-shadow var(--motion-base) var(--motion-ease),
+			border-color var(--motion-base) ease;
 		animation: home-rocket-nudge 0.8s var(--motion-ease) 1.6s 1 both;
 		&:hover {
 			transform: translateY(-3px) rotate(4deg);
+			border-color: color.adjust($primary-color, $alpha: -0.35);
+			box-shadow: 0 0.7rem 1.5rem color.adjust($primary-color, $alpha: -0.82);
 		}
 		&:active {
 			transform: translateY(0) scale(0.94);

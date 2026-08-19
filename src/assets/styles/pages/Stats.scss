@@ -65,7 +65,10 @@
 		color: white;
 		white-space: nowrap;
 		text-decoration: none;
-		transition: 0.2s;
+		transition:
+			transform var(--motion-base) var(--motion-ease),
+			box-shadow var(--motion-base) var(--motion-ease),
+			background-color var(--motion-base) ease;
 		position: relative;
 		z-index: 1;
 		font-size: 0.82rem;
@@ -158,7 +161,10 @@
 		border: 1px solid color.adjust($secondary-color, $alpha: -0.88);
 		border-radius: 0.8rem;
 		background: color.adjust($secondary-color, $alpha: -0.965);
-		transition: 0.2s;
+		transition:
+			transform var(--motion-base) var(--motion-ease),
+			border-color var(--motion-base) ease,
+			box-shadow var(--motion-base) var(--motion-ease);
 
 		&:hover {
 			border-color: color.adjust($primary-color, $alpha: -0.35);
@@ -176,6 +182,11 @@
 		border-radius: 0.55rem;
 		background: color.adjust($primary-color, $alpha: -0.88);
 		color: $primary-color;
+		transition: transform var(--motion-base) var(--motion-ease);
+	}
+	.stat-card:hover > svg,
+	.stat-card:focus-within > svg {
+		transform: rotate(-4deg) scale(1.04);
 	}
 	.stat-card strong {
 		grid-area: value;
@@ -309,9 +320,10 @@
 		font-size: 0.72rem;
 		opacity: 0.72;
 		transition:
-			color 160ms ease,
-			border-color 160ms ease,
-			background-color 160ms ease;
+			color var(--motion-base) ease,
+			border-color var(--motion-base) ease,
+			background-color var(--motion-base) ease,
+			transform var(--motion-fast) var(--motion-ease);
 	}
 	.project-tabs button:hover,
 	.project-tabs button.is-active {

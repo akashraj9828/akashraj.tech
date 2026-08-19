@@ -20,17 +20,36 @@
 	color: inherit;
 	text-decoration: none;
 	border-radius: 0.2rem;
+	transition:
+		color var(--motion-base) ease,
+		transform var(--motion-base) var(--motion-ease);
 	&:hover {
 		color: $primary-color;
+		transform: translateY(-1px);
+	}
+	&:active {
+		transform: scale(0.98);
 	}
 	svg {
 		font-size: 1rem;
+		transition: transform var(--motion-base) var(--motion-ease);
+	}
+	&:hover svg,
+	&:focus-visible svg {
+		transform: translateY(-1px);
 	}
 }
 .site-footer .divider {
 	width: 1px;
 	height: 1rem;
 	background: color.adjust($secondary-color, $alpha: -0.72);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.site-footer a,
+	.site-footer a svg {
+		transition: none;
+	}
 }
 
 @media (max-width: 420px) {

@@ -41,12 +41,15 @@
 		overflow: hidden;
 		background: color.adjust($secondary-color, $alpha: -0.96);
 		transition:
-			transform 0.2s ease,
-			border-color 0.2s ease;
+			transform var(--motion-base) var(--motion-ease),
+			border-color var(--motion-base) ease,
+			box-shadow var(--motion-base) var(--motion-ease);
 	}
-	.project-card:hover {
+	.project-card:hover,
+	.project-card:focus-within {
 		border-color: color.adjust($primary-color, $alpha: -0.35);
 		transform: translateY(-3px);
+		box-shadow: 0 0.7rem 1.5rem color.adjust($secondary-color, $alpha: -0.94);
 	}
 	.project-card:active {
 		transform: translateY(-1px) scale(0.995);
@@ -64,7 +67,8 @@
 		object-fit: cover;
 		transition: transform 0.35s ease;
 	}
-	.project-card:hover .project-image img {
+	.project-card:hover .project-image img,
+	.project-card:focus-within .project-image img {
 		transform: scale(1.045);
 	}
 	.project-content {

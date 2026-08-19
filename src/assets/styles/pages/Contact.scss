@@ -138,8 +138,12 @@
 		font-weight: 600;
 		text-decoration: underline;
 		text-underline-offset: 0.24em;
+		transition:
+			color var(--motion-base) ease,
+			text-underline-offset var(--motion-base) ease;
 		&:hover {
 			color: $primary-color;
+			text-underline-offset: 0.36em;
 		}
 		&:focus-visible {
 			outline: 3px solid $primary-color;
