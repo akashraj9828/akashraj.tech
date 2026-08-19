@@ -60,8 +60,9 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 		preview(next);
 		setSelectedPreset(next.name || "");
 	};
-	const handlePreset = () => {
-		const next = themePresets.find((preset) => preset.name === selectedPreset);
+	const handlePresetChange = (event) => {
+		setSelectedPreset(event.target.value);
+		const next = themePresets.find((preset) => preset.name === event.target.value);
 		if (next) preview(next);
 	};
 	const handleReset = () => {
@@ -100,7 +101,7 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 						<div className='theme-lab-presets'>
 							<label htmlFor='theme-preset-select'>Choose a curated palette</label>
 							<div>
-								<select id='theme-preset-select' value={selectedPreset} onChange={(event) => setSelectedPreset(event.target.value)}>
+								<select id='theme-preset-select' value={selectedPreset} onChange={handlePresetChange}>
 									<option value=''>Select a theme</option>
 									{themePresets.map((preset) => (
 										<option key={preset.name} value={preset.name}>
@@ -108,9 +109,6 @@ const ThemeLab = ({ open, theme, dispatch, onClose, triggerRef }) => {
 										</option>
 									))}
 								</select>
-								<button className='button-cta button-secondary' type='button' onClick={handlePreset} disabled={!selectedPreset}>
-									Apply preset
-								</button>
 							</div>
 						</div>
 					</fieldset>

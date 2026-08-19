@@ -111,8 +111,6 @@
 }
 .theme-lab-presets > div {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) auto;
-	gap: 0.55rem;
 	align-items: stretch;
 }
 .theme-lab-presets select {
@@ -122,10 +120,6 @@
 	border-radius: var(--theme-radius-control);
 	color: var(--theme-text);
 	background: var(--theme-surface);
-}
-.theme-lab-presets button:disabled {
-	opacity: 0.45;
-	cursor: not-allowed;
 }
 .theme-lab-colors {
 	display: grid;
