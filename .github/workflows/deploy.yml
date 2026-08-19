@@ -4,6 +4,17 @@ on:
   push:
     branches:
       - master
+    paths:
+      - "src/**"
+      - "public/**"
+      - "index.html"
+      - "package.json"
+      - "yarn.lock"
+      - "vite.config.mjs"
+      - ".env"
+      - ".yarnrc.yml"
+      - "deploy.sh"
+      - "id_rsa.enc"
   workflow_dispatch:
 
 permissions:
