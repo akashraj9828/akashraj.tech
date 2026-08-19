@@ -35,7 +35,7 @@ export const themePresets = [
 	{ name: "Moss & Lime", ...defaultThemes.dark, colors: { canvas: "#0f1b17", surface: "#172821", text: "#f1fff7", mutedText: "#a9c4b3", accent: "#5ee39b", accentContrast: "#082014" }, shape: { radiusScale: 0.8 }, layout: { density: 0.94 }, depth: { shadowStrength: 0.6 } },
 ];
 
-const themePresetCodes = new Map([
+export const themePresetCodes = new Map([
 	["Mono Blueprint", "mono"],
 	["Signal Noir", "noir"],
 	["Cobalt Editorial", "cobalt"],
