@@ -186,14 +186,14 @@
 			display: none;
 		}
 		&:hover {
-			border-color: $primary-color;
+			border-color: var(--theme-accent);
 			transform: translateY(-2px) rotate(2deg);
 		}
 		&:active {
 			transform: translateY(0) scale(0.94);
 		}
 		&:focus-visible {
-			outline: 3px solid $primary-color;
+			outline: 3px solid var(--theme-focus);
 			outline-offset: 3px;
 		}
 	}
